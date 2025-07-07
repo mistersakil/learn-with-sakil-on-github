@@ -38,5 +38,6 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 **Stop individual container:** `docker stop yourContainerName`
 **List of available container:** `docker ps -a`
 **List of active container:** `docker ps`
-**Container CLI/Bash (sync data):** `docker exec -it c1 bash`
+**Remove individual container:** `docker rm yourContainerName`
+**Container CLI/Bash (sync data):** `docker exec -it containerName bash`
 
