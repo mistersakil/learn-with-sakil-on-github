@@ -47,4 +47,6 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 
 **Container CLI/Bash (sync data):** `docker exec -it containerName bash`
 
+**List of available images:** `docker images`
+
 **Default Nginx config file:** `etc/nginx/conf.d/default.conf`
