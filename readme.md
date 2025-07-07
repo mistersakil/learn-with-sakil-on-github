@@ -64,3 +64,5 @@ OR with PORT
 docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -p 3306:3306 -d mysql/mysql-server:latest
 
 ```
+
+**Clear the MySQL CLI screen:** `Ctrl + L`
