@@ -6,7 +6,7 @@
 
 ## Learning Docker
 
-#### Standalone Docker Installation and configuration
+#### Standalone Docker Installation and configuration on Linux
 
 ```dockerInstall
 # yum update -y
@@ -18,4 +18,16 @@
 # systemctl status docker
 # systemctl enable docker
 # systemctl is-enabled docker
+```
+
+#### Deploy a web service on docker container
+
+Pull Nginx : `docker pull nginx`
+
+Run web server:
+
+```dockerRun
+docker run --name web -d -p 80:80 nginx
+OR
+docker run --name web -d -p 8001:8111 nginx
 ```
