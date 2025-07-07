@@ -60,4 +60,7 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 
 ```mysqlServer
 docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -d mysql/mysql-server:latest
+OR with PORT
+docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -p 3306:3306 -d mysql/mysql-server:latest
+
 ```
