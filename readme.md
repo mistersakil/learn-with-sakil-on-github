@@ -2,7 +2,8 @@
 
 #### Linux CLI Tools
 
-- Check Linux OS Name and Version `hostnamectl`
+* Check Linux OS Name and Version `hostnamectl`
+* Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
 
 ## Learning Docker
 
@@ -20,14 +21,22 @@
 # systemctl is-enabled docker
 ```
 
-#### Deploy a web service on docker container
+#### Deploy nginx web server on docker container
 
-Pull Nginx : `docker pull nginx`
+**Pull nginx image:**  `docker pull nginx`
 
-Run web server:
+**Run web server:**
 
 ```dockerRun
-docker run --name web -d -p 80:80 nginx
+docker run --name web1 -d -p 80:80 nginx (host port 8080 : nginx port 80)
 OR
-docker run --name web -d -p 8001:8111 nginx
+docker run --name web2 -d -p 8001:80 nginx (host port 8001 : nginx port 80)
+OR
+docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 ```
+**Run individual container:** `docker start yourContainerName`
+**Stop individual container:** `docker stop yourContainerName`
+**List of available container:** `docker ps -a`
+**List of active container:** `docker ps`
+**Container CLI/Bash (sync data):** `docker exec -it c1 bash`
+
