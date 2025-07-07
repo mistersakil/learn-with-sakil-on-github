@@ -2,9 +2,9 @@
 
 #### Linux basic cli commands
 
-* Check Linux OS Name and Version `hostnamectl`
-* Back to the root directory `cd /` or `cd ~`
-* Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
+- Check Linux OS Name and Version `hostnamectl`
+- Back to the root directory `cd /` or `cd ~`
+- Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
 
 ## Learning Docker
 
@@ -24,7 +24,7 @@
 
 #### Running nginx web server on docker container
 
-**Pull nginx image:**  `docker pull nginx`
+**Pull nginx image:** `docker pull nginx`
 
 **Run web server:**
 
@@ -35,6 +35,7 @@ docker run --name web2 -d -p 8001:80 nginx (host port 8001 : nginx port 80)
 OR
 docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 ```
+
 **Run individual container:** `docker start yourContainerName`
 
 **Stop individual container:** `docker stop yourContainerName`
@@ -50,3 +51,13 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 **List of available images:** `docker images`
 
 **Default Nginx config file:** `etc/nginx/conf.d/default.conf`
+
+#### Running mysql server server on docker container
+
+**Pull mysql image:** `docker pull mysql/mysql-server:latest`
+
+**Run mysql server:**
+
+```mysqlServer
+docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -d mysql/mysql-server:latest
+```
