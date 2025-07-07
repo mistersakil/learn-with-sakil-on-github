@@ -3,6 +3,7 @@
 #### Linux CLI Tools
 
 * Check Linux OS Name and Version `hostnamectl`
+* Back to the root directory `cd /` or `cd ~`
 * Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
 
 ## Learning Docker
@@ -40,4 +41,4 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 **List of active container:** `docker ps`
 **Remove individual container:** `docker rm yourContainerName`
 **Container CLI/Bash (sync data):** `docker exec -it containerName bash`
-
+**Default Nginx config file:** `etc/nginx/conf.d/default.conf`
