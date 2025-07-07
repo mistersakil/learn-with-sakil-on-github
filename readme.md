@@ -1,6 +1,6 @@
 ## Learning Linux
 
-#### Linux CLI Tools
+#### Linux basic cli commands
 
 * Check Linux OS Name and Version `hostnamectl`
 * Back to the root directory `cd /` or `cd ~`
@@ -8,7 +8,7 @@
 
 ## Learning Docker
 
-#### Standalone Docker Installation and configuration on Linux
+#### Standalone docker Installationiand configuration on linux
 
 ```dockerInstall
 # yum update -y
@@ -22,7 +22,7 @@
 # systemctl is-enabled docker
 ```
 
-#### Deploy nginx web server on docker container
+#### Running nginx web server on docker container
 
 **Pull nginx image:**  `docker pull nginx`
 
