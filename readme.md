@@ -36,9 +36,15 @@ OR
 docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 ```
 **Run individual container:** `docker start yourContainerName`
+
 **Stop individual container:** `docker stop yourContainerName`
+
 **List of available container:** `docker ps -a`
+
 **List of active container:** `docker ps`
+
 **Remove individual container:** `docker rm yourContainerName`
+
 **Container CLI/Bash (sync data):** `docker exec -it containerName bash`
+
 **Default Nginx config file:** `etc/nginx/conf.d/default.conf`
