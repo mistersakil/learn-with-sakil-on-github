@@ -52,6 +52,10 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 
 **List of available images:** `docker images`
 
+**Delete individual image:** `docker rmi imageName`
+
+**Delete all image:** `docker system prune`
+
 **Default Nginx config file:** `etc/nginx/conf.d/default.conf`
 
 #### Running mysql server server on docker container
