@@ -110,7 +110,7 @@ version: '3.8'
 services:
   app:
     build:
-      context: ./php
+      context: ./
     container_name: php-test-app-container
     volumes:
       - ./src:/var/www/htdocs
@@ -133,7 +133,7 @@ services:
       - app-network
 
   db:
-    image: mysql/mysql
+    image: mysql/mysql-server:latest
     container_name: mysql
     restart: always
     environment:
@@ -188,7 +188,7 @@ server {
     listen 80;
     server_name localhost;
 
-    root /var/www/html;
+    root /var/www/htdocs;
     index index.php index.html;
 
     location / {
@@ -217,5 +217,11 @@ RUN apt-get update && apt-get install -y \
 # Optional: install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/html
+WORKDIR /var/www/htdocs
+```
+
+**Build container**
+
+```buildContainer
+docker compose up -d 
 ```
