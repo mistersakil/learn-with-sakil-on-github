@@ -50,6 +50,8 @@ docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
 
 **Stop individual container:** `docker stop yourContainerName`
 
+**Remove All Containers:** `docker rm -f $(docker ps -aq)`
+
 **List of available container:** `docker ps -a`
 
 **List of active container:** `docker ps`
@@ -134,13 +136,13 @@ services:
 
   db:
     image: mysql/mysql-server:latest
-    container_name: mysql
+    container_name: mysql-container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpass
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: php_db
+      MYSQL_USER: sakil
+      MYSQL_PASSWORD: 12345678
     ports:
       - "3306:3306"
     volumes:
@@ -150,10 +152,11 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin
+    container_name: phpmyadmin-container
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: rootpass
+      PMA_USER: sakil
+      PMA_PASSWORD: 12345678
     ports:
       - "8080:80"
     depends_on:
@@ -224,4 +227,11 @@ WORKDIR /var/www/htdocs
 
 ```buildContainer
 docker compose up -d 
+```
+
+**Rebuild & Restart All**
+
+```rebuildContainer
+docker compose down --volumes --remove-orphans
+docker compose up -d --build
 ```
