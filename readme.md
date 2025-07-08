@@ -29,6 +29,8 @@
 **Run web server:**
 
 ```dockerRun
+docker run --name web1 -it -d -p 80:80 nginx (host port 8080 : nginx port 80)
+OR
 docker run --name web1 -d -p 80:80 nginx (host port 8080 : nginx port 80)
 OR
 docker run --name web2 -d -p 8001:80 nginx (host port 8001 : nginx port 80)
