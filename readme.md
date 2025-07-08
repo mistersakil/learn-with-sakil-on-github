@@ -14,6 +14,8 @@
 
 ---
 
+> Insure you already set host OS static hostname for further process - `hostnamectl set-hostname yourNewHostname`
+
 ```dockerInstall
 # yum update -y
 # yum install yum-utils device-mapper-persistent-data lvm2 wget telnet vim -y
