@@ -85,7 +85,7 @@ docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -p 3306:3306 -d m
 
 **Clear the MySQL CLI screen:** `Ctrl + L`
 
-#### Docker compose (docker-compose.yml)
+#### Very basic php application with docker
 
 ---
 
@@ -97,8 +97,7 @@ my-docker-project/
 ├── docker-compose.yml
 ├── nginx/
 │   └── default.conf
-├── php/
-│   └── Dockerfile
+├── Dockerfile
 ├── src/
 │   └── index.php
 ```
@@ -112,9 +111,9 @@ services:
   app:
     build:
       context: ./php
-    container_name: php-test-app
+    container_name: php-test-app-container
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/htdocs
     depends_on:
       - db
     networks:
@@ -122,11 +121,11 @@ services:
 
   webserver:
     image: nginx:latest
-    container_name: nginx
+    container_name: nginx-container
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/htdocs
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
@@ -180,4 +179,43 @@ networks:
   app-network:
     driver: bridge
 
+```
+
+**nginx/default.conf**
+
+```nginxConfig
+server {
+    listen 80;
+    server_name localhost;
+
+    root /var/www/html;
+    index index.php index.html;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include fastcgi_params;
+        fastcgi_pass app:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+```
+
+**Dockerfile**
+
+```dockerFileConfig
+FROM php:8.2-fpm
+
+# Install PHP extensions
+RUN apt-get update && apt-get install -y \
+    libzip-dev zip unzip curl \
+    && docker-php-ext-install pdo pdo_mysql zip
+
+# Optional: install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
 ```
