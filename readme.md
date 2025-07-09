@@ -223,15 +223,10 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/htdocs
 ```
 
-**Build container**
+**Container up and down**
 
 ```buildContainer
 docker compose up -d 
-```
-
-**Rebuild & Restart All**
-
-```rebuildContainer
 docker compose down --volumes --remove-orphans
 docker compose up -d --build
 ```
