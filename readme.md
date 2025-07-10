@@ -108,8 +108,6 @@ my-docker-project/
 **docker-compose.yml**
 
 ```dockerCompose
-version: '3.8'
-
 services:
   app:
     build:./
@@ -135,14 +133,14 @@ services:
       - app-network
 
   db:
-    image: mysql/mysql-server:latest
+    image: mysql:5.7
     container_name: mysql-container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: php_docker_test_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: "12345678"
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
@@ -155,8 +153,7 @@ services:
     container_name: phpmyadmin-container
     environment:
       PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
       - "8111:80"
     depends_on:
@@ -184,6 +181,17 @@ networks:
 
 ```
 
+**Using .env file for secrets inside docker-compose.yml file**
+
+```usingDotEnv
+.env
+
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATABASE=php_docker_test_db
+MYSQL_USER=sakil
+MYSQL_PASSWORD=12345678
+
+```
 **nginx/default.conf**
 
 ```nginxConfig
