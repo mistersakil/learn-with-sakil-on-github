@@ -1,6 +1,7 @@
 ## Learning Linux
 
 #### Linux basic cli commands
+
 ---
 
 - Check Linux OS Name and Version `hostnamectl`
@@ -111,8 +112,7 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: ./
+    build:./
     container_name: php-test-app-container
     volumes:
       - ./src:/var/www/htdocs
@@ -139,14 +139,14 @@ services:
     container_name: mysql-container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 12345678
-      MYSQL_DATABASE: php_db
-      MYSQL_USER: sakil
-      MYSQL_PASSWORD: 12345678
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: php_docker_test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: "12345678"
     ports:
       - "3306:3306"
     volumes:
-      - db-data:/var/lib/mysql
+      - db_data:/var/lib/mysql
     networks:
       - app-network
 
@@ -155,10 +155,10 @@ services:
     container_name: phpmyadmin-container
     environment:
       PMA_HOST: db
-      PMA_USER: sakil
-      PMA_PASSWORD: 12345678
+      PMA_USER: root
+      PMA_PASSWORD: root
     ports:
-      - "8080:80"
+      - "8111:80"
     depends_on:
       - db
     networks:
@@ -176,7 +176,7 @@ services:
       - app-network
 
 volumes:
-  db-data:
+  db_data:
 
 networks:
   app-network:
@@ -226,7 +226,11 @@ WORKDIR /var/www/htdocs
 **Container up and down**
 
 ```buildContainer
-docker compose up -d 
-docker compose down --volumes --remove-orphans
+docker compose up -d
+
 docker compose up -d --build
+
+docker compose down
+
+docker-compose down --volumes (flush volumes)
 ```
