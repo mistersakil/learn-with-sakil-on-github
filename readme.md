@@ -5,6 +5,7 @@
 ---
 
 - Check Linux OS Name and Version `hostnamectl`
+- Show directory listing `ls -l`
 - Back to the root directory `cd /` or `cd ~`
 - Copy Everything Inside a Folder `cp -r /copy/from/* /destination/path/`
 - Copy Everything Inside a Folder including (.filename) files `cp -r /copy/from/. /destination/path/`
@@ -243,5 +244,12 @@ docker compose up -d --build
 
 docker compose down
 
-docker-compose down --volumes (flush volumes)
+docker compose down --volumes (flush volumes)
+```
+
+**Fix Laravel directory permissions at runtime**
+
+```setLaravelStoragePermission
+chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 ```
