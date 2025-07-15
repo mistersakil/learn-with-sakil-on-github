@@ -219,20 +219,55 @@ server {
 }
 ```
 
-**Dockerfile**
+**Dockerfile for laravel application**
 
 ```dockerFileConfig
 FROM php:8.2-fpm
 
-# Install PHP extensions
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip curl \
-    && docker-php-ext-install pdo pdo_mysql zip
+    build-essential \
+    libpng-dev \
+    libjpeg-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip unzip curl git \
+    libzip-dev \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Optional: install Composer
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/htdocs
+# Set working directory
+WORKDIR /var/www
+
+# Copy Laravel source code
+COPY . /var/www
+
+# Ensure necessary directories exist
+RUN mkdir -p /var/www/storage/logs /var/www/bootstrap/cache
+
+# Fix ownership and permissions
+RUN chown -R www-data:www-data /var/www \
+    && chmod -R ug+rwx /var/www/storage /var/www/bootstrap/cache
+
+# Set Git safe directory to avoid dubious ownership error
+RUN git config --global --add safe.directory /var/www
+
+# Switch to www-data to install dependencies
+USER www-data
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+
+# Switch back to root for runtime
+USER root
+
+# Final command: Clear caches, migrate, start PHP-FPM
+CMD php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan route:clear && \
+    php artisan migrate --force && \
+    php-fpm
+
 ```
 
 **Container up and down**
