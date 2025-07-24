@@ -110,59 +110,59 @@ my-docker-project/
 
 **docker-compose.yml**
 
-```dockerCompose
+```dockerCompose.yml
 services:
   app:
-    build:./
-    container_name: php-test-app-container
-    volumes:
-      - ./src:/var/www/htdocs
+    build:
+      context: .
+    container_name: saas_crm_ihelp
+    restart: always
     depends_on:
       - db
     networks:
-      - app-network
+      - saas_crm_ihelp_network
 
   webserver:
     image: nginx:latest
-    container_name: nginx-container
+    container_name: saas_crm_ihelp_webserver
+    restart: always
     ports:
       - "80:80"
     volumes:
-      - ./src:/var/www/htdocs
-      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www
+      - ./nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - app
     networks:
-      - app-network
+      - saas_crm_ihelp_network
 
   db:
     image: mysql:5.7
-    container_name: mysql-container
+    container_name: saas_crm_ihelp_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
     ports:
       - "3306:3306"
     volumes:
-      - db_data:/var/lib/mysql
+      - saas_crm_ihelp_db_data:/var/lib/mysql
     networks:
-      - app-network
+      - saas_crm_ihelp_network
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin-container
+    image: phpmyadmin
+    container_name: saas_crm_ihelp_phpmyadmin
+    restart: always
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      UPLOAD_LIMIT: 256M
     ports:
-      - "8111:80"
+      - "8001:80"
     depends_on:
       - db
     networks:
-      - app-network
+      - saas_crm_ihelp_network
 
   node:
     image: node:22
@@ -171,16 +171,16 @@ services:
       - ./src:/usr/src/app
     working_dir: /usr/src/app
     tty: true
-    command: sh -c "while true; do sleep 1000; done"
+    command: sh
     networks:
       - app-network
 
-volumes:
-  db_data:
-
 networks:
-  app-network:
+  saas_crm_ihelp_network:
     driver: bridge
+
+volumes:
+  saas_crm_ihelp_db_data:
 
 ```
 
