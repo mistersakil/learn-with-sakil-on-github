@@ -1,0 +1,48 @@
+## Inside single folder ##
+$files = Get-ChildItem -Filter "*" | Sort-Object Name
+$i = 1
+foreach ($file in $files) {
+    $newName = "my-dress-$i.png"
+    Rename-Item $file.FullName -NewName $newName
+    $i++
+}
+
+## Inside child directory
+$targetExt = ".png"
+
+# Get current folder as parent
+$parentFolder = Get-Location
+
+# Get all immediate subfolders
+$subFolders = Get-ChildItem -Path $parentFolder -Directory
+
+foreach ($folder in $subFolders) {
+    $folderName = $folder.Name
+    $files = Get-ChildItem -Path $folder.FullName -Filter "*" | Sort-Object Name
+    $tempFiles = @()
+
+    # Step 1: Rename all to temporary GUID-based names
+    foreach ($file in $files) {
+        $tempName = [guid]::NewGuid().ToString() + $targetExt
+        $tempPath = Join-Path -Path $folder.FullName -ChildPath $tempName
+
+        Rename-Item $file.FullName -NewName $tempName
+        $tempFiles += $tempPath
+    }
+
+    # Step 2: Rename temp files to final format
+    $i = 1
+    foreach ($tempFile in $tempFiles) {
+        $finalName = "$folderName-$i$targetExt"
+        $finalPath = Join-Path -Path $folder.FullName -ChildPath $finalName
+
+        # Delete if final name already exists to avoid conflict
+        if (Test-Path $finalPath) {
+            Remove-Item $finalPath -Force
+        }
+
+        Rename-Item $tempFile -NewName $finalName
+        $i++
+    }
+}
+
