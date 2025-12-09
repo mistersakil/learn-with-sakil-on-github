@@ -286,3 +286,9 @@ docker compose down --volumes (flush volumes)
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 ```
+
+### Insufficient memory limit detected
+Insufficient memory limit detected! Current: 128M, Recommended: 512M
+To fix this, run either command with increased memory:
+php -d memory_limit=512M artisan world:install
+php -d memory_limit=512M artisan db:seed --class=WorldSeeder
