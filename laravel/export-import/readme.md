@@ -147,6 +147,8 @@ Excel Import - 2025-12-29
 * Export file is generated in background storage
 * User receives a notification with the download link
 
+![Export Process Flow](/_images/laravel-export-import.png)
+
 ### 7.Summary
 
 By combining chunk processing, queued jobs, and user notifications, large lead imports and exports can be handled safely and efficiently in Laravel. The maatwebsite/excel package provides the necessary tools to build a scalable and reliable solution without browser timeouts or memory issues.
