@@ -290,7 +290,7 @@ chmod +x entrypoint.sh
 ```
 
 ```maunUpAndDownPhpmyadmin
-docker-compose --profile debug up -d phpmyadmin
+docker compose --profile debug up -d phpmyadmin
 ```
 
 **Fix Laravel directory permissions at runtime**
