@@ -277,11 +277,20 @@ docker compose up -d --build
 
 docker compose up -d --build --no-cache
 
+rebuild= docker compose build --no-cache app
+
 docker compose down
 
 docker compose down --volumes (flush volumes)
 
+```
+
+```setWriteModeOnEntrypoint
 chmod +x entrypoint.sh
+```
+
+```maunUpAndDownPhpmyadmin
+docker-compose --profile debug up -d phpmyadmin
 ```
 
 **Fix Laravel directory permissions at runtime**
