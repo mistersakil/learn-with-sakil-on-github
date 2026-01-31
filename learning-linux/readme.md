@@ -11,3 +11,5 @@
 - Copy Everything Inside a Folder including (.filename) files `cp -r /copy/from/. /destination/path/`
 - Set os the static hostname `hostnamectl set-hostname your-new-hostname`
 - Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
+- See cpu info `cat /proc/cpuinfo`
+

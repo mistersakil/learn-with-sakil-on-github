@@ -275,9 +275,13 @@ docker compose up -d
 
 docker compose up -d --build
 
+docker compose up -d --build --no-cache
+
 docker compose down
 
 docker compose down --volumes (flush volumes)
+
+chmod +x entrypoint.sh
 ```
 
 **Fix Laravel directory permissions at runtime**
