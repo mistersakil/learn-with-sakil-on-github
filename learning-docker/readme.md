@@ -277,11 +277,15 @@ docker compose up -d --build
 
 docker compose up -d --build --no-cache
 
-rebuild= docker compose build --no-cache app
-
 docker compose down
 
 docker compose down --volumes (flush volumes)
+
+
+rebuild without cache = docker compose build --no-cache app
+rebuild= docker compose build app
+
+docker compose up -d
 
 ```
 
