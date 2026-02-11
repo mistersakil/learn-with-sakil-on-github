@@ -1,8 +1,6 @@
-## Learning Linux
+# Learning Linux
 
-#### Linux basic cli commands
-
----
+## Linux basic cli commands
 
 - Check Linux OS Name and Version `hostnamectl`
 - Show directory listing `ls -l`
