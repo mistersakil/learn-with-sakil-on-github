@@ -8,8 +8,8 @@
 
 ```ram
 Ram - Blocks -> Based on byte size
-- OS Binary Code
-- Process - Virtual OS
+- OS binary code block
+- Process - Virtual CPU/Computer
     * Code segment - Function declaration
     * Data segment - Global variables
     * Stack/Function frame 
@@ -25,9 +25,17 @@ CPU
 - Processing unit
     * Arithmetic logic unit
     * Control unit
-- Registers set (General purpose)
+- Registers set (Manages process current states)
     * SP - Stack pointer
     * BP - Base pointer
     * IR - Instruction pointer
     * PC - Program counter
+```
+
+## Context switching | Concurrency
+
+```CONTEXT_SWITCHING
+- All steps of SP & BP
+- Process control block (PCB)
+    * Manges process individual states
 ```
