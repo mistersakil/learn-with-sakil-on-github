@@ -38,4 +38,5 @@ CPU
 - All steps of SP & BP
 - Process control block (PCB)
     * Manges process individual states
+- Concurrency - Execute multiple process one by one switching context state
 ```
