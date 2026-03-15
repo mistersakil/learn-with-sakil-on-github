@@ -287,6 +287,7 @@ rebuild= docker compose build app
 
 docker compose up -d
 
+docker compose restart
 ```
 
 ```setWriteModeOnEntrypoint
