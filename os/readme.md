@@ -4,6 +4,25 @@
 
 - Mechanical computer
 
+## Kernel
+
+```cpu
+* User mode
+* Kernel mode
+```
+
+### What does kernel does?
+
+```kernelDo
+* Process management
+* Memory management
+* Device management
+* File system management
+* System call
+* And more
+```
+
+
 ## SP vs BP
 
 ```ram
