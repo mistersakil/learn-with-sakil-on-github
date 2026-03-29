@@ -1,5 +1,11 @@
 # Introduction of Operating System
 
+***Application Software:*** performs specific task for the user.
+
+***System Software:*** operates and controls the computer system and provides a platform to run application software.
+
+***Operating System:*** An operating system is a piece of software that manages all the resources of a computer system,both hardware and software, and provides an environment in which the user can execute his/her programs in a convenient and efficient manner by hiding underlying complexity of the hardware and acting as a resource manager.
+
 ## Computer architecture and history
 
 - Mechanical computer
