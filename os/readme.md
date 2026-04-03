@@ -18,11 +18,13 @@
 
 ***Functions of an  OS:***
 
-* Access to the computer hardware.
-* Interface between the user and the computer hardware
-* Resource management (Aka, Arbitration) (memory, device, file, security, process etc)
-* Hides the underlying complexity of the hardware. (Aka, Abstraction)
-* Facilitates execution of application programs by providing isolation and protection.
+```FunctionsOfOS
+- Access to the computer hardware.
+- Interface between the user and the computer hardware
+- Resource management (Aka, Arbitration) (memory, device, file, security, process etc)
+- Hides the underlying complexity of the hardware. (Aka, Abstraction)
+- Facilitates execution of application programs by providing isolation and protection.
+```
 
 ## Types of Operating System
 
@@ -34,13 +36,13 @@
 
 ***OS types:***
 
-* Single process OS [Ex: MS DOS - 1981]
+1. Single process OS [Ex: MS DOS - 1981]
 
     ```singleProcessOS
     Only 1 process executes at a time from the ready queue.
     ```
 
-* Batch-processing OS [Ex: Atlas - early 1960]
+2. Batch-processing OS [Ex: Atlas - early 1960]
 
     ```batchProcessingOS
     1. Firstly, user prepares his job using punch cards.
@@ -53,19 +55,19 @@
         - CPU may become idle in case of I/O operations.
     ```
 
-* Multiprogramming OS [Ex: Dijkstra - early 1960s]
+3. Multiprogramming OS [Ex: Dijkstra - early 1960s]
 
     ```MultiprogrammingOS
     Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in the memory 
     so that the CPU always has one to execute in case some job gets busy with I/O.
-    
+
     - Single CPU
     - Context switching for processes.
     - Switch happens when current process goes to wait state.
     - CPU idle time reduced.
     ```
 
-* Multitasking OS [Ex: MIT - early 1960s]
+4. Multitasking OS [Ex: MIT - early 1960s]
 
     ```MultiprogrammingOS
     Multitasking is a logical extension of multiprogramming.
@@ -77,7 +79,7 @@
     - CPU idle time is further reduced.   
     ```
 
-* Multiprocessing OS [Ex: WINDOWS, MAC]
+5. Multiprocessing OS [Ex: WINDOWS, MAC]
 
     ```MultiprocessingOS
     Multi-processing OS, more than 1 CPU in a single computer.
@@ -89,7 +91,7 @@
     working on some process, other can be executed on other CPU)
     ```
 
-* Distributed OS [Ex: LOCUS]
+6. Distributed OS [Ex: LOCUS]
 
     ```DistributedOS
     - OS manages many bunches of resources, >=1 CPUs, >=1 memory, >=1 GPUs, etc
@@ -98,13 +100,20 @@
     - Collection of independent, networked, communicating, and physically separate computational nodes.
     ```
 
-* Real-time OS (RTOS) [Ex: ATCS]
+7. Real-time OS (RTOS) [Ex: ATCS]
 
     ```RTOS
     - Real time error free, computations
     within tight-time boundaries.
     - Air Traffic control system, ROBOTS etc.
     ```
+
+## Multi-Tasking vs Multi-Threading
+
+***Program:*** A Program is an executable file which contains a certain set of instructions written
+to complete the specific job or operation on your computer.
+• It's a compiled code. Ready to be executed.
+• Stored in Disk
 
 ## Kernel
 
