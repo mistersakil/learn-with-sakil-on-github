@@ -24,9 +24,85 @@
 * Hides the underlying complexity of the hardware. (Aka, Abstraction)
 * Facilitates execution of application programs by providing isolation and protection.
 
-## Computer architecture and history
+## Types of Operating System
 
-- Mechanical computer
+***Goals of OS:***
+
+* Maximum CPU utilization
+* Less process starvation
+* Higher priority job execution
+
+***OS types:***
+
+* Single process OS [Ex: MS DOS - 1981]
+
+    ```singleProcessOS
+    Only 1 process executes at a time from the ready queue.
+    ```
+
+* Batch-processing OS [Ex: Atlas - early 1960]
+
+    ```batchProcessingOS
+    1. Firstly, user prepares his job using punch cards.
+    2. Then, he submits the job to the computer operator.
+    3. Operator collects the jobs from different users and sort the jobs into batches with similar needs.
+    4. Then, operator submits the batches to the processor one by one.
+    5. All the jobs of one batch are executed together.
+        - Priorities cannot be set, if a job comes with some higher priority.
+        - May lead to starvation. (A batch may take more time to complete)
+        - CPU may become idle in case of I/O operations.
+    ```
+
+* Multiprogramming OS [Ex: Dijkstra - early 1960s]
+
+    ```MultiprogrammingOS
+    Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in the memory so that the CPU always has one to execute in case some job gets busy with I/O.
+    - Single CPU
+    - Context switching for processes.
+    - Switch happens when current process goes to wait state.
+    - CPU idle time reduced.
+    ```
+
+* Multitasking OS [Ex: MIT - early 1960s]
+
+    ```MultiprogrammingOS
+    Multitasking is a logical extension of multiprogramming.
+    
+    - Single CPU
+    - Able to run more than one task simultaneously.
+    - Context switching and time sharing used.
+    - Increases responsiveness.
+    - CPU idle time is further reduced.   
+    ```
+
+* Multiprocessing OS [Ex: WINDOWS, MAC]
+
+    ```MultiprocessingOS
+    Multi-processing OS, more than 1 CPU in a single computer.
+    
+    - Increases reliability, 1 CPU fails, other
+    can work
+    - Better throughput.
+    - Lesser process starvation, (if 1 CPU is
+    working on some process, other can be executed on other CPU)
+    ```
+
+* Distributed OS [Ex: LOCUS]
+
+    ```DistributedOS
+    - OS manages many bunches of resources, >=1 CPUs, >=1 memory, >=1 GPUs, etc
+    - Loosely connected autonomous,
+    interconnected computer nodes.
+    - Collection of independent, networked, communicating, and physically separate computational nodes.
+    ```
+
+* Real-time OS (RTOS) [Ex: ATCS]
+
+    ```RTOS
+    - Real time error free, computations
+    within tight-time boundaries.
+    - Air Traffic control system, ROBOTS etc.
+    ```
 
 ## Kernel
 
