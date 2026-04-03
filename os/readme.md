@@ -56,7 +56,8 @@
 * Multiprogramming OS [Ex: Dijkstra - early 1960s]
 
     ```MultiprogrammingOS
-    Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in the memory so that the CPU always has one to execute in case some job gets busy with I/O.
+    Multiprogramming increases CPU utilization by keeping multiple jobs (code and data) in the memory 
+    so that the CPU always has one to execute in case some job gets busy with I/O.
     - Single CPU
     - Context switching for processes.
     - Switch happens when current process goes to wait state.
