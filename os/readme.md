@@ -125,6 +125,8 @@
 * Used to achieve parallelism by dividing a process's tasks which are independent path of execution.
 * EX: Multiple tabs in a browser, text editor (When you are typing in an editor, spell-checking, formatting of text and saving the text are done concurrently by multiple threads.)
 
+### Difference between Multi Tasking and Multi Threading
+
 ***Multi Tasking***
 
 ```MultiTasking
@@ -152,7 +154,33 @@ context switched.
 - No isolation and memory protection, resources are shared among threads of that process. OS allocates memory to a process, multiple threads of that process share the same memory and resources allocated to the process.
 ```
 
+***Thread Scheduling:*** Threads are scheduled for execution based on their priority. Even though threads are executing within the runtime, all threads are assigned processor time slices by the operating
+system.
 
+### Difference between Thread Context Switching and Process Context Switching
+
+***Thread Context Switching:***
+
+```ThreadContextSwitching
+- OS saves current state of thread & switches
+to another thread of same process.
+- Doesn't includes switching of memory
+address space. (But Program counter, registers & stack are
+included.)
+- Fast switching.
+- CPU's cache state is preserved.
+```
+
+***Process Context Switching:***
+
+```ProcessContextSwitching
+- OS saves current state of process &
+switches to another process by restoring its
+state.
+- Includes switching of memory address space.
+- Slow switching.
+- CPU's cache state is flushed.
+```
 
 
 
