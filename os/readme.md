@@ -198,22 +198,22 @@ state.
 
 ### Functions of Kernel
 
-1. Process management:
+***1. Process management:***
   a. Scheduling processes and threads on the CPUs.
   b. Creating & deleting both user and system process.
   c. Suspending and resuming processes
   d. Providing mechanisms for process synchronization or process
 communication.
-2. Memory management:
+***2. Memory management:***
   a. Allocating and deallocating memory space as per need.
   b. Keeping track of which part of memory are currently being used and by
 which process.
-3. File management:
+***3. File management:***
   a. Creating and deleting files.
   b. Creating and deleting directories to organize files.
   c. Mapping files into secondary storage.
   d. Backup support onto a stable storage media.
-4. I/O management: to manage and control I/O operations and I/O devices Buffering (data copy between two devices), caching and spooling.
+***4. I/O management:*** To manage and control I/O operations and I/O devices Buffering (data copy between two devices), caching and spooling.
 
 ```IOManagement
 Spooling:
@@ -225,6 +225,54 @@ Buffering:
 Caching:
     1. Memory caching, Web caching etc.
 ```
+
+### Types of Kernels
+
+***1. Monolithic kernel:***
+
+* All functions are in kernel itself.
+* Bulky in size.
+* Memory required to run is high.
+* Less reliable, one module crashes -> whole kernel is down.
+* High performance as communication is fast. (Less user mode, kernel mode overheads)
+* Eg. Linux, Unix, MS-DOS.
+
+***2. Micro Kernel:***
+
+* Only major functions are in kernel.
+  * Memory management
+  * Process management
+* File management and IO management are in User-space.
+* Smaller in size.
+* More Reliable
+* More stable
+* Performance is slow.
+* Overhead switching b/w user mode and kernel mode.
+* Eg. L4 Linux, Symbian OS, MINIX etc.
+
+***3. Hybrid Kernel:***
+
+* Advantages of both worlds. (File management in User space and rest in Kernel space)
+* Combined approach.
+* Speed and design of mono.
+* Modularity and stability of micro.
+* Eg. MacOS, Windows NT/7/10
+* IPC also happens but lesser overheads
+
+***4. Nano/Exo kernels:***
+
+```IPC
+Q: How will communication happen between user mode and kernel mode?
+
+A: Inter process communication (IPC).
+
+  1. Two processes executing independently, having independent memory space (Memory protection), But some may need to communicate to work.
+
+  2. Done by shared memory and message passing.
+
+```
+
+
 
 
 
