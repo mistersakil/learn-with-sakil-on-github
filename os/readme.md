@@ -199,20 +199,25 @@ state.
 ### Functions of Kernel
 
 ***1. Process management:***
-  a. Scheduling processes and threads on the CPUs.
-  b. Creating & deleting both user and system process.
-  c. Suspending and resuming processes
-  d. Providing mechanisms for process synchronization or process
+
+* Scheduling processes and threads on the CPUs.
+* Creating & deleting both user and system process.
+* Suspending and resuming processes
+* Providing mechanisms for process synchronization or process
 communication.
+
 ***2. Memory management:***
-  a. Allocating and deallocating memory space as per need.
-  b. Keeping track of which part of memory are currently being used and by
-which process.
+
+* Allocating and deallocating memory space as per need.
+* Keeping track of which part of memory are currently being used and by which process.
+
 ***3. File management:***
-  a. Creating and deleting files.
-  b. Creating and deleting directories to organize files.
-  c. Mapping files into secondary storage.
-  d. Backup support onto a stable storage media.
+
+* Creating and deleting files.
+* Creating and deleting directories to organize files.
+* Mapping files into secondary storage.
+* Backup support onto a stable storage media.
+
 ***4. I/O management:*** To manage and control I/O operations and I/O devices Buffering (data copy between two devices), caching and spooling.
 
 ```IOManagement
