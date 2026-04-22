@@ -23,31 +23,38 @@ Now go to system root directory.
 Here we can see almost 19 directory. We are going to explain them:
 
 ```rootDirectories
-bin - binary/program/executable files which through we executes linux commands
-boot - 
-cdrom - 
-dev -
-etc -
-home - 
-lib - 
-lib32 - 
-lib64 - 
-libx64 - 
-lost+found - 
-media - 
-mnt - 
-opt - 
-proc - 
-root - 
-run - 
-sbin - 
-snap - 
-srv - 
-swapfile - 
-sys - 
-tmp - 
-usr - 
-var - 
+* bin - binary/program/executable files which through we executes linux commands
+* boot - The boot directory holds the static files used by the bootloader to initialize the system and load the kernel into memory.
+* cdrom - 
+* dev - device related program files to perform I/O (ex: mouse, printer, keyboard etc)
+* etc -
+* home - users home directory. all individual users will be included here
+* lib - os library related program files
+* lib32 - 32 bit os library related program files
+* lib64 - 64 bit os library related program files
+* libx64 - 
+* lost+found - 
+* media - 
+* mnt - Initially empty directory. mounting or unmounting portable devices (ex: usb devices)
+* opt - 
+* proc - OS Process related executable files. 
+* root - Root directory of OS
+* run - Removable devices can be see here
+* sbin - Super user binary files
+* snap - 
+* srv - Serving tmp data (ex: ftp)
+* swapfile - 
+* sys - 
+* tmp - To store temporary data
+* usr - 
+* var - var directory (short for variable) is used to store data that changes (logs) frequently during system operation
 
+```
+
+## Getting Help & Man Pages in Linux | Command Details & Help
+
+```manPages
+* man lsblk = list of block devices.
+* man sshd = OpenSSH ssh demon
 ```
 
