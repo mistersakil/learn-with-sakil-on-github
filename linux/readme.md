@@ -53,8 +53,15 @@ Here we can see almost 19 directory. We are going to explain them:
 
 ## Getting Help & Man Pages in Linux | Command Details & Help
 
+'man' an interface to the system reference manuals.
+
 ```manPages
+* man man =  an interface to the system reference manuals
 * man lsblk = list of block devices.
 * man sshd = OpenSSH ssh demon
+* man mandb = create or update the manual page index caches
+* whereis mandb  = route: location/of/binary location/of/manual (to find out location of process and manual)
+* whatis mandb = create or update the manual page index caches
+* man 5 mandb = manual of perticular index of a process
+* cd --help = to get helper/options manual of a process
 ```
-
