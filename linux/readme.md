@@ -23,31 +23,31 @@ Now go to system root directory.
 Here we can see almost 19 directory. We are going to explain them:
 
 ```rootDirectories
-* bin - binary/program/executable files which through we executes linux commands
+* bin - binary/program/executable files which through we executes linux commands.
 * boot - The boot directory holds the static files used by the bootloader to initialize the system and load the kernel into memory.
 * cdrom - 
-* dev - device related program files to perform I/O (ex: mouse, printer, keyboard etc)
+* dev - device related program files to perform I/O (ex: mouse, printer, keyboard etc).
 * etc -
-* home - users home directory. all individual users will be included here
-* lib - os library related program files
-* lib32 - 32 bit os library related program files
-* lib64 - 64 bit os library related program files
+* home - users home directory. all individual users will be included here.
+* lib - os library related program files.
+* lib32 - 32 bit os library related program files.
+* lib64 - 64 bit os library related program files.
 * libx64 - 
 * lost+found - 
 * media - 
-* mnt - Initially empty directory. mounting or unmounting portable devices (ex: usb devices)
+* mnt - Initially empty directory. mounting or unmounting portable devices (ex: usb devices).
 * opt - 
 * proc - OS Process related executable files. 
-* root - Root directory of OS
-* run - Removable devices can be see here
-* sbin - Super user binary files
+* root - Root directory of OS.
+* run - Removable devices can be see here.
+* sbin - Super user binary files.
 * snap - 
-* srv - Serving tmp data (ex: ftp)
+* srv - Serving tmp data (ex: ftp).
 * swapfile - 
 * sys - 
-* tmp - To store temporary data
+* tmp - To store temporary data.
 * usr - 
-* var - var directory (short for variable) is used to store data that changes (logs) frequently during system operation
+* var - var directory (short for variable) is used to store data that changes (logs) frequently during system operation.
 
 ```
 
@@ -56,12 +56,25 @@ Here we can see almost 19 directory. We are going to explain them:
 'man' an interface to the system reference manuals.
 
 ```manPages
-* man man =  an interface to the system reference manuals
+* man man =  an interface to the system reference manuals.
 * man lsblk = list of block devices.
-* man sshd = OpenSSH ssh demon
-* man mandb = create or update the manual page index caches
-* whereis mandb  = route: location/of/binary location/of/manual (to find out location of process and manual)
-* whatis mandb = create or update the manual page index caches
-* man 5 mandb = manual of perticular index of a process
-* cd --help = to get helper/options manual of a process
+* man sshd = OpenSSH ssh demon.
+* man mandb = create or update the manual page index caches.
+* whereis mandb  = route: location/of/binary location/of/manual (to find out location of process and manual).
+* whatis mandb = create or update the manual page index caches.
+* man 5 mandb = manual of perticular index of a process.
+* cd --help = to get helper/options manual of a process.
+```
+
+## Working With Directories In Linux | Manage Directories
+
+```workingWithDirectories
+* pwd = Present working directory.
+* cd pathname = change directory based on relative path.
+* cd /pathname = change directory based on absolute path.
+* ls = list all items inside current directory.
+* ls /var/log = list all items inside given directory.
+* ls -l = long list of all items.
+* ls -la = long list with hidden items.
+* ls -lah = hidden long list with human readable memory size format.
 ```
