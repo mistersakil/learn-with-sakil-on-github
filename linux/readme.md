@@ -11,6 +11,18 @@
 - Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
 - See cpu info `cat /proc/cpuinfo`
 
+## Ecosystem-based classification
+
+| Distro | Ecosystem | Type | Use case |
+| ------ | --------- | ---- | -------- |
+| CentOS Linux | RHEL | Stable | Avoid now |
+| CentOS Stream | RHEL | Rolling preview | Testing |
+| Rocky Linux | RHEL | Stable | Production |
+| AlmaLinux | RHEL | Stable | Production |
+| Kali Linux | Debian | Specialized | Security only |
+| Parrot OS | Debian | Specialized | Security/dev |
+| openSUSE | Independent | Stable/Rolling | DevOps/server |
+
 ## Access Linux Machine Using SSH | Filesystem Hierarchy in Linux
 
 After login normally you will be inside authenticated user home directory like this (in my case, you will see something different but in similar pattern) `root@Ubuntu:~#.`
@@ -77,4 +89,17 @@ Here we can see almost 19 directory. We are going to explain them:
 * ls -l = long list of all items.
 * ls -la = long list with hidden items.
 * ls -lah = hidden long list with human readable memory size format.
+* ls -ldh = long list of directory with human readable memory size.
+* mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
+* mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
+* rmdir pathOfDir = Remove empty directory.
+* rm -rf parentDirName/childDirName = Remove all parent child relational directory forcefully. 
+
+```
+
+***Meaning of DOTS (. & ..)***
+
+```dotsMeaning
+. = A reference of current directory
+.. = A reference of parent directory
 ```
