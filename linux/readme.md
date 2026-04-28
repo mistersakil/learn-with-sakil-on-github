@@ -65,7 +65,7 @@ Here we can see almost 19 directory. We are going to explain them:
 
 ## Getting Help & Man Pages in Linux | Command Details & Help
 
-'man' an interface to the system reference manuals.
+*'man' an interface to the system reference manuals.*
 
 ```manPages
 * man man =  an interface to the system reference manuals.
@@ -80,6 +80,8 @@ Here we can see almost 19 directory. We are going to explain them:
 
 ## Working With Directories In Linux | Manage Directories
 
+*Everything in linux is files even directory is a special kinda files.*
+
 ```workingWithDirectories
 * pwd = Present working directory.
 * cd pathname = change directory based on relative path.
@@ -90,6 +92,7 @@ Here we can see almost 19 directory. We are going to explain them:
 * ls -la = long list with hidden items.
 * ls -lah = hidden long list with human readable memory size format.
 * ls -ldh = long list of directory with human readable memory size.
+* ls -li = long list with i-nodes.
 * mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
 * mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
 * rmdir pathOfDir = Remove empty directory.
