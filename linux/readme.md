@@ -86,6 +86,8 @@ Here we can see almost 19 directory. We are going to explain them:
 * pwd = Present working directory.
 * cd pathname = change directory based on relative path.
 * cd /pathname = change directory based on absolute path.
+* cd ~ = change to users home directory. 
+* cd - = traverse to previous directory. 
 * ls = list all items inside current directory.
 * ls /var/log = list all items inside given directory.
 * ls -l = long list of all items.
@@ -96,6 +98,7 @@ Here we can see almost 19 directory. We are going to explain them:
 * mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
 * mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
 * rmdir pathOfDir = Remove empty directory.
+* rmdir dir1 dir2 dir3 = Remove multiple empty directory.
 * rm -rf parentDirName/childDirName = Remove all parent child relational directory forcefully. 
 
 ```
