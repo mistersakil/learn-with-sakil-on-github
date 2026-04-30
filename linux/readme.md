@@ -109,3 +109,56 @@ Here we can see almost 19 directory. We are going to explain them:
 . = A reference of current directory
 .. = A reference of parent directory
 ```
+
+## File Permission / Access Modes
+
+Each file has **3 types of users**:
+
+- **Owner** → the person who created the file  
+- **Group** → users in the same group  
+- **Others** → everyone else  
+
+***Permission Types***
+
+Each user can have these permissions:
+
+- **r** = read (view file)
+- **w** = write (edit file)
+- **x** = execute (run file)
+
+***Permission Format***
+
+Example 1: (-rwxr-xr--)
+Example 2: (drwxr-xr-x)
+Example 3: (lrwxrwxrwx)
+
+This has **10 characters**:
+
+***1. File Type (First Character)***
+
+- `-` = file  
+- `d` = directory  
+- `l` = link  
+
+***2. Permissions (Next 9 Characters)***
+
+Split into 3 groups:
+
+```splitInto3Group
+rwx r-x r--
+│   │  │
+│   │  └── Others
+│   └──────── Group
+└────────────── Owner
+```
+
+***3. Example Explanation***
+
+- **Owner** → `rwx` → can read, write, execute  
+- **Group** → `r-x` → can read, execute  
+- **Others** → `r--` → can only read  
+
+***More Examples***
+
+- `drwxr-xr-x` → directory, everyone can read & enter  
+- `lrwxrwxrwx` → link, full access for all
