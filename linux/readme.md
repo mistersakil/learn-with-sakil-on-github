@@ -123,7 +123,7 @@ Each file has **3 types of users**:
 Each user can have these permissions:
 
 - **r** = read (view file)
-- **w** = write (edit file)
+- **w** = write (edit file) (add or delete files for the directory)
 - **x** = execute (run file)
 
 ***Permission Format***
@@ -160,5 +160,5 @@ rwx r-x r--
 
 ***More Examples***
 
-- `drwxr-xr-x` → directory, everyone can read & enter  
+- `drwxr-xr-x` → directory, everyone can read & enter
 - `lrwxrwxrwx` → link, full access for all
