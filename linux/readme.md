@@ -114,19 +114,21 @@ Here we can see almost 19 directory. We are going to explain them:
 
 Each file has **3 types of users**:
 
-- **Owner** → the person who created the file  
-- **Group** → users in the same group  
-- **Others** → everyone else  
+- **Owner (u)** → the person who created the file  
+- **Group (g)** → users in the same group  
+- **Others (o)** → everyone else  
 
-***Permission Types***
+***Permission Types:***
 
-Each user can have these permissions:
+Each user can have these 3 types of permissions
 
-- **r** = read (view file)
-- **w** = write (edit file) (add or delete files for the directory)
-- **x** = execute (run file)
+| Permission | Meaning for file | Meaning for directory|
+| ------ | --------- | ---- |
+| r | Read file contents | List files (ls) |
+| w | Modify file | Create/delete files |
+| x | Execute file | Enter directory (cd) |
 
-***Permission Format***
+***Permission Format:***
 
 Example 1: (-rwxr-xr--)
 Example 2: (drwxr-xr-x)
@@ -136,7 +138,7 @@ This has **10 characters**:
 
 ***1. File Type (First Character)***
 
-- `-` = file  
+- `-` = regular file  
 - `d` = directory  
 - `l` = link  
 
@@ -147,9 +149,9 @@ Split into 3 groups:
 ```splitInto3Group
 rwx r-x r--
 │   │  │
-│   │  └── Others
-│   └──────── Group
-└────────────── Owner
+│   │  └── Others (u)
+│   └──────── Group (g)
+└────────────── Owner (o)
 ```
 
 ***3. Example Explanation***
@@ -162,3 +164,74 @@ rwx r-x r--
 
 - `drwxr-xr-x` → directory, everyone can read & enter
 - `lrwxrwxrwx` → link, full access for all
+
+***Using chmod in Symbolic Mode:***
+
+| Symbol | Description |
+| ------ | --------- |
+| + | Adds the designated permission(s) to a file or directory |
+| - | Removes the designated permission(s) from a file or directory |
+| = | Sets the designated permission(s) |
+
+Here's an example using testfile (devops.txt). Running ls -lh on the testfile shows that the file's permissions are as follows −
+
+```SymbolicModeExample
+$ls -lh devops.txt
+-rw-r--r-- 1 root root 0 May  2 02:52 devops.txt
+
+$chmod o+wx devops.txt
+$ls -lh devops.txt
+-rw-r--rwx 1 root root 0 May  2 02:52 devops.txt
+
+$chmod u+x devops.txt
+$ls -lh devops.txt
+-rwxr--rwx 1 root root 0 May  2 02:52 devops.txt
+
+$chmod u-w devops.txt
+$ls -lh devops.txt
+-r-xr--rwx 1 root root 0 May  2 02:52 devops.txt
+
+$chmod g=rw devops.txt
+$ls -l testfile
+-r-xrw-rwx 1 root root 0 May  2 02:52 devops.txt
+```
+
+Here's how you can combine these commands on a single line-
+
+```SymbolicModeExampleCombination
+$chmod o-wx,u+w,g=rx devops.txt
+$ls -lh devops.txt
+-rwxr-xr-- 1 root root 0 May  2 02:52 devops.txt
+```
+
+***Numeric (Octal) Representations:***
+
+Each permission has a numeric value
+
+| Permission | Value |
+| ------ | --------- |
+| r | 4 |
+| w | 2 |
+| x | 1 |
+
+*Add them:*
+
+```AddThem
+rwx = 4+2+1 = 7
+r-x = 4+0+1 = 5
+r-- = 4+0+0 = 4
+```
+
+*Example:*
+
+```NumericExampleExplain
+command : chmod 754 file.txt
+--means--
+> Owner → 7 (rwx)
+> Group → 5 (r-x)
+> Others → 4 (r--)
+```
+
+***Think of it like:***
+
+> Who (user/group/others) can do what (read/write/execute) on which file
