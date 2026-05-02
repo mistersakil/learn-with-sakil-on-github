@@ -204,15 +204,20 @@ $ls -lh devops.txt
 -rwxr-xr-- 1 root root 0 May  2 02:52 devops.txt
 ```
 
-***Numeric (Octal) Representations:***
+***Using chmod with Numeric (Octal) Representations:***
 
 Each permission has a numeric value
 
-| Permission | Value |
-| ------ | --------- |
-| r | 4 |
-| w | 2 |
-| x | 1 |
+| Ref | Value | Octal Permission Representation |
+| --- | ----- | ------------------------------- |
+| --- | 0 | No permission |
+| --x | 1 | Execute permission |
+| -w- | 2 | Write permission |
+| -wx | 3 | Execute and write permission: 1 (execute) + 2 (write) = 3 |
+| r-- | 4 |  Read permission |
+| r-x | 5 | Read and execute permission: 4 (read) &plus; 1 (execute) = 5 |
+| rw- | 6 | Read and write permission: 4 (read) &plus; 2 (write) = 6 |
+| rwx | 7 | All permissions: 4 (read) &plus; 2 (write) &plus; 1 (execute) = 7 |
 
 *Add them:*
 
@@ -230,6 +235,24 @@ command : chmod 754 file.txt
 > Owner → 7 (rwx)
 > Group → 5 (r-x)
 > Others → 4 (r--)
+
+--another example--
+$chmod 777 devops.txt
+$ls -lh devops.txt
+-rwxrwxrwx 1 root root 0 May  2 02:52 devops.txt
+
+$chmod 755 devops.txt
+$ls -lh devops.txt
+-rwxr-xr-x 1 root root 0 May  2 02:52 devops.txt
+
+$chmod 744 devops.txt
+$ls -lh devops.txt
+-rwxr--r-- 1 root root 0 May  2 02:52 devops.txt
+
+$chmod 700 devops.txt
+$ls -lh devops.txt
+-rwx------ 1 root root 0 May  2 02:52 devops.txt
+
 ```
 
 ***Think of it like:***
