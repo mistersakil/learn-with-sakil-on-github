@@ -95,6 +95,7 @@ Here we can see almost 19 directory. We are going to explain them:
 * ls -lah = hidden long list with human readable memory size format.
 * ls -ldh = long list of directory with human readable memory size.
 * ls -li = long list with i-nodes.
+* ll = long list - a alias of ls -l.
 * mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
 * mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
 * rmdir pathOfDir = Remove empty directory.
@@ -110,7 +111,15 @@ Here we can see almost 19 directory. We are going to explain them:
 .. = A reference of parent directory
 ```
 
-## File Permission / Access Modes
+## File Management
+
+Create an empty file: `touch filename`
+Create series of empty files: `touch {1..100}.txt`
+Update file timestamp: `touch filename`
+Update file timestamp (set custom time): `touch -t 202601011030 filename`
+Check file type: `file filename`
+
+## File Permissions / Access Modes
 
 Each file has **3 types of users**:
 
