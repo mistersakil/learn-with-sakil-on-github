@@ -82,8 +82,15 @@ Here we can see almost 19 directory. We are going to explain them:
 
 *Everything in linux is files even directory is a special kinda files.*
 
+***Meaning of root:***
+
+- / = system root directory.
+- /root = root user root directory. after login using root user you can see something like this in your terminal `root@hostname:~#`. here ~ means root directory of root user. sometime you can see like this after login `sakil@hostname:~$` that means sakil pointed to his home directory.
+
+***Few important commands:***
+
 ```workingWithDirectories
-* pwd = Present working directory.
+* pwd = print working directory.
 * cd pathname = change directory based on relative path.
 * cd /pathname = change directory based on absolute path.
 * cd ~ = change to users home directory. 
@@ -96,8 +103,10 @@ Here we can see almost 19 directory. We are going to explain them:
 * ls -ldh = long list of directory with human readable memory size.
 * ls -li = long list with i-nodes.
 * ll = long list - a alias of ls -l.
+* ll sakil/os/fedora sakil/os/debian = long list of multiple directory. 
 * mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
 * mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
+* mkdir -p sakil/os/fedora sakil/os/debian = create multiple empty directory recursively. 
 * rmdir pathOfDir = Remove empty directory.
 * rmdir dir1 dir2 dir3 = Remove multiple empty directory.
 * rm -rf parentDirName/childDirName = Remove all parent child relational directory forcefully. 
@@ -118,6 +127,7 @@ Create series of empty files: `touch {1..100}.txt`
 Update file timestamp: `touch filename`
 Update file timestamp (set custom time): `touch -t 202601011030 filename`
 Check file type: `file filename`
+Rename file/dir = `mv sourceDirOrFile newDirOrFile`
 
 ## File Permissions / Access Modes
 
