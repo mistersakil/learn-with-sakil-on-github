@@ -73,6 +73,11 @@ SSH (Secure Shell) via OpenSSH is a protocol for-
 |github_ed25519|Private key (never share)|
 |github_ed25519.pub|public key (copy to server/GitHub)|
 
+## Add SSH Key to SSH Agent (Required)
+
+***Start SSH agent:*** `eval "$(ssh-agent -s)"`
+***Add your SSH private key:*** `ssh-add ~/.ssh/github_ed25519`
+
 ## Add SSH Key to GitHub
 
 ***Linux/UNIX:*** cat ~/.ssh/github_ed25519.pub
