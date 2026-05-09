@@ -26,14 +26,14 @@
 
 *Generates multiple strings from patterns.*
 
-`echo file{1,3,5}.txt` = file1.txt file3.txt file5.txt. Selected expansion
-`echo file{1..3}.txt` = file1.txt file2.txt file3.txt. Range expansion
-`echo {a..e}` = a b c d e . Range expansion
+* `echo file{1,3,5}.txt` = file1.txt file3.txt file5.txt. Selected expansion
+* `echo file{1..3}.txt` = file1.txt file2.txt file3.txt. Range expansion
+* `echo {a..e}` = a b c d e . Range expansion
 
 ### 2. Tilde (~) Expansion
 
-`cd ~` = Expands to your home directory (e.g., /home/sakil)
-`cd ~root` = Root user's home directory
+* `cd ~` = Expands to your home directory (e.g., /home/sakil)
+* `cd ~root` = Root user's home directory
 
 ### 3. Parameter / Variable ($) Expansion
 
@@ -68,8 +68,8 @@ echo $((a + b)) =  15
 
 ### 6. Filename Expansion
 
-`ls *.txt` = Lists all .txt files.
-`ls *.docx` = Lists all .docx files.
+* `ls *.txt` = Lists all .txt files.
+* `ls *.docx` = Lists all .docx files.
 
 ```fileNameExpansion
 Pattern Match
