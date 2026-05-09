@@ -108,10 +108,10 @@ file_1_2026.txt file_2_2026.txt file_3_2026.txt
 
 ***`type` command checks the command type***
 
-`type cd` = cd is a shell builtin
-`type type` = type is a shell builtin
-`type echo` = echo is a shell builtin
-`help` = Check all builtins
+* `type cd` = cd is a shell builtin
+* `type type` = type is a shell builtin
+* `type echo` = echo is a shell builtin
+* `help` = Check all builtins
 
 ### 2. External Commands (Binary Executables)
 
@@ -122,8 +122,9 @@ file_1_2026.txt file_2_2026.txt file_3_2026.txt
 * /usr/local/bin
 
 ***Examples:***
-`type ls` = ls is aliased to ls --color=auto
-`whereis ls` = ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+
+* `type ls` = ls is aliased to ls --color=auto
+* `whereis ls` = ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
 
 ### 3. Shell Functions
 
