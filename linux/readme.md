@@ -122,10 +122,36 @@ Here we can see almost 19 directory. We are going to explain them:
 
 ## File Management
 
+***Uses of `touch` command:***
 Create an empty file: `touch filename`
 Create series of empty files: `touch {1..100}.txt`
 Update file timestamp: `touch filename`
 Update file timestamp (set custom time): `touch -t 202601011030 filename`
+
+***Uses of `cat & tac` command:***
+`cat fileName` = To read file content.
+
+`cat > fileName` = type command cat > fileName, then press enter btn. This command prompt you a terminal to write your content or do nothing. Press ctrl+c to close prompt. Remember all existing content will erased.
+
+`cat > fileName << exitCommand` = does as like cat > fileName, just there is an pre-defined exit command included. Example- cat > file.txt << EOF . After writing content just type EOF
+
+`cat >> fileName` = this opens old file or create new. write content, which will append on that file, all existing content will be preserved.
+
+`cat >> fileName << exitCommand` = does as like cat >> fileName, just there is an pre-defined exit command included. Example- cat > file.txt << EOF. After writing content just type EOF
+
+`tac fileName` = print file contents by reverse order.
+
+***Uses of `head & tail` command:***
+
+`head fileName` = print top 10  (default) lines of a file.
+`head -5 fileName` = print top 5 lines of a file.
+`head -5 fileName | tac` = print top 5 lines of a file by reverse order.
+
+`tail fileName` = print bottom 10 (default) lines of a file.
+`tail -5 fileName` = print bottom 5 lines of a file.
+`tail -5 fileName | tac` = print bottom 5 lines of a file by reverse order.
+
+***Uses of others command:***
 Check file type: `file filename`
 Rename file/dir = `mv sourceDirOrFile newDirOrFile`
 
