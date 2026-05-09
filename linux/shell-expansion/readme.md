@@ -147,8 +147,8 @@ Then run: myFunc
 
 *Shortcuts for longer commands.*
 
-`alias myList="ls -la"` = creates custom alias named myList.
-`alias` = List aliases.
+* `alias myList="ls -la"` = creates custom alias named myList.
+* `alias` = List aliases.
 
 ***Characteristics:***
 
