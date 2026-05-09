@@ -95,3 +95,99 @@ file_1_2026.txt file_2_2026.txt file_3_2026.txt
 ## Main Command Types in Linux
 
 *In a Linux shell (especially Bash), command types refer to how the shell classifies and resolves a command you type. This matters because the shell searches and executes them in a specific priority order.*
+
+### 1. Built-in Commands (Shell Builtins)
+
+*These are implemented inside the shell itself—no external binary is needed.*
+
+***Characteristics:***
+
+* Faster (no process spawn)
+* Always available inside the shell
+* Can modify shell state (e.g., cd, export)
+
+***`type` command checks the command type***
+
+`type cd` = cd is a shell builtin
+`type type` = type is a shell builtin
+`type echo` = echo is a shell builtin
+`help` = Check all builtins
+
+### 2. External Commands (Binary Executables)
+
+*These are actual programs stored on disk, usually in directories like:*
+
+* /bin
+* /usr/bin
+* /usr/local/bin
+
+***Examples:***
+`type ls` = ls is aliased to ls --color=auto
+`whereis ls` = ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+
+### 3. Shell Functions
+
+*User-defined reusable command blocks.*
+
+```userDefinedFunction
+myFunc() {
+  git pull
+  npm install
+}
+Then run: myFunc
+```
+
+***Characteristics:***
+
+* Stored in shell memory
+* Useful for automation
+* Override external commands if same name exists
+
+### 4. Aliases
+
+*Shortcuts for longer commands.*
+
+`alias myList="ls -la"` = creates custom alias named myList.
+`alias` = List aliases.
+
+***Characteristics:***
+
+* Simple text substitution
+* Not suitable for complex logic
+* Expanded before execution
+
+### 5. Keywords (Reserved Words)
+
+*Special syntax elements used by the shell parser.*
+
+***Examples:***
+
+* if
+* then
+* fi
+* for
+* while
+* case
+
+*These are not commands—you can't run them standalone.*
+
+#### Command Resolution Order
+
+*When you type a command, the shell checks in this order:*
+
+* Aliases
+* Keywords
+* Functions
+* Builtins
+* External commands ($PATH)
+
+##### How to Identify Command Type
+
+`type ls`
+
+***Output examples:***
+
+* ls is /usr/bin/ls → external
+* cd is a shell builtin
+* ll is aliased to 'ls -la'
+* myFunc is a function
