@@ -192,3 +192,82 @@ Then run: myFunc
 * cd is a shell builtin
 * ll is aliased to 'ls -la'
 * myFunc is a function
+
+## Types of Shell Variables
+
+*Shell variables are named storage locations managed by the shell (e.g., Bash) that hold string values used during command execution, scripting, and environment configuration.*
+
+*They're fundamental for parameterization, state management, and process inheritance in Linux systems.*
+
+### 1. Local Variables (Shell Variables)
+
+```definedWithinCurrent
+Defined within the current shell session.
+----------------------------------------
+name="Sakil"
+echo $name
+prints 'Sakil'
+```
+
+***Characteristics:***
+
+* Scope: current shell only
+* Not inherited by child processes
+* Used for scripting logic
+
+### 2. Environment Variables
+
+*Variables that are exported and inherited by child processes.*
+
+`export APP_ENV=production`
+
+***Characteristics:***
+
+*Available to subprocesses (e.g., scripts, programs)
+*Used by system tools and applications
+`echo $APP_ENV` = production
+
+### 3. Special Shell Variables
+
+*Automatically maintained by the shell.*
+
+***Examples:***
+
+* $HOME   -> home directory
+* $USER   -> current user
+* $PWD    -> current working directory
+* $SHELL  -> current shell path
+* $?      -> last command exit status (0 means success)
+* $$      -> current process ID
+
+### 4. Positional Parameters
+
+*Used in scripts to handle arguments.*
+
+```PositionalParameters
+$0  # script name
+$1  # first argument
+$2  # second argument
+$@  # all arguments
+$#  # number of arguments
+
+echo "First arg: $1"
+```
+
+### 5. Readonly Variables
+
+*Cannot be modified once set.*
+
+`readonly PI=3.14`
+
+#### Useful Commands
+
+* `set` = List all variables
+* `env` = List only environment variables
+* `unset varName` = Remove variable
+
+##### Summary
+
+* Local variable → shell-only memory
+* Environment variable → shared with processes
+* Special variables → system-provided context
