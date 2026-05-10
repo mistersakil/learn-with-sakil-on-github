@@ -361,3 +361,57 @@ To see exactly which executable is used
 which php
 type php
 ```
+
+## Distinguish between System admin binaries and System administration commands
+
+*These two sound similar but are actually about installation source vs system ownership.*
+
+### 1. System administration commands → /usr/sbin
+
+These are core OS-provided admin tools installed by the package manager of your Linux distribution.
+
+***Characteristics:***
+
+* Installed automatically with the OS or via yum, dnf, apt
+* Managed by the system (RPM/DEB packages)
+* Considered official, stable, and maintained
+* Typically require root privileges
+
+***Examples:***
+
+* iptables
+* fdisk
+* useradd
+* reboot
+
+### 2. System admin binaries (locally installed) → /usr/local/sbin
+
+*These are manually installed admin tools by a system administrator (you).*
+
+***Characteristics:***
+
+* Not managed by the OS package manager
+* Installed from source (make install) or custom scripts
+* Used for custom setups or newer versions
+* Also typically require root access
+
+***Examples:***
+
+* Custom compiled nginx
+* Manually installed php
+* Internal admin scripts
+
+### 3. Key Difference (core concept)
+
+|Aspect|/usr/sbin|/usr/local/sbin|
+|------|---------|---------------|
+|Source|OS / package manager|Manual install (admin)|
+|Ownership|Distribution-controlled|User/admin-controlled|
+|Updates|Automatic via package manager|Manual|
+|Risk|Stable|Can break if mismanaged|
+|Use case|Default system tools|Custom or overridden tools|
+
+### 4. Simple summary
+
+* /usr/sbin → official system admin commands
+* /usr/local/sbin → your custom admin binaries
