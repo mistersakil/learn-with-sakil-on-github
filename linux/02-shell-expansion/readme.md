@@ -199,7 +199,7 @@ Then run: myFunc
 
 *They're fundamental for parameterization, state management, and process inheritance in Linux systems.*
 
-### 1. Local Variables (Shell Variables)
+### 1. Local Variables
 
 ```definedWithinCurrent
 Defined within the current shell session.
@@ -227,7 +227,7 @@ prints 'Sakil'
 *Used by system tools and applications
 `echo $APP_ENV` = production
 
-### 3. Special Shell Variables
+### 3. Built-in Shell Variables
 
 *Automatically maintained by the shell.*
 
@@ -303,3 +303,26 @@ echo $APP_ENV
 echo $_count
 
 ```
+
+## Explain built-in $PATH variable
+
+### 1. Command itself
+
+```explainPathVariable
+echo $PATH
+
+output:
+----------
+/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+```
+
+* echo → prints output to the terminal
+* $PATH → expands the PATH variable
+
+### 2. What is PATH?
+
+*PATH is a colon-separated list of directories that the shell searches when you run a command.*
+
+When you type something like: `ls` . the shell does NOT magically know where `ls` is. It searches directories in `PATH` from left to right until it finds an executable named `ls`.
+
+### 3. Output path explained
