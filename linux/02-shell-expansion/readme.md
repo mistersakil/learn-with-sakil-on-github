@@ -325,4 +325,39 @@ output:
 
 When you type something like: `ls` . the shell does NOT magically know where `ls` is. It searches directories in `PATH` from left to right until it finds an executable named `ls`.
 
-### 3. Output path explained
+### 3. PATH output explained
+
+`/root/.local/bin:/root/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin`
+
+***Each part is a directory:***
+
+|Directory|Purpose|
+|---------|-------|
+|/root/.local/bin|User-specific executables (installed locally for root)|
+|/root/bin|Custom scripts or binaries for root user|
+|/usr/local/sbin|System admin binaries (locally installed)|
+|/usr/local/bin|User binaries installed manually|
+|/usr/sbin|System administration commands|
+|/usr/bin|Main system commands (like ls, cp, cat)|
+
+### 4. How the shell uses it (important)
+
+*`php` - The shell checks:*
+
+* /root/.local/bin/php
+* /root/bin/php
+* /usr/local/sbin/php
+* /usr/local/bin/php
+* /usr/sbin/php
+* /usr/bin/php
+
+`First match wins.`
+
+### 5. Quick debug tip
+
+To see exactly which executable is used
+
+```quickDebugTip
+which php
+type php
+```
