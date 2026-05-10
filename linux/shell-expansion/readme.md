@@ -271,3 +271,35 @@ echo "First arg: $1"
 * Local variable → shell-only memory
 * Environment variable → shared with processes
 * Special variables → system-provided context
+
+### Naming Rules of variables/identifiers
+
+*Here's a short summary of how to write variable names in a Linux shell.*
+
+* Use letters, numbers, underscore (_)
+* Must start with a letter or (_)
+* No spaces around =
+* No special characters like -, @, #
+* Case-sensitive (VAR ≠ var)
+
+```variableNamingConvention
+Valid Examples
+--------------
+user_name="sakil"
+APP_ENV=production
+_count=10                   # valid but discouraged to use
+export userName="sakil"     # make it global
+
+Invalid Examples
+----------------
+user-name="sakil"   # dash not allowed
+1name="sakil"       # cannot start with number
+name = "sakil"      # space not allowed
+
+Use Variables
+-------------
+echo $user_name
+echo $APP_ENV
+echo $_count
+
+```
