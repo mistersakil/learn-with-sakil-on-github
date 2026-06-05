@@ -54,27 +54,27 @@ Open
 Close
 ```
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
 একটি Candle কী গল্প বলছে তা বুঝতে পারা।
 
 ---
 
-## পর্যায় 3: Market Structure (২ সপ্তাহ)
+## পর্যায় 3: মার্কেট স্ট্রাকচার (২ সপ্তাহ)
 
-এটাই Smart Money Concept-এর ভিত্তি।
+এটাই স্মার্ট মানি কনসেপ্ট (Smart Money Concept - SMC) এর ভিত্তি।
 
-### শিখুন:
+***শিখুন:***
 
-* Uptrend
-* Downtrend
-* Range
-* Higher High (HH)
-* Higher Low (HL)
-* Lower High (LH)
-* Lower Low (LL)
+* আপট্রেন্ড (Uptrend)
+* ডাউনট্রেন্ড (Downtrend)
+* রেঞ্জ (Range)
+* হায়ার হাই (Higher High - HH)
+* হায়ার লো (Higher Low - HL)
+* লোয়ার হাই (Lower High - LH)
+* লোয়ার লো (Lower Low - LL)
 
-### Uptrend
+### আপট্রেন্ড (Uptrend)
 
 ```text
 HH
@@ -85,83 +85,73 @@ HH
 HL    HL
 ```
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
-Trend সনাক্ত করতে পারা।
+ট্রেন্ড (Trend) সনাক্ত করতে পারা।
 
 ---
 
-## পর্যায় 4: Support & Resistance
+## পর্যায় ৪: সাপোর্ট & রেসিস্টেন্স (Support & Resistance)
 
-### শিখুন:
+***শিখুন:***
 
-* Support
-* Resistance
-* Breakout
-* Retest
+* সাপোর্ট (Support)
+* রেসিস্টেন্স (Resistance)
+* ব্রেকআউট (Breakout)
+* রিটেস্ট (Retest)
 
-```text
-Resistance
-─────────────
-
-Price
-
-─────────────
-Support
-```
-
-### লক্ষ্য:
+***লক্ষ্য:***
 
 কোথায় Buy/Sell Pressure আছে বুঝতে পারা।
 
 ---
 
-## পর্যায় 5: Supply & Demand
+## পর্যায় ৫: সাপ্লাই ও ডিমান্ড (Supply & Demand)
 
-### শিখুন:
+***শিখুন:***
 
-* Demand Zone
-* Supply Zone
-* Fresh Zone
-* Tested Zone
+* ডিমান্ড জোন (Demand Zone)
+* সাপ্লাই জোন (Supply Zone)
+* ফ্রেশ জোন (Fresh Zone)
+* টেস্টেড জোন (Tested Zone)
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
 বড় ক্রেতা ও বিক্রেতাদের এলাকা খুঁজে বের করা।
 
 ---
 
-## পর্যায় 6: Liquidity Concepts
+## পর্যায় ৬: লিকুইডিটি কন্সেপ্টস (Liquidity Concepts)
 
-এখন Smart Money-এর জগতে প্রবেশ।
+এখন স্মার্ট মানি (Smart Money) এর জগতে প্রবেশ।
 
-### শিখুন:
+***শিখুন:***
 
-* Liquidity
-* Liquidity Sweep
-* Buy Side Liquidity
-* Sell Side Liquidity
-* Equal High
-* Equal Low
+* লিকুইডিটি (Liquidity)
+* লিকুইডিটি সুইপ (Liquidity Sweep)
+* বাই সাইড লিকুইডিটি (Buy Side Liquidity)
+* সেল সাইড লিকুইডিটি (Sell Side Liquidity)
+* ইকুয়াল হাই (Equal High)
+* ইকুয়াল লো (Equal Low)
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
-Retail Trader কোথায় Trap হতে পারে তা বুঝতে পারা।
+রিটেল ট্রেডের (Retail Trader) কোথায় ফাঁদ (Trap) হতে পারে তা বুঝতে পারা।
 
 ---
 
-## পর্যায় 7: Smart Money Concepts (SMC)
+## পর্যায় ৭: স্মার্ট মানি কন্সেপ্টস (Smart Money Concepts - SMC)
 
-### শিখুন:
+***শিখুন:***
 
-* Order Block (OB)
-* Breaker Block
-* Fair Value Gap (FVG)
-* Market Structure Shift (MSS)
-* Change of Character (CHOCH)
-* Break of Structure (BOS)
+* অর্ডার ব্লক - Order Block (OB)
+* ব্রেকার ব্লক - Breaker Block (BB)
+* ফেয়ার ভ্যালু গপ্ - Fair Value Gap (FVG)
+* মার্কেট স্ট্রাকচার শিফট - Market Structure Shift (MSS)
+* চেঞ্জ অফ ক্যারেক্টার - Change of Character (CHOCH)
+* ব্রেক অফ স্ট্রাকচার - Break of Structure (BOS)
 
-### শেখার ক্রম:
+***শেখার ক্রম:***
 
 ```text
 Liquidity Sweep
@@ -173,9 +163,9 @@ Order Block
 Entry
 ```
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
-Institutional Footprint খুঁজে পাওয়া।
+ইনস্টিটিউশনাল ফুটপ্রিন্ট (Institutional Footprint) খুঁজে পাওয়া।
 
 ---
 
