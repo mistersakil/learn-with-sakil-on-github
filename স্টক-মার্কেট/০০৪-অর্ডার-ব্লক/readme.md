@@ -60,3 +60,6 @@ Order Block শুধু একটি সম্ভাব্য রিঅ্য�
 তাহলে Order Block আপনার ট্রেডিংয়ে অনেক বেশি কার্যকর হতে পারে।
 
 ![Export Process Flow](/_images/stock-market/order-block.png)
+
+> [!INFO]
+> **অনুরোধ:** কোনো ভুল পেলে আপনি এই বিষয়বস্তুটি সংশোধন করতে পারেন। ধন্যবাদ।
