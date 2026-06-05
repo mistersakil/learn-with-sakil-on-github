@@ -289,68 +289,72 @@ Risk Management
 
 ---
 
-## পর্যায় 13: Demo → Small Capital → Scale Up
+## পর্যায় ১৩: ডেমো (Demo)
 
-### ভুল পদ্ধতি
-
-```text
-শেখা → ১ লাখ টাকা Invest
-```
-
-### সঠিক পদ্ধতি
+***সঠিক পদ্ধতি:***
 
 ```text
 শেখা
   ↓
-Backtest
+ব্যাকটেস্ট (Backtest)
   ↓
-Demo Trade
+ডেমো ট্রেড (Demo Trade)
   ↓
-Small Capital
+ক্ষুদ্র মূলধন (Small Capital)
   ↓
-Consistency
+সংগতি (Consistency)
   ↓
-Scale Up
+স্কেল আপ (Scale Up)
+```
+
+***ভুল পদ্ধতি:***
+
+```text
+শেখা → ১ লাখ টাকা বিনিয়োগ করা
 ```
 
 ---
 
-## Professional Trading Learning Cycle
+## পর্যায় ১৪: প্রফেশনাল ট্রেডিং লার্নিং সাইকেল - Professional Trading Learning Cycle
 
 ```text
-Market Basics
+মার্কেট ব্যাসিক্স - Market Basics
       ↓
-Candlestick
+ক্যান্ডেলস্টিক - Candlestick
       ↓
-Market Structure
+মার্কেট স্ট্রাকচার - Market Structure
       ↓
-Support/Resistance
+সাপোর্ট/রেসিস্টেন্স - Support/Resistance
       ↓
-Supply & Demand
+সাপ্লাই/ডিমান্ড - Supply & Demand
       ↓
-Liquidity
+লিকুইডিটি - Liquidity
       ↓
-SMC Concepts
+এসএমসি কনসেপ্টস - SMC Concepts
       ↓
-Risk Management
+ঝুঁকি ব্যবস্থাপনা - Risk Management
       ↓
-Psychology
+সাইকোলজি - Psychology
       ↓
-Build Strategy
+কৌশল তৈরি করুন - Build Strategy
       ↓
-Backtesting
+ব্যাকটেস্টিং - Backtesting
       ↓
-Live Trading
+লাইভ ট্রেডিং - Live Trading
       ↓
-Journal Review
+জার্নাল পর্যালোচনা - Journal Review
       ↓
-Improve
+ইম্প্রোভ - Improve
       ↓
-Repeat
+রিপিট - Repeat
 ```
 
-**যদি লক্ষ্য Professional Trader হওয়া হয়, তাহলে শেখার অগ্রাধিকার হওয়া উচিত:**
+**পেশাদার ট্রেডার হওয়ার লক্ষ্য থাকলে, শেখাকে অগ্রাধিকার দেওয়া উচিত:**
 
 `Market Structure → Liquidity → SMC → Risk Management → Psychology`
 
-কারণ লাভজনক ট্রেডারদের বেশিরভাগই Indicator-এর চেয়ে Price Action, Liquidity এবং Risk Management-এর উপর বেশি গুরুত্ব দেয়।
+কারণ বেশিরভাগ লাভজনক ট্রেডাররা ইন্ডিকেটরের চেয়ে প্রাইস অ্যাকশন, লিকুইডিটি এবং রিস্ক ম্যানেজমেন্টকে বেশি গুরুত্ব দেন।
+
+> [!TIP]
+> 
+> **🙏 অনুরোধ:** কোনো ভুল পেলে আপনি এই বিষয়বস্তুটি সংশোধন করতে পারেন। আপনার অবদান এই প্রজেক্টকে আরও সমৃদ্ধ করবে। ধন্যবাদ।
