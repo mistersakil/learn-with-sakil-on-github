@@ -1,14 +1,14 @@
-# স্টক ট্রেডিং শেখার Step-by-Step Learning Roadmap (Beginner → Professional)
+# স্টক ট্রেডিং ধাপে ধাপে শেখার রোডম্যাপ (শিক্ষানবিশ → পেশাদার)
 
-অনেক নতুন ট্রেডার সরাসরি Buy/Sell শিখতে গিয়ে ক্ষতিগ্রস্ত হয়। আসলে ট্রেডিং শেখার একটি নির্দিষ্ট ধাপ আছে। নিচের Learning Cycle অনুসরণ করলে ভিত্তি অনেক শক্ত হবে।
+অনেক নতুন ট্রেডার সরাসরি ক্রয়/বিক্রয় (Buy/Sell) শিখতে গিয়ে ক্ষতিগ্রস্ত হয়। আসলে ট্রেডিং শেখার একটি নির্দিষ্ট ধাপ আছে। নিচের লার্নিং সাইকেল অনুসরণ করলে ভিত্তি অনেক শক্ত হবে।
 
 ---
 
-## Phase 1: Stock Market Basics (১-২ সপ্তাহ)
+## পর্যায় ১: স্টক মার্কেটের মৌলিক বিষয় (১-২ সপ্তাহ)
 
 প্রথমে বুঝতে হবে মার্কেট কীভাবে কাজ করে।
 
-### শিখুন:
+***শিখুন:***
 
 * স্টক মার্কেট কী
 * শেয়ার কী
@@ -19,28 +19,28 @@
 * Bid, Ask, Spread
 * Volume ও Turnover
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
 মার্কেটের ভাষা বুঝতে পারা।
 
 ---
 
-## Phase 2: Candlestick Mastery (১-২ সপ্তাহ)
+## পর্যায় 2: ক্যান্ডেলস্টিক মাস্টারী (১-২ সপ্তাহ)
 
-Candlestick হলো ট্রেডারের ভাষা।
+ক্যান্ডেলস্টিক হলো ট্রেডারের ভাষা।
 
-### শিখুন:
+***শিখুন:***
 
-* Bullish Candle
-* Bearish Candle
-* Doji
-* Hammer
-* Shooting Star
-* Engulfing Pattern
-* Morning Star
-* Evening Star
+* বুল্লিশ ক্যান্ডলে (Bullish Candle)
+* বেয়ারিশ ক্যান্ডলে (Bearish Candle)
+* ডোজি (Doji)
+* হাম্মের (Hammer)
+* শুটিং ষ্টার (Shooting Star)
+* এঙ্গুলফিং প্যাটার্ন (Engulfing Pattern)
+* মর্নিং ষ্টার (Morning Star)
+* ইভনিং ষ্টার (Evening Star)
 
-### বুঝুন:
+***বুঝুন***
 
 ```text
 Open
@@ -60,7 +60,7 @@ Close
 
 ---
 
-## Phase 3: Market Structure (২ সপ্তাহ)
+## পর্যায় 3: Market Structure (২ সপ্তাহ)
 
 এটাই Smart Money Concept-এর ভিত্তি।
 
@@ -91,7 +91,7 @@ Trend সনাক্ত করতে পারা।
 
 ---
 
-## Phase 4: Support & Resistance
+## পর্যায় 4: Support & Resistance
 
 ### শিখুন:
 
@@ -116,7 +116,7 @@ Support
 
 ---
 
-## Phase 5: Supply & Demand
+## পর্যায় 5: Supply & Demand
 
 ### শিখুন:
 
@@ -131,7 +131,7 @@ Support
 
 ---
 
-## Phase 6: Liquidity Concepts
+## পর্যায় 6: Liquidity Concepts
 
 এখন Smart Money-এর জগতে প্রবেশ।
 
@@ -150,7 +150,7 @@ Retail Trader কোথায় Trap হতে পারে তা বুঝত
 
 ---
 
-## Phase 7: Smart Money Concepts (SMC)
+## পর্যায় 7: Smart Money Concepts (SMC)
 
 ### শিখুন:
 
@@ -179,7 +179,7 @@ Institutional Footprint খুঁজে পাওয়া।
 
 ---
 
-## Phase 8: Technical Indicators
+## পর্যায় 8: Technical Indicators
 
 অনেকেই এখান থেকে শুরু করে, কিন্তু এটি পরে শেখা উচিত।
 
@@ -198,7 +198,7 @@ Price Action-এর Confirmation নেওয়া।
 
 ---
 
-## Phase 9: Risk Management (সবচেয়ে গুরুত্বপূর্ণ)
+## পর্যায় 9: Risk Management (সবচেয়ে গুরুত্বপূর্ণ)
 
 নতুন ট্রেডারদের ৯০% এখানেই ব্যর্থ হয়।
 
@@ -224,7 +224,7 @@ Loss ছোট রাখা।
 
 ---
 
-## Phase 10: Trading Psychology
+## পর্যায় 10: Trading Psychology
 
 Professional Trader ও Amateur Trader-এর সবচেয়ে বড় পার্থক্য।
 
@@ -251,7 +251,7 @@ Professional Trader ও Amateur Trader-এর সবচেয়ে বড় �
 
 ---
 
-## Phase 11: Build One Strategy
+## পর্যায় 11: Build One Strategy
 
 একসাথে ১০টি Strategy শিখবেন না।
 
@@ -275,7 +275,7 @@ Risk Management
 
 ---
 
-## Phase 12: Backtesting
+## পর্যায় 12: Backtesting
 
 ### কমপক্ষে:
 
@@ -297,7 +297,7 @@ Mistake
 
 ---
 
-## Phase 13: Demo → Small Capital → Scale Up
+## পর্যায় 13: Demo → Small Capital → Scale Up
 
 ### ভুল পদ্ধতি
 
