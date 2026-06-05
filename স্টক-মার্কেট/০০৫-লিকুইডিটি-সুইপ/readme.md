@@ -14,9 +14,9 @@ Liquidity Sweep হলো এমন একটি ঘটনা যেখানে
 * Previous Day High / Low
 * Support / Resistance
 
-`:bulb: এই জায়গাগুলোতে অনেক Order জমা থাকে।`
+:bulb: `এই জায়গাগুলোতে অনেক Order জমা থাকে।`
 
-Bearish Liquidity Sweep (Buy Side Liquidity Grab)
+## Bearish Liquidity Sweep (Buy Side Liquidity Grab)
 
 ধরুন মার্কেট একটি High তৈরি করেছে।
 
