@@ -190,19 +190,19 @@ Entry
 
 ---
 
-## পর্যায় 9: Risk Management (সবচেয়ে গুরুত্বপূর্ণ)
+## পর্যায় ৯: রিস্ক ম্যানেজমেন্ট (Risk Management)
 
-নতুন ট্রেডারদের ৯০% এখানেই ব্যর্থ হয়।
+সবচেয়ে গুরুত্বপূর্ণ অধ্যায় যেখানে নতুন ট্রেডারদের ৯০% এখানেই ব্যর্থ হয়।
 
-### শিখুন:
+***শিখুন:***
 
-* Risk/Reward Ratio
-* Position Sizing
-* Stop Loss
-* Maximum Drawdown
-* Capital Preservation
+* রিস্ক/রিওয়ার্ড - Risk/Reward Ratio
+* পজিশন সাইজিং - Position Sizing
+* স্টপ লস - Stop Loss
+* সর্বোচ্চ ড্রডাউন - Maximum Drawdown
+* মূলধন সংরক্ষণ - Capital Preservation
 
-### Golden Rule
+***গোল্ডেন রুল (Golden Rule):***
 
 ```text
 Risk : Reward = 1 : 2
@@ -210,46 +210,46 @@ Risk : Reward = 1 : 2
 Risk : Reward = 1 : 3
 ```
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
-Loss ছোট রাখা।
-
----
-
-## পর্যায় 10: Trading Psychology
-
-Professional Trader ও Amateur Trader-এর সবচেয়ে বড় পার্থক্য।
-
-### শিখুন:
-
-* Fear
-* Greed
-* FOMO
-* Revenge Trading
-* Discipline
-* Patience
-
-### Professional Mindset
-
-✅ Setup না থাকলে Trade না করা
-
-✅ Loss Accept করা
-
-✅ Plan Follow করা
-
-❌ Over Trading না করা
-
-❌ Emotional Trading না করা
+লোকসান (Loss) ছোট রাখা।
 
 ---
 
-## পর্যায় 11: Build One Strategy
+## পর্যায় ১০: ট্রেডিং সাইকোলজি (Trading Psychology)
 
-একসাথে ১০টি Strategy শিখবেন না।
+একজন পেশাদার ট্রেডার এবং একজন অপেশাদার ট্রেডারের মধ্যে সবচেয়ে বড় পার্থক্যটি এই ট্রেডিং সাইকোলজি মাধ্যমেই তৈরি হয়।
 
-একটি Strategy বেছে নিন।
+***শিখুন:***
 
-উদাহরণ:
+* ভয় - Fear
+* লোভ - Greed
+* কিছু হারানোর ভয় - FOMO
+* রেভেঞ্জ ট্রেডিং - Revenge Trading
+* শৃঙ্খলা - Discipline
+* ধৈর্য - Patience
+
+***পেশাদার মানসিকতা (Professional Mindset):***
+
+✅ সেটআপ না থাকলে ব্যবসা না করা।
+
+✅ ক্ষতি মেনে নেয়া।
+
+✅ প্ল্যান ফলো করুন।
+
+❌ ওভার ট্রেডিং না করা।
+
+❌ ইমোশনাল ট্রেডিং না করা।
+
+---
+
+## পর্যায় ১১: বিল্ড ওয়ান স্ট্রাটেজি (Build One Strategy)
+
+একসাথে ১০টি স্ট্রাটেজি (Strategy) শিখবেন না।
+
+একটি স্ট্রাটেজি বেছে নিন।
+
+***উদাহরণ:***
 
 ```text
 Market Structure
@@ -261,30 +261,30 @@ Order Block
 Risk Management
 ```
 
-### লক্ষ্য:
+***লক্ষ্য:***
 
-একই Setup বারবার Execute করা।
+একই সেটআপ (Setup) বারবার কার্যকর (Execute) করা।
 
 ---
 
-## পর্যায় 12: Backtesting
+## পর্যায় ১২: ব্যাকটেস্টিং (Backtesting)
 
-### কমপক্ষে:
+***কমপক্ষে:***
 
-* ১০০-২০০ Trade Review
-* Win Rate বের করা
-* Risk/Reward হিসাব করা
+* ১০০-২০০ ট্রেড রিভিউ।
+* উইন রেট বের করা।
+* রিস্ক/রিওয়ার্ড পরিমাণ করা।
 
-### Journal রাখুন:
+***জার্নাল রাখুন:***
 
 ```text
-Date
-Stock
-Entry
-Stop Loss
-Target
-Result
-Mistake
+ডেট - Date
+স্টক - Stock
+এন্ট্রি - Entry
+স্টপ লস - Stop Loss
+টার্গেট - Target
+ফলাফল - Result
+ভুল - Mistake
 ```
 
 ---
