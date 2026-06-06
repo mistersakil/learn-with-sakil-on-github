@@ -33,8 +33,8 @@
 
 ***শিখুন:***
 
-* বুল্লিশ ক্যান্ডলে (Bullish Candle)
-* বেয়ারিশ ক্যান্ডলে (Bearish Candle)
+* বুল্লিশ ক্যান্ডেল (Bullish Candle)
+* বেয়ারিশ ক্যান্ডেল (Bearish Candle)
 * ডোজি (Doji)
 * হ্যামার (Hammer)
 * শুটিং ষ্টার (Shooting Star)
