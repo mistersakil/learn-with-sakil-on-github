@@ -36,7 +36,7 @@
 * বুল্লিশ ক্যান্ডলে (Bullish Candle)
 * বেয়ারিশ ক্যান্ডলে (Bearish Candle)
 * ডোজি (Doji)
-* হাম্মের (Hammer)
+* হ্যামার (Hammer)
 * শুটিং ষ্টার (Shooting Star)
 * এঙ্গুলফিং প্যাটার্ন (Engulfing Pattern)
 * মর্নিং ষ্টার (Morning Star)

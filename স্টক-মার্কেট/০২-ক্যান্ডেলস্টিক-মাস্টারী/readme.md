@@ -1,0 +1,520 @@
+# ক্যান্ডেলস্টিক মাস্টারী (Candlestick Mastery)
+
+আপনাকে ক্যান্ডেলস্টিক-কে শুধু প্যাটার্ন হিসেবে নয়, **Buyer ও Seller-এর যুদ্ধের ফলাফল** হিসেবে বুঝতে হবে।
+
+একজন প্রফেশনাল ট্রেডার ক্যান্ডেল দেখে Price-এর পিছনের সাইকোলজি পড়ে।
+
+> বাংলাদেশি স্টক মার্কেট ট্রেডারের জন্য
+
+---
+
+## ক্যান্ডেলস্টিক আসলে কী?
+
+***একটি ক্যান্ডেল নির্দিষ্ট সময়ের ৪টি তথ্য দেখায়:***
+
+* শুরু (Open)
+* উচ্চ (High)
+* নিম্ন (Low)
+* বন্ধ (Close)
+
+```text
+       High
+         │
+         │
+    ┌────┴────┐Close/Open
+    │         │
+    │  Body   │
+    │         │
+    └────┬────┘Open/Close
+         │
+         │
+        Low
+```
+
+---
+
+### Candlestick-এর Anatomy
+
+***1. Open Price:*** যে দামে Candle শুরু হয়েছে।
+
+***2. Close Price:*** যে দামে Candle শেষ হয়েছে।
+
+***3. High Price:*** Candle চলাকালীন সর্বোচ্চ দাম।
+
+***4. Low Price:*** Candle চলাকালীন সর্বনিম্ন দাম।
+
+---
+
+## Bullish Candle
+
+Close > Open
+
+```text
+      High
+        │
+        │
+    ┌───┐ ← Close
+    │   │
+    │   │
+    └───┘ ← Open
+        │
+        │
+      Low
+```
+
+অর্থ:
+
+Buyer Seller-কে পরাজিত করেছে।
+
+---
+
+# Bearish Candle
+
+Open > Close
+
+```text
+      High
+        │
+        │
+    ┌───┐ ← Open
+    │   │
+    │   │
+    └───┘ ← Close
+        │
+        │
+      Low
+```
+
+অর্থ:
+
+Seller Buyer-কে পরাজিত করেছে।
+
+---
+
+# Body কী বলে?
+
+Body যত বড়:
+
+```text
+████████
+```
+
+তত শক্তিশালী Momentum।
+
+---
+
+## বড় Bullish Body
+
+```text
+     ████
+     ████
+     ████
+```
+
+অর্থ:
+
+Buyer সম্পূর্ণ নিয়ন্ত্রণে।
+
+---
+
+## বড় Bearish Body
+
+```text
+     ████
+     ████
+     ████
+```
+
+অর্থ:
+
+Seller সম্পূর্ণ নিয়ন্ত্রণে।
+
+---
+
+# Wick কী বলে?
+
+Wick হচ্ছে Rejection।
+
+---
+
+## Upper Wick
+
+```text
+      │
+      │
+    ┌─┴─┐
+    │   │
+    └───┘
+```
+
+অর্থ:
+
+Price উপরে গিয়েছিল কিন্তু Seller চাপ দিয়েছে।
+
+---
+
+## Lower Wick
+
+```text
+    ┌───┐
+    │   │
+    └─┬─┘
+      │
+      │
+```
+
+অর্থ:
+
+Price নিচে গিয়েছিল কিন্তু Buyer ফিরে এসেছে।
+
+---
+
+# Professional Reading
+
+নতুন ট্রেডার:
+
+> Candle Pattern খোঁজে
+
+প্রফেশনাল ট্রেডার:
+
+> Buyer এবং Seller-এর শক্তি খোঁজে
+
+---
+
+# Doji Candle
+
+Open ≈ Close
+
+```text
+      │
+      │
+──────┼──────
+      │
+      │
+```
+
+---
+
+## অর্থ
+
+Market সিদ্ধান্তহীন।
+
+Buyer এবং Seller সমান শক্তিশালী।
+
+---
+
+## DSE Context
+
+যদি Uptrend-এর শেষে Doji আসে:
+
+```text
+Bullish
+Bullish
+Bullish
+Doji
+```
+
+তাহলে Momentum দুর্বল হতে পারে।
+
+---
+
+# Hammer Candle
+
+```text
+      ┌───┐
+      │   │
+      └─┬─┘
+        │
+        │
+        │
+        │
+```
+
+Lower Wick বড়।
+
+Body ছোট।
+
+---
+
+## Psychology
+
+1. Seller দাম নিচে নামায়।
+2. Buyer শক্তিশালীভাবে ফিরে আসে।
+3. Close উপরে হয়।
+
+---
+
+## DSE Example
+
+ধরুন Support Zone:
+
+```text
+35 টাকা
+```
+
+Price:
+
+```text
+36
+35
+34
+33
+```
+
+হঠাৎ Hammer তৈরি হলো।
+
+এটি Demand Zone নির্দেশ করতে পারে।
+
+---
+
+# Shooting Star
+
+Hammer-এর উল্টো।
+
+```text
+        │
+        │
+        │
+      ┌─┴─┐
+      │   │
+      └───┘
+```
+
+---
+
+## Psychology
+
+1. Buyer দাম উপরে তোলে।
+2. Seller প্রবেশ করে।
+3. Price নিচে বন্ধ হয়।
+
+---
+
+## DSE Context
+
+Resistance-এর কাছে Shooting Star হলে সতর্ক হতে হবে।
+
+---
+
+# Bullish Engulfing
+
+```text
+Day 1
+
+  ███
+
+Day 2
+
+██████████
+```
+
+দ্বিতীয় Candle প্রথম Candle-কে পুরোপুরি ঢেকে দেয়।
+
+---
+
+## Psychology
+
+Seller ছিল।
+
+Buyer এসে Seller-কে সম্পূর্ণ পরাজিত করেছে।
+
+---
+
+## High Probability Zone
+
+* Support
+* Demand Zone
+* Liquidity Sweep-এর পরে
+
+---
+
+# Bearish Engulfing
+
+```text
+Day 1
+
+ ███
+
+Day 2
+
+██████████
+```
+
+উল্টো ঘটনা।
+
+---
+
+## Psychology
+
+Buyer দুর্বল।
+
+Seller নিয়ন্ত্রণ নিচ্ছে।
+
+---
+
+# Morning Star
+
+Bullish Reversal Pattern
+
+```text
+Large Bearish
+
+     ↓
+
+Small Candle
+
+     ↓
+
+Large Bullish
+```
+
+---
+
+## Psychology
+
+```text
+Seller Control
+      ↓
+Indecision
+      ↓
+Buyer Control
+```
+
+---
+
+## কোথায় কাজ করে?
+
+* Demand Zone
+* Strong Support
+* Sell Side Liquidity Sweep
+
+---
+
+# Evening Star
+
+Morning Star-এর উল্টো।
+
+---
+
+## Psychology
+
+```text
+Buyer Control
+      ↓
+Indecision
+      ↓
+Seller Control
+```
+
+---
+
+# বাংলাদেশি মার্কেটে গুরুত্বপূর্ণ বাস্তবতা
+
+DSE-তে Candle Pattern একা ব্যবহার করা বিপজ্জনক।
+
+কারণ:
+
+* Operator Activity
+* Low Liquidity Stocks
+* Circuit Limit
+* Manipulation
+
+---
+
+# Professional Formula
+
+কখনোই:
+
+```text
+Hammer = Buy
+```
+
+এভাবে ভাববেন না।
+
+বরং:
+
+```text
+Support
++
+Volume
++
+Hammer
++
+Market Structure
+=
+Potential Buy Setup
+```
+
+---
+
+# Candlestick Reading Hierarchy
+
+প্রতিটি Candle দেখার সময় এই ৫টি প্রশ্ন করবেন:
+
+### 1. Trend কী?
+
+```text
+Uptrend?
+Downtrend?
+Range?
+```
+
+---
+
+### 2. Candle কোথায় তৈরি হয়েছে?
+
+```text
+Support?
+Resistance?
+Liquidity?
+Demand Zone?
+```
+
+---
+
+### 3. Volume কেমন?
+
+```text
+High Volume?
+Low Volume?
+```
+
+---
+
+### 4. Wick কী বলছে?
+
+```text
+Rejection?
+Acceptance?
+```
+
+---
+
+### 5. Market Structure কি পরিবর্তন হচ্ছে?
+
+```text
+HH?
+HL?
+LH?
+LL?
+```
+
+---
+
+# Phase 2-এর লক্ষ্য
+
+Phase 2 শেষ হলে আপনি Candle দেখে বলতে পারবেন:
+
+✅ Buyer নাকি Seller শক্তিশালী
+
+✅ Rejection হয়েছে কিনা
+
+✅ Momentum বাড়ছে নাকি কমছে
+
+✅ Reversal-এর সম্ভাবনা আছে কিনা
+
+✅ Liquidity Grab হয়েছে কিনা
+
+✅ Smart Money-এর উপস্থিতি আছে কিনা
+
+Phase 3 (Market Structure) হলো সেই ধাপ যেখানে Candlestick-গুলোকে একসাথে যুক্ত করে পুরো মার্কেটের গল্প পড়া শিখবেন। একজন লাভজনক ট্রেডারের জন্য Market Structure সাধারণত Candlestick Pattern-এর চেয়েও বেশি গুরুত্বপূর্ণ।
