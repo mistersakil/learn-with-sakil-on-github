@@ -27,7 +27,7 @@
 
 ---
 
-## পর্যায় 2: ক্যান্ডেলস্টিক মাস্টারী (Candlestick Mastery)
+## পর্যায় ২: ক্যান্ডেলস্টিক মাস্টারী (Candlestick Mastery)
 
 ক্যান্ডেলস্টিক হলো ট্রেডারের ভাষা।
 
@@ -62,7 +62,7 @@ Close
 
 ---
 
-## পর্যায় 3: মার্কেট স্ট্রাকচার (২ সপ্তাহ)
+## পর্যায় ৩: মার্কেট স্ট্রাকচার (Market structure)
 
 এটাই স্মার্ট মানি কনসেপ্ট (Smart Money Concept - SMC) এর ভিত্তি।
 
@@ -93,7 +93,7 @@ HL    HL
 
 ---
 
-## পর্যায় ৪: সাপোর্ট & রেসিস্টেন্স (Support & Resistance)
+## পর্যায় ৪: সাপোর্ট ও রেসিস্টেন্স (Support & Resistance)
 
 ***শিখুন:***
 
@@ -315,7 +315,7 @@ Risk Management
 
 ---
 
-## পর্যায় ১৪: প্রফেশনাল মার্কেটের লার্নিং সাইকেল - Professional Trading Learning Cycle
+## সারসংক্ষেপ: প্রফেশনাল মার্কেটের লার্নিং সাইকেল - Professional Trading Learning Cycle
 
 ```text
 মার্কেট ব্যাসিক্স - Market Basics
