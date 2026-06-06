@@ -50,16 +50,16 @@
 
 অনেক নতুন ট্রেডার মনে করেন Order Block মানেই দাম সেখান থেকে ঘুরে যাবে। বাস্তবে তা নয়।
 
-Order Block শুধু একটি সম্ভাব্য রিঅ্যাকশন জোন। তাই সবসময়:
+***Order Block শুধু একটি সম্ভাব্য রিঅ্যাকশন জোন। তাই সবসময়:***
 
 * Stop Loss ব্যবহার করুন
 * Risk Management অনুসরণ করুন
 * Market Structure দেখুন
 * Confirmation ছাড়া Entry নেবেন না
 
-তাহলে Order Block আপনার ট্রেডিংয়ে অনেক বেশি কার্যকর হতে পারে।
+>তাহলে Order Block আপনার ট্রেডিংয়ে অনেক বেশি কার্যকর হতে পারে।
 
-![Export Process Flow](/_images/stock-market/order-block.png)
+![Order Block](/_images/stock-market/order-block.png)
 
 > [!TIP]
 > 
