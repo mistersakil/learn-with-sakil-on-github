@@ -96,7 +96,7 @@ Downtrend নিশ্চিত করছে।
 
 ---
 
-## Uptrend কী?
+## ঊর্ধ্বমুখী প্রবণতা (Uptrend) কী?
 
 সংজ্ঞা:
 
@@ -118,9 +118,7 @@ HH → HL → HH → HL
 HL     \/
 ```
 
----
-
-## Psychology
+***সাইকোলজি:***
 
 Buyer বলছে:
 
@@ -130,9 +128,7 @@ Seller দাম নামাতে পারছে না।
 
 প্রতি Pullback আগের Low-এর উপরে থামছে।
 
----
-
-## DSE Example
+***ডিএসই উদাহরণ:***
 
 ধরুন:
 
@@ -167,17 +163,15 @@ Strong Uptrend।
 
 ---
 
-# Downtrend কী?
+## নিম্নমুখী প্রবণতা (Downtrend) কী?
 
-সংজ্ঞা:
+***সংজ্ঞা:***
 
 ```text
 LL → LH → LL → LH
 ```
 
----
-
-## Visual
+***ভিজ্যুয়াল (Visual):***
 
 ```text
 HH
@@ -191,9 +185,7 @@ HH
          ▼ LL
 ```
 
----
-
-## Psychology
+***সাইকোলজি:***
 
 Seller বলছে:
 
@@ -201,9 +193,7 @@ Seller বলছে:
 
 Buyer Recovery করতে পারছে না।
 
----
-
-## DSE Example
+***ডিএসই উদাহরণ:***
 
 ```text
 100
@@ -223,7 +213,7 @@ Buyer Recovery করতে পারছে না।
 
 ---
 
-# Range Market
+## রেঞ্জ মার্কেট (Range Market)
 
 বাংলাদেশের বাজারে অনেক সময় ৬০-৭০% শেয়ার Range-এ থাকে।
 
@@ -237,23 +227,17 @@ Resistance
 Support
 ```
 
----
+***সাইকোলজি:***
 
-## Psychology
+* Buyer এবং Seller সমান শক্তিশালী।
 
-Buyer এবং Seller সমান শক্তিশালী।
+***সবচেয়ে বড় ভুল:***
 
----
+* Range-এর মাঝখানে Buy করা।
 
-## সবচেয়ে বড় ভুল
+* Range-এর মাঝখানে Sell করা।
 
-Range-এর মাঝখানে Buy করা।
-
-Range-এর মাঝখানে Sell করা।
-
----
-
-## Professional Entry
+***পেশাদার প্রবেশ (Professional Entry):***
 
 ```text
 Support এর কাছে Buy
@@ -261,9 +245,7 @@ Support এর কাছে Buy
 Resistance এর কাছে Sell
 ```
 
----
-
-# Swing High কী?
+***Swing High কী?***
 
 এমন High যেখানে Price ঘুরে নিচে গেছে।
 
@@ -274,9 +256,7 @@ Resistance এর কাছে Sell
   /     \
 ```
 
----
-
-# Swing Low কী?
+***Swing Low কী?***
 
 এমন Low যেখানে Price ঘুরে উপরে গেছে।
 
@@ -289,15 +269,13 @@ Resistance এর কাছে Sell
 
 ---
 
-# Structure Break (BOS)
+## কাঠামো ভাঙা (Structure Break - BOS)
 
 BOS = Break Of Structure
 
 এটি SMC-এর সবচেয়ে গুরুত্বপূর্ণ বিষয়।
 
----
-
-## Bullish BOS
+***বুলিশ বস (Bullish BOS):***
 
 ```text
       Old High
@@ -313,17 +291,13 @@ Price Breaks
 Above High
 ```
 
----
-
-## Meaning
+***অর্থ (Meaning):***
 
 Buyer Control নিচ্ছে।
 
 Trend Continue হওয়ার সম্ভাবনা।
 
----
-
-# Bearish BOS
+***বেয়ারিশ বস (Bearish BOS):***
 
 ```text
 Old Low
@@ -333,21 +307,17 @@ Price Breaks
 Below Low
 ```
 
----
-
-## Meaning
+***অর্থ (Meaning):***
 
 Seller Control নিচ্ছে।
 
 ---
 
-# Market Structure Shift (MSS)
+## বাজার কাঠামোর পরিবর্তন (Market Structure Shift - MSS)
 
-এখানেই Smart Money Concept শুরু।
+এখানেই এখানেই স্মার্ট মানি কনসেপ্ট শুরু।
 
----
-
-## Uptrend থেকে Downtrend
+***আপট্রেন্ড থেকে ডাউনট্রেন্ড:***
 
 ```text
 HH
@@ -359,9 +329,7 @@ HH
 HL Break
 ```
 
----
-
-Visual:
+***ভিজ্যুয়াল (Visual):***
 
 ```text
       HH
@@ -373,23 +341,17 @@ Visual:
       HL Break
 ```
 
----
+***অর্থ (Meaning):***
 
-## Meaning
+* ক্রেতা দুর্বল হচ্ছে।
 
-Buyer দুর্বল হচ্ছে।
+* ট্রেন্ড পরিবর্তন শুরু হতে পারে।
 
-Trend Change শুরু হতে পারে।
+***চরিত্রের পরিবর্তন (Change Of Character - CHOCH):***
 
----
+* CHOCH = ট্রেন্ড-এর প্রথম সতর্ক সংকেত।
 
-# Change Of Character (CHOCH)
-
-CHOCH = Trend-এর প্রথম Warning Signal।
-
----
-
-### Uptrend
+### ঊর্ধ্বমুখী প্রবণতা (Uptrend)
 
 ```text
 HH
@@ -403,8 +365,6 @@ HL Break
 
 CHOCH
 
----
-
 ### তারপর
 
 ```text
@@ -413,13 +373,13 @@ LH
 LL
 ```
 
-Trend Change Confirm।
+ট্রেন্ড চেঞ্জ কন্ফার্ম (Trend Change Confirm)
 
 ---
 
-# DSE Trader-এর জন্য বাস্তব Rule
+## ডিএসই ট্রেডার-এর বাস্তব নিয়ম
 
-## Buy করবেন যখন
+***কখন কিনবেন:***
 
 ```text
 HH
@@ -430,9 +390,7 @@ HL
 
 চলছে।
 
----
-
-## Sell/Exit ভাববেন যখন
+***কখন বিক্রি করতে হবে:***
 
 ```text
 HH
@@ -446,89 +404,47 @@ HL Break
 
 ---
 
-# Multi Timeframe Structure
+## মাল্টি টাইমফ্রেম কাঠামো (Multi Timeframe Structure)
 
-এখানেই বেশিরভাগ Retail Trader ভুল করে।
+এখানেই বহু খুচরা ব্যবসায়ী ভুল করে।
 
----
-
-## Monthly
+***মাসিক (Monthly):***
 
 ```text
 Uptrend
 ```
 
----
-
-## Weekly
+***সাপ্তাহিক (Weekly):***
 
 ```text
 Uptrend
 ```
 
----
-
-## Daily
+***প্রতিদিন (Daily):***
 
 ```text
 Pullback
 ```
 
----
+পেশাদার ট্রেডার বলে:
 
-Professional Trader বলবে:
-
-> "এটি Pullback, Downtrend নয়।"
+> "এটি পুলব্যাক, ডাউনট্রেন্ড নয়।"
 
 ---
 
-# Structure Reading Formula
+## Structure Reading Formula
 
 প্রতিটি চার্টে এই ৫টি প্রশ্ন করুন:
 
-### 1
-
-```text
-Trend?
-```
-
-Uptrend / Downtrend / Range
+* ট্রেন্ড কোথায় (Uptrend / Downtrend / Range)?
+* শেষ HH কোথায়?
+* শেষ HL কোথায়?
+* BOS হয়েছে?
+* CHOCH হয়েছে?
 
 ---
 
-### 2
-
-```text
-শেষ HH কোথায়?
-```
-
----
-
-### 3
-
-```text
-শেষ HL কোথায়?
-```
-
----
-
-### 4
-
-```text
-BOS হয়েছে?
-```
-
----
-
-### 5
-
-```text
-CHOCH হয়েছে?
-```
-
----
-
-# DSE-তে সবচেয়ে শক্তিশালী Setup
+## DSE-তে সবচেয়ে বড় সেটআপ
 
 ```text
 Uptrend
@@ -546,7 +462,7 @@ Entry
 
 ---
 
-# Professional Market Structure Roadmap
+## পেশাদার বাজার কাঠামোর রোডম্যাপ (Professional Market Structure Roadmap)
 
 ```text
 Trend
@@ -571,18 +487,27 @@ Order Block
 
 ---
 
-# Phase 3 শেষ হলে আপনার যা পারা উচিত
+## তৃতীয় পর্যায় শেষ করার পর আপনি যা করতে সক্ষম হবেন
 
 ✅ চার্ট দেখে ৫ সেকেন্ডে Trend চিহ্নিত করা
 
 ✅ HH, HL, LH, LL মার্ক করা
 
-✅ Range Market চিনতে পারা
+✅ রেঞ্জ মার্কেট চিনতে পারা
 
 ✅ BOS এবং CHOCH খুঁজে বের করা
 
-✅ Trend Continuation ও Trend Reversal আলাদা করা
+✅ ট্রেন্ড কন্টিনিউয়েশন এবং ট্রেন্ড রিভার্সাল করা
 
-✅ Smart Money Structure পড়া
+✅ স্মার্ট মানি স্ট্রাকচার পড়া
 
-আমার অভিজ্ঞতায়, **Market Structure + Liquidity + Risk Management** শিখে ফেললে আপনি DSE-এর ৮০% Retail Trader-এর চেয়ে এগিয়ে থাকবেন। এরপর Phase 4 (Support, Resistance, Breakout, Retest) শিখলে Structure-এর সাথে Entry Location নির্ধারণ করতে পারবেন, যা বাস্তব ট্রেডিংয়ে অনেক বেশি কার্যকর।
+আমার অভিজ্ঞতা, **বাজারের কাঠামো + তারল্য + ঝুঁকি ব্যবস্থাপনা (Market Structure + Liquidity + Risk Management)** শিখে ফেললে আপনি ডিএসই-এর ৮০% খুচরা ব্যবসায়ী- এর চেয়ে এগিয়ে থাকবেন। পর্যায় ০৪ [**সাপোর্ট, রেজিস্ট্যান্স, ব্রেকআউট, রিটেস্ট (Support, Resistance, Breakout, Retest)**](../০৪-সাপোর্ট-রেজিস্টেন্স) শিখে স্ট্রাকচার- এর সাথে এন্ট্রি লোকেশন নির্ধারণ করতে পারবেন, যা বাস্তব ট্রেডিংয়ে অনেক বেশি কার্যকর।
+
+| পরের ধাপ | আগের ধাপ |
+| --------- | ---------- |
+| [০৪ - সাপোর্ট ও রেজিস্টেন্স (Support & Resistance)](../০৪-সাপোর্ট-রেজিস্টেন্স) | [০২ - ক্যান্ডেলস্টিক মাস্টারী (Candlestick Mastery)](../০২-ক্যান্ডেলস্টিক-মাস্টারী)  |
+
+>
+> [!TIP]
+>
+> **🙏 অনুরোধ:** কোনো ভুল পেলে আপনি এই বিষয়বস্তুটি সংশোধন করতে পারেন। আপনার অবদান এই প্রজেক্টকে আরও সমৃদ্ধ করবে। ধন্যবাদ।
