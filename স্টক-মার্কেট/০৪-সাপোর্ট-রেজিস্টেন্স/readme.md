@@ -114,13 +114,13 @@ Resistance হলো এমন Price Zone যেখানে Seller-রা স�
 
 ## Support ও Resistance আসলে Zone
 
-নতুন ট্রেডারের ভুল:
+***নতুন ট্রেডারের ভুল:***
 
 ```text
 Support = 50.00
 ```
 
-Professional Trader:
+***প্রফেশনাল ট্রেডার:***
 
 ```text
 Support Zone
@@ -130,17 +130,9 @@ Support Zone
 50.50
 ```
 
+***কারণ:*** Price কখনো মিলিমিটার অনুযায়ী ঘোরে না। বিশেষ করে DSE-তে।
 
-
-## কারণ
-
-Price কখনো মিলিমিটার অনুযায়ী ঘোরে না।
-
-বিশেষ করে DSE-তে।
-
-
-
-# Support কেন কাজ করে?
+### Support কেন কাজ করে?
 
 ধরুন:
 
@@ -152,7 +144,7 @@ Price কখনো মিলিমিটার অনুযায়ী ঘো�
 60
 ```
 
-60-এ এসে Buyer ঢুকল।
+***60-এ এসে Buyer ঢুকল।***
 
 Price:
 
@@ -164,17 +156,13 @@ Price:
 90
 ```
 
-
-
 Buyer মনে রাখবে:
 
 > "60 ভালো দাম ছিল।"
 
 আবার 60-এ এলে তারা Buy করতে পারে।
 
-
-
-# Resistance কেন কাজ করে?
+### Resistance কেন কাজ করে?
 
 ধরুন:
 
@@ -188,23 +176,17 @@ Buyer মনে রাখবে:
 80
 ```
 
-80-এ যারা আটকে ছিল তারা বের হতে চাইবে।
+80-এ যারা আটকে ছিল তারা বের হতে চাইবে। ফলে আবার Selling Pressure আসে।
 
-ফলে আবার Selling Pressure আসে।
+## Support এবং Resistance কীভাবে আঁকবেন?
 
+### রুল ১
 
+* Swing High ও Swing Low খুঁজুন।
 
-# Support এবং Resistance কীভাবে আঁকবেন?
+* Phase 3-এর জ্ঞান ব্যবহার করুন।
 
-## Rule 1
-
-Swing High ও Swing Low খুঁজুন।
-
-Phase 3-এর জ্ঞান ব্যবহার করুন।
-
-
-
-## Resistance
+***Resistance:***
 
 ```text
        ▲
@@ -215,9 +197,7 @@ Phase 3-এর জ্ঞান ব্যবহার করুন।
 
 Swing High
 
-
-
-## Support
+***Support:***
 
 ```text
     \     /
@@ -228,27 +208,23 @@ Swing High
 
 Swing Low
 
-
-
-# Rule 2
+### রুল ২
 
 কমপক্ষে ২-৩ বার Touch হতে হবে।
 
-একবার Touch:
+***একবার Touch:***
 
 ```text
 ❌ দুর্বল
 ```
 
-তিনবার Touch:
+***তিনবার Touch:***
 
 ```text
 ✅ শক্তিশালী
 ```
 
-
-
-# Strong Support
+### স্ট্রং সাপোর্ট (Strong Support)
 
 ```text
 70
@@ -266,9 +242,7 @@ Swing Low
 
 এখন 70 খুব গুরুত্বপূর্ণ।
 
-
-
-# Strong Resistance
+### স্ট্রং রেসিস্টেন্স (Strong Resistance)
 
 ```text
 120
@@ -281,21 +255,17 @@ Swing Low
 ↓
 ```
 
+## রোল রিভার্সাল কনসেপ্ট (Role Reversal Concept)
 
+এটি পেশাদার ট্রেডিং (Professional Trading)-এর মূল ধারণাগুলোর একটি।
 
-# Role Reversal Concept
-
-এটি Professional Trading-এর মূল ধারণাগুলোর একটি।
-
-
-
-## Resistance → Support
+***রেসিস্টেন্স → সাপোর্ট:***
 
 ```text
-80 Resistance
+80 রেসিস্টেন্স
 ```
 
-Price Break করল।
+মূল্য ব্রেক করল।
 
 ```text
 70
@@ -313,21 +283,15 @@ Price Break করল।
 80
 ```
 
-80-এ Bounce করল।
+80-এ Bounce করল। আগের রেসিস্টেন্স এখন সাপোর্ট
 
-
-
-আগের Resistance এখন Support।
-
-
-
-## Support → Resistance
+***সাপোর্ট → রেসিস্টেন্স:***
 
 ```text
-100 Support
+100 সাপোর্ট
 ```
 
-Price ভেঙে গেল।
+মূল্য ভেঙে গেল।
 
 ```text
 100
@@ -343,20 +307,16 @@ Price ভেঙে গেল।
 100
 ```
 
-100 থেকে Reject করল।
+100 থেকে রিজেক্ট করল।
 
+আগের সাপোর্ট এখন রেসিস্টেন্স
 
+## ব্রেকআউট (Breakout) কী?
 
-আগের Support এখন Resistance।
-
-
-
-# Breakout কী?
-
-Resistance-এর উপরে শক্তিশালী Break।
+রেসিস্টেন্স-এর উপরে শক্তিশালী ব্রেক
 
 ```text
-Resistance
+রেসিস্টেন্স
 ────────────
 
       ▲
@@ -364,24 +324,20 @@ Resistance
       ▲
 ```
 
-
-
-## Healthy Breakout
+***হেলথি ব্রেকআউট (Healthy Breakout):***
 
 ```text
-1. Strong Bullish Candle
-2. High Volume
-3. Close Above Resistance
+1. শক্তিশালী বুলিশ ক্যান্ডেল (Strong Bullish Candle)
+2. উচ্চ ভলিউম (High Volume)
+3. রেসিস্টেন্স এর উপরে বন্ধ করুন (Close Above Resistance)
 ```
 
-
-
-## Fake Breakout
+***ফেক ব্রেকআউট (Fake Breakout):***
 
 DSE-তে খুব সাধারণ।
 
 ```text
-Resistance
+রেসিস্টেন্স
 
 ▲
 ▲
@@ -393,43 +349,35 @@ Resistance
 ▼
 ```
 
+এটি তারল্য দখল (Liquidity Grab)-ও হতে পারে।
 
+## রিটেস্ট (Retest) কী?
 
-এটি Liquidity Grab-ও হতে পারে।
-
-
-
-# Retest কী?
-
-Breakout-এর পরে পুরনো Resistance পরীক্ষা করতে ফিরে আসা।
-
-
+ব্রেকআউট-এর পরে এর রেসিস্টেন্স পরীক্ষা করতে ফিরে আসা।
 
 ```text
-Resistance
+রেসিস্টেন্স
 ────────────
 
-Breakout
+ব্রেকআউট
     ▲
 
-Retest
+রিটেস্ট
     ▼
 
-Bounce
+বাউন্স
     ▲
 ```
 
+### পেশাদার প্রবেশ (Professional Entry)
 
-
-## Professional Entry
-
-নতুন ট্রেডার:
+***নতুন ট্রেডার:***
 
 ```text
 Breakout Candle দেখে Buy
 ```
 
-Professional Trader:
+***প্রফেশনাল ট্রেডার:***
 
 ```text
 Breakout
@@ -441,11 +389,9 @@ Confirmation
 Buy
 ```
 
+## DSE-তে ভলিউম (Volume) কেন গুরুত্বপূর্ণ?
 
-
-# DSE-তে Volume কেন গুরুত্বপূর্ণ?
-
-Support-এ Volume বাড়ছে:
+***Support-এ Volume বাড়ছে:***
 
 ```text
 Support
@@ -455,9 +401,7 @@ High Volume
 Strong Buyer
 ```
 
-
-
-Resistance-এ Volume বাড়ছে:
+***Resistance-এ Volume বাড়ছে:***
 
 ```text
 Resistance
@@ -467,61 +411,31 @@ High Volume
 Strong Seller
 ```
 
-
-
-# Multi Timeframe Support & Resistance
+## একাধিক সময়সীমার সাপোর্ট এবং রেজিস্ট্যান্স (Multi Timeframe Support & Resistance)
 
 Professional Trader সবসময় Multiple Timeframe দেখে।
 
+* ***Monthly:*** সবচেয়ে শক্তিশালী Level
 
+* ***Weekly:*** দ্বিতীয় গুরুত্বপূর্ণ
 
-## Monthly
+* ***Daily:*** Entry Level
 
-সবচেয়ে শক্তিশালী Level
+***উদাহরণ:***
 
+* Monthly Support: `200`
 
+* Weekly Support: `205`
 
-## Weekly
-
-দ্বিতীয় গুরুত্বপূর্ণ
-
-
-
-## Daily
-
-Entry Level
-
-
-
-### Example
-
-Monthly Support:
-
-```text
-200
-```
-
-Weekly Support:
-
-```text
-205
-```
-
-Daily Support:
-
-```text
-208
-```
-
-
+* Daily Support: `208`
 
 এগুলো কাছাকাছি হলে Zone শক্তিশালী হয়।
 
-
-
-# Support/Resistance + Market Structure
+## Support/Resistance + Market Structure
 
 সবচেয়ে শক্তিশালী Combination:
+
+***Buy Setup:***
 
 ```text
 Uptrend
@@ -532,12 +446,10 @@ Support
 +
 Bullish Candle
 =
-Buy Setup
+Buy Signal
 ```
 
-
-
-## Sell Setup
+***Sell Setup:***
 
 ```text
 Downtrend
@@ -551,95 +463,33 @@ Bearish Candle
 Sell Signal
 ```
 
+## DSE Trader-এর Common Mistakes
 
+* ***ভুল ১:***`Resistance-এর নিচে Buy`
 
-# DSE Trader-এর Common Mistakes
+* ***ভুল ২:***`Support ভেঙে যাওয়ার পরও Hold`
 
-### ভুল ১
+* ***ভুল ৩:***`Volume Ignore করা`
 
-```text
-Resistance-এর নিচে Buy
-```
+* ***ভুল ৪:***`একটি Timeframe দেখে সিদ্ধান্ত`
 
-
-
-### ভুল ২
-
-```text
-Support ভেঙে যাওয়ার পরও Hold
-```
-
-
-
-### ভুল ৩
-
-```text
-Volume Ignore করা
-```
-
-
-
-### ভুল ৪
-
-```text
-একটি Timeframe দেখে সিদ্ধান্ত
-```
-
-
-
-# Professional S&R Checklist
+## Professional S&R Checklist
 
 চার্ট খুলে নিজেকে জিজ্ঞাসা করুন:
 
-### 1
+* `Trend কী?`
 
-```text
-Trend কী?
-```
+* `নিকটবর্তী Support কোথায়?`
 
+* `নিকটবর্তী Resistance কোথায়?`
 
+* `Volume কী বলছে?`
 
-### 2
+* `Breakout নাকি Rejection?`
 
-```text
-নিকটবর্তী Support কোথায়?
-```
+* `Retest হয়েছে?`
 
-
-
-### 3
-
-```text
-নিকটবর্তী Resistance কোথায়?
-```
-
-
-
-### 4
-
-```text
-Volume কী বলছে?
-```
-
-
-
-### 5
-
-```text
-Breakout নাকি Rejection?
-```
-
-
-
-### 6
-
-```text
-Retest হয়েছে?
-```
-
-
-
-# Phase 4 শেষ হলে আপনার যা পারা উচিত
+## Phase 4 শেষ হলে আপনার যা পারা উচিত
 
 ✅ Major Support Zone চিহ্নিত করা
 
@@ -654,8 +504,6 @@ Retest হয়েছে?
 ✅ Support + Structure + Volume একসাথে বিশ্লেষণ করা
 
 ✅ DSE-এর High Probability Entry Zone খুঁজে পাওয়া
-
-
 
 ## একজন DSE Professional Trader-এর Basic Framework
 
@@ -673,12 +521,11 @@ Risk Management
 Consistent Trading System
 ```
 
-Phase 5 (Supply & Demand) থেকে আপনি Support/Resistance-এর আরও উন্নত সংস্করণ শিখবেন, যেখানে শুধু লাইন নয়, **Institutional Buying এবং Institutional Selling Zone** শনাক্ত করা শিখবেন। এটি Smart Money Concept (SMC) বোঝার একটি গুরুত্বপূর্ণ ধাপ।
-
+[০৫ - সাপ্লাই ও ডিমান্ড (Supply & Demand)](../০৫-সাপ্লাই-ডিমান্ড) থেকে আপনি Support/Resistance-এর আরও উন্নত সংস্করণ শিখবেন, যেখানে শুধু লাইন নয়, **Institutional Buying এবং Institutional Selling Zone** শনাক্ত করা শিখবেন। এটি Smart Money Concept (SMC) বোঝার একটি গুরুত্বপূর্ণ ধাপ।
 
 | পরের ধাপ | আগের ধাপ |
-|  | - |
-| [০৪ - সাপোর্ট ও রেজিস্টেন্স (Support & Resistance)](../০৪-সাপোর্ট-রেজিস্টেন্স) | [০২ - ক্যান্ডেলস্টিক মাস্টারী (Candlestick Mastery)](../০২-ক্যান্ডেলস্টিক-মাস্টারী) |
+| -------- | ---------- |
+| [০৫ - সাপ্লাই ও ডিমান্ড (Supply & Demand)](../০৫-সাপ্লাই-ডিমান্ড) | [০৩ - মার্কেট স্ট্রাকচার (Market Structure)](../০৩-মার্কেট-স্ট্রাকচার) |
 
 >
 > [!TIP]
