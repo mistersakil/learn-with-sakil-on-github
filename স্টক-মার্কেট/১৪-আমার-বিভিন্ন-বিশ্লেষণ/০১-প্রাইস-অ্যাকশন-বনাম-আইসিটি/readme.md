@@ -2,8 +2,6 @@
 
 অনেক নতুন ট্রেডার মনে করেন প্রাইস অ্যাকশন (Price Action) এবং আইসিটি (Inner Circle Trader) সম্পূর্ণ আলাদা জিনিস। বাস্তবে ICT-এর বেশিরভাগ ধারণাই Price Action-এর উপর ভিত্তি করে তৈরি, তবে Market Structure, Liquidity এবং Institutional Order Flow-এর উপর বেশি গুরুত্ব দেয়।
 
----
-
 ## ১. প্রাইস অ্যাকশন (Price Action) কী?
 
 Price Action হলো শুধুমাত্র Price-এর Movement দেখে Market Analysis করা।
@@ -38,7 +36,7 @@ Price Action হলো শুধুমাত্র Price-এর Movement দে�
 
 > "Trend Up, তাই Pullback এ Buy Opportunity খুঁজব।"
 
----
+
 
 ## ২. আইসিটি (Inner Circle Trader) কী?
 
@@ -59,7 +57,7 @@ ICT-এর মূল ধারণা:
 
 এসব বিষয়কে গুরুত্ব দেয়।
 
----
+
 
 ## আইসিটি - এর প্রধান ধারণা
 
@@ -75,12 +73,12 @@ ICT-এর মূল ধারণা:
 
 * চরিত্রের পরিবর্তন (CHOCH): ট্রেন্ড রিভার্সাল-এর প্রথম সংকেত।
 
----
+
 
 ## প্রাইস অ্যাকশন এবং আইসিটি-এর মিল (সাদৃশ্য)
 
 | বিষয় | Price Action | ICT |
-| ---- | ------------ | --- |
+| - |  |  |
 | Candlestick ব্যবহার | ✅ | ✅ |
 | Market Structure | ✅ | ✅ |
 | Trend Analysis | ✅ | ✅ |
@@ -109,12 +107,10 @@ ICT-এর মূল ধারণা:
 
 আসলে একই Price Movement-এর ভিন্ন ব্যাখ্যা।
 
----
-
 ## প্রাইস অ্যাকশন এবং আইসিটি-এর ভিন্নতা (পার্থক্য)
 
 | বিষয় | প্রাইস অ্যাকশন | আইসিটি |
-| ---- | ------------ | --- |
+| - |  |  |
 | সহজে শেখা যায় | ✅ | ❌ |
 | শিক্ষানবিসদের জন্য সহজ (Beginner Friendly) | ✅ | ❌ |
 | লিকুইডিটি কনসেপ্ট | সীমিত | অনেক বেশি |
@@ -149,8 +145,6 @@ ICT-এর মূল ধারণা:
 
 > Resistance-এর উপরে Liquidity ছিল। Market Liquidity Sweep করে আবার নিচে নামতে পারে। তাই সে Confirmation অপেক্ষা করবে।
 
----
-
 ## General Trading-এর জন্য কোনটি ভালো?
 
 ### নতুনদের জন্য Price Action
@@ -170,8 +164,6 @@ Price Action + ICT. সবচেয়ে কার্যকর Combination।
 
 * Trend বুঝবেন Price Action দিয়ে।
 * Entry Refinement করবেন ICT দিয়ে।
-
----
 
 ## DSE (Dhaka Stock Exchange)-এর সাথে সম্পর্ক
 
@@ -221,8 +213,6 @@ Price Action + ICT. সবচেয়ে কার্যকর Combination।
 
 এসব নিয়মিত কাজ করে।
 
----
-
 ## DSE-তে সতর্ক থাকতে হবে
 
 নিচের ICT Concept গুলো সবসময় নির্ভরযোগ্য নয়:
@@ -234,8 +224,6 @@ Price Action + ICT. সবচেয়ে কার্যকর Combination।
 * SMT Divergence
 
 কারণ এগুলো মূলত Forex ও Futures Market-এর জন্য ডিজাইন করা।
-
----
 
 ## DSE Trader-এর জন্য Practical Approach
 
@@ -272,8 +260,6 @@ Volume Check করুন
 * Liquidity Sweep
 
 ব্যবহার করে Entry Fine Tune করুন।
-
----
 
 ## সংক্ষেপে
 
