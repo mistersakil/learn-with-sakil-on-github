@@ -637,7 +637,7 @@ Professional Trading System
 
 [০৬ - লিকুইডিটি কনসেপ্ট (Liquidity Concept)](./০৬-লিকুইডিটি-কনসেপ্ট) হলো সেই ধাপ যেখানে আপনি বুঝতে পারবেন **কেন Market অনেক সময় Support, Demand Zone বা Previous Low-এর নিচে গিয়ে আবার উল্টো দিকে চলে যায়**। এখান থেকেই ICT এবং Smart Money Concept-এর আসল গভীরতা শুরু হয়।
 
-![Support Resistance](/_images/stock-market/SupportResistance.png)
+![Support Resistance](/_images/stock-market/05_SupplyDemand.png)
 
 | পরের ধাপ | আগের ধাপ |
 | -------- | ---------- |
