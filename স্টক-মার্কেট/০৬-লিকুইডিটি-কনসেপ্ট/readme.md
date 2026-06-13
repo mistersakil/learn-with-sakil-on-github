@@ -150,7 +150,7 @@ Stop Loss
 
 এটি Smart Money-এর সবচেয়ে গুরুত্বপূর্ণ Concept।
 
-***বিয়ারিশ লিকুইডিটি সুইপ (Buy Side Liquidity Grab):***
+***বিয়ারিশ লিকুইডিটি সুইপ (Buy Side Liquidity Sweep):***
 
 ধরুন মার্কেট একটি High তৈরি করেছে।
 
@@ -228,7 +228,7 @@ Stop Loss
 
 * এরপর সাধারণত Bearish Move আসে।
 
-***বুলিশ লিকুইডিটি সুইপ (Sell Side Liquidity Grab)***
+***বুলিশ লিকুইডিটি সুইপ (Sell Side Liquidity Sweep)***
 
 * এবার Low-এর নিচে Liquidity আছে।
 
@@ -354,7 +354,7 @@ Stop Loss
 * Candle আবার Support-এর উপরে Close করে।
 * শক্তিশালী Buy Move শুরু হয়।
 
-### Liquidity Sweep চিনার ৫টি উপায়
+### লিকুইডিটি সুইপ চিনার ৫টি উপায়
 
 ***1. Equal High / Equal Low***
 
@@ -691,7 +691,7 @@ Professional Trading System
 
 [০৭ - স্মার্ট মানি কনসেপ্ট (Smart Money Concept - SMC)](../০৭-স্মার্ট-মানি-কনসেপ্ট) থেকে আপনি স্মার্ট মানি-এর আসর এন্ট্রি মডেল শিখবেন। ইনস্টিটিউশনাল ফুটপ্রিন্ট পড়া এবং উচ্চ সম্ভাবনার ট্রেড সেটআপ করা শুরু করা হয়।
 
-![Support Resistance](/_images/stock-market/05_SupplyDemand.png)
+![Support Resistance](/_images/stock-market/06_LiquidityConcept.png)
 
 | পরের ধাপ | আগের ধাপ |
 | -------- | ---------- |
