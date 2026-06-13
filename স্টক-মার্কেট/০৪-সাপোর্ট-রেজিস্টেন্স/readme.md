@@ -521,9 +521,9 @@ Risk Management
 Consistent Trading System
 ```
 
-![Support Resistance](/_images/stock-market/SupportResistance.png)
-
 [০৫ - সাপ্লাই ও ডিমান্ড (Supply & Demand)](../০৫-সাপ্লাই-ডিমান্ড) থেকে আপনি Support/Resistance-এর আরও উন্নত সংস্করণ শিখবেন, যেখানে শুধু লাইন নয়, **Institutional Buying এবং Institutional Selling Zone** শনাক্ত করা শিখবেন। এটি Smart Money Concept (SMC) বোঝার একটি গুরুত্বপূর্ণ ধাপ।
+
+![Support Resistance](/_images/stock-market/SupportResistance.png)
 
 | পরের ধাপ | আগের ধাপ |
 | -------- | ---------- |
