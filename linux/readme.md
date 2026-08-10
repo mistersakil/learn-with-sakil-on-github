@@ -1,5 +1,5 @@
-# Learning Linux - Index
+# লিনাক্স শেখার সূচিপত্র
 
-- [01 - Overview of Linux](./01-overview)
-- [02 - Linux shell expansion](./02-shell-expansion)
-- [03 - Ubuntu 26 Development Environment — Laravel + React + Docker + DevOps](./03-ubuntu-dev-environment)
+- [০১ - লিনাক্সের প্রাথমিক ধারণা](./01-overview)
+- [০২ - লিনাক্স শেল এক্সপ্যানশন](./02-shell-expansion)
+- [০৩ - Ubuntu 26 Development Environment — Laravel + React + Docker + DevOps](./03-ubuntu-dev-environment)
