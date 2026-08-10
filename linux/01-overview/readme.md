@@ -1,305 +1,423 @@
-# Learning Linux
+# লিনাক্স শেখা
 
-## Linux basic cli commands
+## লিনাক্সের প্রাথমিক CLI কমান্ড
 
-- Check Linux OS Name and Version `hostnamectl`
-- Show directory listing `ls -l`
-- Back to the root directory `cd /` or `cd ~`
-- Copy Everything Inside a Folder `cp -r /copy/from/* /destination/path/`
-- Copy Everything Inside a Folder including (.filename) files `cp -r /copy/from/. /destination/path/`
-- Set os the static hostname `hostnamectl set-hostname your-new-hostname`
-- Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
-- See cpu info `cat /proc/cpuinfo`
+- লিনাক্সের OS-এর নাম ও ভার্সন দেখুন: `hostnamectl`
+- ডিরেক্টরির তালিকা দেখুন: `ls -l`
+- সিস্টেমের root directory-তে যান: `cd /` অথবা `cd ~`
+- একটি ফোল্ডারের ভেতরের সবকিছু কপি করুন: `cp -r /copy/from/* /destination/path/`
+- hidden (`.filename`) ফাইলসহ একটি ফোল্ডারের সবকিছু কপি করুন: `cp -r /copy/from/. /destination/path/`
+- Static hostname সেট করুন: `hostnamectl set-hostname your-new-hostname`
+- Container বা Linux distribution-এর ভেতরে প্রয়োজন হলে basic editor `nano` install করুন: `apt update && apt install nano -y`
+- CPU-এর তথ্য দেখুন: `cat /proc/cpuinfo`
 
-## Ecosystem-based classification
+## Linux Distribution-এর Ecosystem অনুযায়ী শ্রেণিবিন্যাস
 
-| Distro | Ecosystem | Type | Use case |
-| ------ | --------- | ---- | -------- |
-| CentOS Linux | RHEL | Stable | Avoid now |
+| Distribution | Ecosystem | ধরন | ব্যবহার |
+| ------ | --------- | ---- | ---- |
+| CentOS Linux | RHEL | Stable | এখন এড়িয়ে চলা ভালো |
 | CentOS Stream | RHEL | Rolling preview | Testing |
 | Rocky Linux | RHEL | Stable | Production |
 | AlmaLinux | RHEL | Stable | Production |
-| Kali Linux | Debian | Specialized | Security only |
-| Parrot OS | Debian | Specialized | Security/dev |
-| openSUSE | Independent | Stable/Rolling | DevOps/server |
+| Kali Linux | Debian | Specialized | Security কাজ |
+| Parrot OS | Debian | Specialized | Security/Development |
+| openSUSE | Independent | Stable/Rolling | DevOps/Server |
 
-## Access Linux Machine Using SSH | Filesystem Hierarchy in Linux
+## SSH দিয়ে Linux Machine-এ প্রবেশ | Linux Filesystem Hierarchy
 
-After login normally you will be inside authenticated user home directory like this (in my case, you will see something different but in similar pattern) `root@Ubuntu:~#.`
+SSH দিয়ে login করার পর সাধারণত authenticated user-এর home directory-তে থাকবেন। উদাহরণ:
 
-Here root is username, Ubuntu is host name, ~ means home directory and # means you are logged in as system root user.
-
-Now go to system root directory.
-`root@Ubuntu:~# cd /`
-
-Here we can see almost 19 directory. We are going to explain them:
-
-```rootDirectories
-* bin - binary/program/executable files which through we executes linux commands.
-* boot - The boot directory holds the static files used by the bootloader to initialize the system and load the kernel into memory.
-* cdrom - 
-* dev - device related program files to perform I/O (ex: mouse, printer, keyboard etc).
-* etc -
-* home - users home directory. all individual users will be included here.
-* lib - os library related program files.
-* lib32 - 32 bit os library related program files.
-* lib64 - 64 bit os library related program files.
-* libx64 - 
-* lost+found - 
-* media - 
-* mnt - Initially empty directory. mounting or unmounting portable devices (ex: usb devices).
-* opt - 
-* proc - OS Process related executable files. 
-* root - Root directory of OS.
-* run - Removable devices can be see here.
-* sbin - Super user binary files.
-* snap - 
-* srv - Serving tmp data (ex: ftp).
-* swapfile - 
-* sys - 
-* tmp - To store temporary data.
-* usr - 
-* var - var directory (short for variable) is used to store data that changes (logs) frequently during system operation.
-
+```text
+root@Ubuntu:~#
 ```
 
-## Getting Help & Man Pages in Linux | Command Details & Help
+এখানে:
 
-*'man' an interface to the system reference manuals.*
+- `root` = username
+- `Ubuntu` = hostname
+- `~` = বর্তমান user-এর home directory
+- `#` = root user হিসেবে login করা হয়েছে
 
-```manPages
-* man man =  an interface to the system reference manuals.
-* man lsblk = list of block devices.
-* man sshd = OpenSSH ssh demon.
-* man mandb = create or update the manual page index caches.
-* whereis mandb  = route: location/of/binary location/of/manual (to find out location of process and manual).
-* whatis mandb = create or update the manual page index caches.
-* man 5 mandb = manual of perticular index of a process.
-* cd --help = to get helper/options manual of a process.
+এখন system-এর root directory-তে যেতে:
+
+```bash
+root@Ubuntu:~# cd /
 ```
 
-## Working With Directories In Linux | Manage Directories
+Linux-এর root directory-র গুরুত্বপূর্ণ অংশগুলো:
 
-*Everything in linux is files even directory is a special kinda files.*
-
-***Meaning of root:***
-
-- / = system root directory.
-- /root = root user root directory. after login using root user you can see something like this in your terminal `root@hostname:~#`. here ~ means root directory of root user. sometime you can see like this after login `sakil@hostname:~$` that means sakil pointed to his home directory.
-
-***Few important commands:***
-
-```workingWithDirectories
-* pwd = print working directory.
-* cd pathname = change directory based on relative path.
-* cd /pathname = change directory based on absolute path.
-* cd ~ = change to users home directory. 
-* cd - = traverse to previous directory. 
-* ls = list all items inside current directory.
-* ls /var/log = list all items inside given directory.
-* ls -l = long list of all items.
-* ls -la = long list with hidden items.
-* ls -lah = hidden long list with human readable memory size format.
-* ls -ldh = long list of directory with human readable memory size.
-* ls -li = long list with i-nodes.
-* ll = long list - a alias of ls -l.
-* ll sakil/os/fedora sakil/os/debian = long list of multiple directory. 
-* mkdir dirName = Create a empty directory (ex: mkdir /tmp/fedora).
-* mkdir -p parentDirName/childDirName = Create a empty directory with parent child relationship (ex: mkdir /tmp/fedora/centos).
-* mkdir -p sakil/os/fedora sakil/os/debian = create multiple empty directory recursively. 
-* rmdir pathOfDir = Remove empty directory.
-* rmdir dir1 dir2 dir3 = Remove multiple empty directory.
-* rm -rf parentDirName/childDirName = Remove all parent child relational directory forcefully. 
-
+```text
+/bin        - Linux command চালানোর binary/program/executable ফাইল।
+/boot       - Bootloader-এর প্রয়োজনীয় static file এবং kernel boot করার ফাইল।
+/cdrom      - CD/DVD media mount করার জন্য ব্যবহৃত directory (যদি থাকে)।
+/dev        - Device সম্পর্কিত special file; যেমন keyboard, mouse, disk ইত্যাদি।
+/etc        - System-wide configuration file রাখার প্রধান directory।
+/home       - সাধারণ user-দের home directory।
+/lib        - System-এর প্রয়োজনীয় shared library।
+/lib32      - 32-bit library (যদি system-এ থাকে)।
+/lib64      - 64-bit library।
+/lost+found - Filesystem recovery-এর সময় পাওয়া orphaned file রাখার জায়গা (সাধারণত ext filesystem-এ)।
+/media      - Removable media, যেমন USB/SD card-এর mount point।
+/mnt        - Temporary/manual mount করার জন্য ব্যবহৃত directory।
+/opt        - Optional বা third-party software রাখার জন্য।
+/proc       - Running process ও kernel-এর virtual information filesystem।
+/root       - root user-এর home directory।
+/run        - বর্তমানে চলমান system/process-এর runtime data।
+/sbin       - System administration-এর binary/command।
+/snap       - Snap package-এর data ও mount point।
+/srv        - System যে service-related data পরিবেশন করে তার জন্য।
+/sys        - Kernel ও hardware সম্পর্কিত virtual information filesystem।
+/tmp        - Temporary file রাখার directory।
+/usr        - User-space applications, libraries, documentation ইত্যাদি।
+/var        - পরিবর্তনশীল data; যেমন log, cache, spool ইত্যাদি।
 ```
 
-***Meaning of DOTS (. & ..)***
+> মনে রাখুন: `/` হলো system root directory, আর `/root` হলো root user-এর home directory।
 
-```dotsMeaning
-. = A reference of current directory
-.. = A reference of parent directory
+## Linux-এ Help নেওয়া ও Man Page
+
+`man` হলো system reference manual পড়ার interface।
+
+```bash
+man man
+man lsblk
+man sshd
+man mandb
+whereis mandb
+whatis mandb
+man 5 mandb
+cd --help
+```
+
+কিছু গুরুত্বপূর্ণ অর্থ:
+
+- `man man` → `man` command-এর manual দেখায়।
+- `man lsblk` → block device সম্পর্কিত manual।
+- `man sshd` → OpenSSH server daemon-এর manual।
+- `man mandb` → manual page index তৈরি/আপডেট করার তথ্য।
+- `whereis mandb` → binary, source এবং manual-এর অবস্থান খুঁজে দেয়।
+- `whatis mandb` → command-এর সংক্ষিপ্ত description দেখায়।
+- `man 5 mandb` → নির্দিষ্ট manual section-এর entry দেখায়।
+- `cd --help` → command-এর available option সম্পর্কে সাহায্য দেয়।
+
+## Linux-এ Directory নিয়ে কাজ | Directory Management
+
+Linux-এ প্রায় সবকিছুই file হিসেবে বিবেচিত হয়; directory-ও একটি বিশেষ ধরনের file structure।
+
+### Root-এর অর্থ
+
+- `/` = system root directory।
+- `/root` = root user-এর home directory।
+- `~` = বর্তমানে login করা user-এর home directory।
+
+উদাহরণ:
+
+```text
+root@hostname:~#
+```
+
+এখানে `~` root user-এর home directory বোঝায়। আবার:
+
+```text
+sakil@hostname:~$
+```
+
+এখানে `~` Sakil user-এর home directory বোঝায়।
+
+### গুরুত্বপূর্ণ Directory Command
+
+```text
+pwd pathname              = বর্তমান working directory দেখায়।
+cd pathname               = relative path ব্যবহার করে directory পরিবর্তন করে।
+cd /pathname              = absolute path ব্যবহার করে directory পরিবর্তন করে।
+cd ~                      = বর্তমান user-এর home directory-তে যায়।
+cd -                      = আগের directory-তে ফিরে যায়।
+ls                       = বর্তমান directory-এর item দেখায়।
+ls /var/log               = নির্দিষ্ট directory-এর item দেখায়।
+ls -l                     = বিস্তারিত list দেখায়।
+ls -la                    = hidden file-সহ বিস্তারিত list দেখায়।
+ls -lah                   = hidden file-সহ human-readable size দেখায়।
+ls -ldh                   = directory-এর নিজস্ব তথ্য human-readable format-এ দেখায়।
+ls -li                    = inode number-সহ list দেখায়।
+ll                       = সাধারণত `ls -l`-এর alias।
+ll sakil/os/fedora sakil/os/debian = একাধিক directory-এর list দেখায়।
+mkdir dirName             = একটি খালি directory তৈরি করে।
+mkdir -p parent/child     = parent ও child directory তৈরি করে।
+mkdir -p sakil/os/fedora sakil/os/debian = একাধিক nested directory তৈরি করে।
+rmdir pathOfDir           = খালি directory মুছে দেয়।
+rmdir dir1 dir2 dir3      = একাধিক খালি directory মুছে দেয়।
+rm -rf parent/child       = directory ও তার contents forcefully মুছে দেয়।
+```
+
+> `rm -rf` অত্যন্ত সতর্কতার সঙ্গে ব্যবহার করুন। ভুল path দিলে গুরুত্বপূর্ণ data মুছে যেতে পারে।
+
+### Dot (`.` এবং `..`)-এর অর্থ
+
+```text
+.  = বর্তমান directory-এর reference
+.. = parent directory-এর reference
 ```
 
 ## File Management
 
-***Uses of `touch` command:***
-Create an empty file: `touch filename`
-Create series of empty files: `touch {1..100}.txt`
-Update file timestamp: `touch filename`
-Update file timestamp (set custom time): `touch -t 202601011030 filename`
+### `touch` command
 
-***Uses of `cat & tac` command:***
-`cat fileName` = To read file content.
-
-`cat > fileName` = type command cat > fileName, then press enter btn. This command prompt you a terminal to write your content or do nothing. Press ctrl+c to close prompt. Remember all existing content will erased.
-
-`cat > fileName << exitCommand` = does as like cat > fileName, just there is an pre-defined exit command included. Example- cat > file.txt << EOF . After writing content just type EOF
-
-`cat >> fileName` = this opens old file or create new. write content, which will append on that file, all existing content will be preserved.
-
-`cat >> fileName << exitCommand` = does as like cat >> fileName, just there is an pre-defined exit command included. Example- cat > file.txt << EOF. After writing content just type EOF
-
-`tac fileName` = print file contents by reverse order.
-
-***Uses of `head & tail` command:***
-
-`head fileName` = print top 10  (default) lines of a file.
-`head -5 fileName` = print top 5 lines of a file.
-`head -5 fileName | tac` = print top 5 lines of a file by reverse order.
-
-`tail fileName` = print bottom 10 (default) lines of a file.
-`tail -5 fileName` = print bottom 5 lines of a file.
-`tail -5 fileName | tac` = print bottom 5 lines of a file by reverse order.
-
-***Uses of others command:***
-Check file type: `file filename`
-Rename file/dir = `mv sourceDirOrFile newDirOrFile`
-
-## File Permissions / Access Modes
-
-Each file has **3 types of users**:
-
-- **Owner (u)** → the person who created the file  
-- **Group (g)** → users in the same group  
-- **Others (o)** → everyone else  
-
-***Permission Types:***
-
-Each user can have these 3 types of permissions
-
-| Permission | Meaning for file | Meaning for directory|
-| ------ | --------- | ---- |
-| r | Read file contents | List files (ls) |
-| w | Modify file | Create/delete files |
-| x | Execute file | Enter directory (cd) |
-
-***Permission Format:***
-
-Example 1: (-rwxr-xr--)
-Example 2: (drwxr-xr-x)
-Example 3: (lrwxrwxrwx)
-
-This has **10 characters**:
-
-***1. File Type (First Character)***
-
-- `-` = regular file  
-- `d` = directory  
-- `l` = link  
-
-***2. Permissions (Next 9 Characters)***
-
-Split into 3 groups:
-
-```splitInto3Group
-rwx r-x r--
-│   │  │
-│   │  └── Others (u)
-│   └──────── Group (g)
-└────────────── Owner (o)
+```bash
+touch filename
 ```
 
-***3. Example Explanation***
+একটি খালি file তৈরি করে।
 
-- **Owner** → `rwx` → can read, write, execute  
-- **Group** → `r-x` → can read, execute  
-- **Others** → `r--` → can only read  
+```bash
+touch {1..100}.txt
+```
 
-***More Examples***
+`1.txt` থেকে `100.txt` পর্যন্ত একাধিক file তৈরি করে।
 
-- `drwxr-xr-x` → directory, everyone can read & enter
-- `lrwxrwxrwx` → link, full access for all
+```bash
+touch filename
+```
 
-***Using chmod in Symbolic Mode:***
+File-এর timestamp update করে।
 
-| Symbol | Description |
-| ------ | --------- |
-| + | Adds the designated permission(s) to a file or directory |
-| - | Removes the designated permission(s) from a file or directory |
-| = | Sets the designated permission(s) |
+```bash
+touch -t 202601011030 filename
+```
 
-Here's an example using testfile (devops.txt). Running ls -lh on the testfile shows that the file's permissions are as follows −
+নির্দিষ্ট timestamp সেট করে।
 
-```SymbolicModeExample
-$ls -lh devops.txt
+### `cat` ও `tac`
+
+```bash
+cat fileName
+```
+
+File-এর content দেখায়।
+
+```bash
+cat > fileName
+```
+
+নতুন content লিখে file তৈরি/overwrite করা যায়। Existing content overwrite হয়ে যাবে। `Ctrl+C` দিয়ে prompt থেকে বের হওয়া যায়।
+
+```bash
+cat > file.txt << EOF
+content
+EOF
+```
+
+এখানে `EOF` একটি নির্ধারিত termination marker হিসেবে কাজ করে।
+
+```bash
+cat >> fileName
+```
+
+Existing content রেখে নতুন content append করে।
+
+```bash
+cat >> file.txt << EOF
+new content
+EOF
+```
+
+নির্দিষ্ট marker ব্যবহার করে content append করে।
+
+```bash
+tac fileName
+```
+
+File-এর content উল্টো ক্রমে দেখায়।
+
+### `head` ও `tail`
+
+```bash
+head fileName
+```
+
+সাধারণত প্রথম ১০টি line দেখায়।
+
+```bash
+head -5 fileName
+```
+
+প্রথম ৫টি line দেখায়।
+
+```bash
+head -5 fileName | tac
+```
+
+প্রথম ৫টি line উল্টো ক্রমে দেখায়।
+
+```bash
+tail fileName
+```
+
+সাধারণত শেষ ১০টি line দেখায়।
+
+```bash
+tail -5 fileName
+```
+
+শেষ ৫টি line দেখায়।
+
+```bash
+tail -5 fileName | tac
+```
+
+শেষ ৫টি line উল্টো ক্রমে দেখায়।
+
+### অন্যান্য দরকারি command
+
+```bash
+file filename
+```
+
+File-এর ধরন শনাক্ত করে।
+
+```bash
+mv sourceDirOrFile newDirOrFile
+```
+
+File বা directory rename অথবা move করে।
+
+## File Permission / Access Mode
+
+প্রতিটি file/directory-এর permission তিন ধরনের user-এর জন্য নির্ধারিত হয়:
+
+- **Owner (`u`)** → file-এর owner।
+- **Group (`g`)** → সংশ্লিষ্ট group-এর user।
+- **Others (`o`)** → অন্য সবাই।
+
+### Permission-এর ধরন
+
+| Permission | File-এর ক্ষেত্রে | Directory-এর ক্ষেত্রে |
+| ------ | --------- | ---- |
+| `r` | File পড়া | File-এর তালিকা দেখা (`ls`) |
+| `w` | File পরিবর্তন করা | File তৈরি/মুছে ফেলা |
+| `x` | File execute করা | Directory-তে প্রবেশ করা (`cd`) |
+
+### Permission Format
+
+উদাহরণ:
+
+```text
+-rwxr-xr--
+drwxr-xr-x
+lrwxrwxrwx
+```
+
+এখানে মোট ১০টি character থাকে।
+
+#### ১. প্রথম character — File Type
+
+- `-` = regular file
+- `d` = directory
+- `l` = symbolic link
+
+#### ২. পরের ৯টি character — Permission
+
+```text
+rwx r-x r--
+│   │   │
+│   │   └── Others
+│   └────── Group
+└────────── Owner
+```
+
+উদাহরণ:
+
+- Owner → `rwx` → read, write, execute করতে পারে।
+- Group → `r-x` → read ও execute করতে পারে।
+- Others → `r--` → শুধু read করতে পারে।
+
+আরও উদাহরণ:
+
+- `drwxr-xr-x` → directory; owner full access, group/others read ও enter করতে পারে।
+- `lrwxrwxrwx` → symbolic link।
+
+### `chmod` — Symbolic Mode
+
+| Symbol | অর্থ |
+| --- | --- |
+| `+` | permission যোগ করে |
+| `-` | permission সরিয়ে দেয় |
+| `=` | নির্দিষ্ট permission সেট করে |
+
+উদাহরণ:
+
+```bash
+ls -lh devops.txt
 -rw-r--r-- 1 root root 0 May  2 02:52 devops.txt
 
-$chmod o+wx devops.txt
-$ls -lh devops.txt
+chmod o+wx devops.txt
+ls -lh devops.txt
 -rw-r--rwx 1 root root 0 May  2 02:52 devops.txt
 
-$chmod u+x devops.txt
-$ls -lh devops.txt
+chmod u+x devops.txt
+ls -lh devops.txt
 -rwxr--rwx 1 root root 0 May  2 02:52 devops.txt
 
-$chmod u-w devops.txt
-$ls -lh devops.txt
+chmod u-w devops.txt
+ls -lh devops.txt
 -r-xr--rwx 1 root root 0 May  2 02:52 devops.txt
 
-$chmod g=rw devops.txt
-$ls -l testfile
+chmod g=rw devops.txt
+ls -l devops.txt
 -r-xrw-rwx 1 root root 0 May  2 02:52 devops.txt
 ```
 
-Here's how you can combine these commands on a single line-
+একাধিক permission একসাথে:
 
-```SymbolicModeExampleCombination
-$chmod o-wx,u+w,g=rx devops.txt
-$ls -lh devops.txt
+```bash
+chmod o-wx,u+w,g=rx devops.txt
+ls -lh devops.txt
 -rwxr-xr-- 1 root root 0 May  2 02:52 devops.txt
 ```
 
-***Using chmod with Numeric (Octal) Representations:***
+### `chmod` — Numeric / Octal Mode
 
-Each permission has a numeric value
+| Permission | Value | অর্থ |
+| --- | ---: | --- |
+| `---` | 0 | কোনো permission নেই |
+| `--x` | 1 | Execute |
+| `-w-` | 2 | Write |
+| `-wx` | 3 | Write + Execute |
+| `r--` | 4 | Read |
+| `r-x` | 5 | Read + Execute |
+| `rw-` | 6 | Read + Write |
+| `rwx` | 7 | Read + Write + Execute |
 
-| Ref | Value | Octal Permission Representation |
-| --- | ----- | ------------------------------- |
-| --- | 0 | No permission |
-| --x | 1 | Execute permission |
-| -w- | 2 | Write permission |
-| -wx | 3 | Execute and write permission: 1 (execute) + 2 (write) = 3 |
-| r-- | 4 |  Read permission |
-| r-x | 5 | Read and execute permission: 4 (read) &plus; 1 (execute) = 5 |
-| rw- | 6 | Read and write permission: 4 (read) &plus; 2 (write) = 6 |
-| rwx | 7 | All permissions: 4 (read) &plus; 2 (write) &plus; 1 (execute) = 7 |
+উদাহরণ:
 
-*Add them:*
-
-```AddThem
-rwx = 4+2+1 = 7
-r-x = 4+0+1 = 5
-r-- = 4+0+0 = 4
+```text
+rwx = 4 + 2 + 1 = 7
+r-x = 4 + 0 + 1 = 5
+r-- = 4 + 0 + 0 = 4
 ```
 
-*Example:*
+তাই:
 
-```NumericExampleExplain
-command : chmod 754 file.txt
---means--
-> Owner → 7 (rwx)
-> Group → 5 (r-x)
-> Others → 4 (r--)
-
---another example--
-$chmod 777 devops.txt
-$ls -lh devops.txt
--rwxrwxrwx 1 root root 0 May  2 02:52 devops.txt
-
-$chmod 755 devops.txt
-$ls -lh devops.txt
--rwxr-xr-x 1 root root 0 May  2 02:52 devops.txt
-
-$chmod 744 devops.txt
-$ls -lh devops.txt
--rwxr--r-- 1 root root 0 May  2 02:52 devops.txt
-
-$chmod 700 devops.txt
-$ls -lh devops.txt
--rwx------ 1 root root 0 May  2 02:52 devops.txt
-
+```bash
+chmod 754 file.txt
 ```
 
-***Think of it like:***
+এর অর্থ:
 
-> Who (user/group/others) can do what (read/write/execute) on which file
+```text
+Owner  → 7 → rwx
+Group  → 5 → r-x
+Others → 4 → r--
+```
+
+আরও উদাহরণ:
+
+```bash
+chmod 777 devops.txt
+chmod 755 devops.txt
+chmod 744 devops.txt
+chmod 700 devops.txt
+```
+
+### সহজভাবে মনে রাখুন
+
+> **কে (`owner/group/others`) কোন file-এর ওপর কী করতে পারবে (`read/write/execute`) — সেটিই file permission।**
