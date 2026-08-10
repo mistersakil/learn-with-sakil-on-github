@@ -2,13 +2,13 @@
 
 ## Laravel + React + Docker + DevOps
 
-This guide is for setting up a fresh **Ubuntu 26** workstation for Laravel, React/Inertia, Vite, Docker and DevOps development.
+এই guide-টি একটি fresh **Ubuntu 26** workstation-কে **Laravel, React/Inertia, Vite, Docker এবং DevOps development**-এর জন্য প্রস্তুত করার জন্য তৈরি।
 
-### Recommended Architecture
+## প্রস্তাবিত Architecture
 
-The main principle is:
+মূল ধারণা:
 
-> Keep developer tools on the host and keep application services isolated inside Docker.
+> Developer tools Host machine-এ থাকবে এবং application runtime ও infrastructure services Docker-এর মধ্যে আলাদা থাকবে।
 
 ```text
 Ubuntu 26
@@ -36,7 +36,7 @@ Ubuntu 26
 
 ---
 
-## 01 - Update Ubuntu
+## ০১ - Ubuntu Update করুন
 
 ```bash
 sudo apt update
@@ -44,7 +44,7 @@ sudo apt upgrade -y
 sudo apt autoremove -y
 ```
 
-Install common development and DevOps utilities:
+Development ও DevOps-এর প্রয়োজনীয় utility install করুন:
 
 ```bash
 sudo apt install -y \
@@ -80,7 +80,7 @@ curl --version
 
 ---
 
-## 02 - Git Configuration
+## ০২ - Git Configuration
 
 ```bash
 git config --global user.name "Your Name"
@@ -90,13 +90,13 @@ git config --global pull.rebase false
 git config --global core.editor "code --wait"
 ```
 
-Check:
+Configuration দেখুন:
 
 ```bash
 git config --global --list
 ```
 
-Useful aliases:
+দরকারি alias:
 
 ```bash
 git config --global alias.st status
@@ -108,41 +108,41 @@ git config --global alias.last 'log -1 HEAD'
 
 ---
 
-## 03 - SSH for GitHub, GitLab and Servers
+## ০৩ - GitHub, GitLab ও Server-এর জন্য SSH
 
-Generate an Ed25519 key:
+Ed25519 SSH key তৈরি করুন:
 
 ```bash
 ssh-keygen -t ed25519 -C "your@email.com"
 ```
 
-Start the SSH agent and add the key:
+SSH agent চালু করে key add করুন:
 
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 ```
 
-Show the public key:
+Public key দেখুন:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
-Add the public key to GitHub/GitLab and test GitHub access:
+GitHub/GitLab-এর SSH Keys section-এ public key add করে GitHub test করুন:
 
 ```bash
 ssh -T git@github.com
 ```
 
-Create the SSH directory with safe permissions:
+SSH directory তৈরি ও permission ঠিক করুন:
 
 ```bash
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 ```
 
-Example `~/.ssh/config`:
+`~/.ssh/config`-এর উদাহরণ:
 
 ```text
 Host production
@@ -156,7 +156,7 @@ Host staging
     IdentityFile ~/.ssh/id_ed25519
 ```
 
-Then connect using:
+তারপর:
 
 ```bash
 ssh production
@@ -165,9 +165,9 @@ ssh staging
 
 ---
 
-## 04 - Zsh
+## ০৪ - Zsh
 
-Install Zsh:
+Install:
 
 ```bash
 sudo apt install -y zsh
@@ -179,19 +179,19 @@ Check:
 zsh --version
 ```
 
-Make Zsh the default shell:
+Default shell করুন:
 
 ```bash
 chsh -s $(which zsh)
 ```
 
-Log out and log back in after changing the shell.
+এরপর logout করে আবার login করুন।
 
 ---
 
-## 05 - VS Code
+## ০৫ - VS Code
 
-Install VS Code using Microsoft's official APT repository.
+Microsoft-এর official APT repository ব্যবহার করে VS Code install করুন:
 
 ```bash
 sudo install -d -m 0755 /etc/apt/keyrings
@@ -209,13 +209,13 @@ sudo apt update
 sudo apt install -y code
 ```
 
-Open the current project:
+Current project open করতে:
 
 ```bash
 code .
 ```
 
-### Recommended VS Code Extensions
+### Recommended VS Code Extension
 
 - PHP Intelephense
 - Laravel Extra Intellisense
@@ -232,35 +232,35 @@ code .
 
 ---
 
-## 06 - NVM and Node.js
+## ০৬ - NVM ও Node.js
 
-Use **NVM** instead of installing Node.js directly from the Ubuntu APT repository. It allows different projects to use different Node.js versions.
+Ubuntu APT repository থেকে সরাসরি Node.js install না করে **NVM** ব্যবহার করুন। এতে project অনুযায়ী একাধিক Node.js version manage করা যায়।
 
-Install NVM using the current installer published by the NVM project:
+NVM install:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
-Reload the shell:
+Shell reload:
 
 ```bash
 source ~/.zshrc
 ```
 
-Check NVM:
+Check:
 
 ```bash
 nvm --version
 ```
 
-Install the current Node.js LTS:
+Current Node.js LTS install:
 
 ```bash
 nvm install --lts
 ```
 
-Make the LTS version the default:
+LTS default করুন:
 
 ```bash
 nvm alias default 'lts/*'
@@ -273,7 +273,7 @@ node -v
 npm -v
 ```
 
-### Switch Node.js versions
+### Node.js version পরিবর্তন
 
 ```bash
 nvm install 20
@@ -282,13 +282,13 @@ nvm use 20
 nvm use 22
 ```
 
-For a project-specific version, add a `.nvmrc` file:
+Project-specific version-এর জন্য `.nvmrc`:
 
 ```text
 22
 ```
 
-Then:
+তারপর:
 
 ```bash
 nvm use
@@ -296,15 +296,15 @@ nvm use
 
 ---
 
-## 07 - pnpm
+## ০৭ - pnpm
 
-Enable Corepack:
+Corepack enable করুন:
 
 ```bash
 corepack enable
 ```
 
-Activate pnpm:
+pnpm activate করুন:
 
 ```bash
 corepack prepare pnpm@latest --activate
@@ -316,13 +316,13 @@ Verify:
 pnpm --version
 ```
 
-Use the package manager already defined by a project. Do not randomly mix `npm`, `yarn` and `pnpm` in the same project.
+একটি project যে package manager ব্যবহার করে সেটিই follow করুন। একই project-এ অকারণে `npm`, `yarn` ও `pnpm` mix করবেন না।
 
 ---
 
-## 08 - Docker
+## ০৮ - Docker
 
-Remove conflicting packages if they exist:
+আগে থেকে conflicting package থাকলে remove করুন:
 
 ```bash
 sudo apt remove -y \
@@ -335,7 +335,7 @@ sudo apt remove -y \
     runc
 ```
 
-Add the Docker repository:
+Docker repository যোগ করুন:
 
 ```bash
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -352,7 +352,7 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Install Docker Engine and Compose:
+Docker Engine ও Compose install:
 
 ```bash
 sudo apt update
@@ -373,55 +373,55 @@ docker compose version
 
 ---
 
-## 09 - Run Docker Without sudo
+## ০৯ - `sudo` ছাড়া Docker চালানো
 
-Add the current user to the Docker group:
+বর্তমান user-কে Docker group-এ add করুন:
 
 ```bash
 sudo usermod -aG docker $USER
 ```
 
-Log out and log back in, then test:
+Logout করে আবার login করুন। তারপর:
 
 ```bash
 docker run hello-world
 ```
 
-If the command works without `sudo`, the user setup is complete.
+`sudo` ছাড়া কাজ করলে setup সম্পন্ন।
 
 ---
 
-## 10 - Docker Storage Management
+## ১০ - Docker Storage Management
 
-A 512GB SSD can fill quickly when Docker images, build cache and volumes accumulate.
+**512GB SSD**-তে Docker image, build cache ও volume দ্রুত storage দখল করতে পারে।
 
-Check Docker disk usage:
+Docker disk usage:
 
 ```bash
 docker system df
 ```
 
-Inspect Docker storage:
+Docker storage দেখুন:
 
 ```bash
 sudo du -sh /var/lib/docker
 ```
 
-Clean unused containers, networks and dangling images when needed:
+Unused resource clean করতে:
 
 ```bash
 docker system prune
 ```
 
-Be careful with:
+সতর্কতার সঙ্গে ব্যবহার করুন:
 
 ```bash
 docker system prune -a
 ```
 
-It can remove unused images that you may still want for local development.
+এটি এমন unused image-ও remove করতে পারে যা পরে development-এ দরকার হতে পারে।
 
-Check overall disk usage:
+Overall disk usage:
 
 ```bash
 df -h
@@ -430,11 +430,11 @@ ncdu /
 
 ---
 
-## 11 - Laravel Environment Strategy
+## ১১ - Laravel Environment Strategy
 
-For a multi-project Laravel workstation, avoid depending on one global PHP version.
+একাধিক Laravel project থাকলে একটি global PHP version-এর ওপর নির্ভর না করাই ভালো।
 
-### Keep on the Host
+### Host-এ রাখুন
 
 ```text
 Git
@@ -448,7 +448,7 @@ Docker
 Docker Compose
 ```
 
-### Prefer Docker for Application Services
+### Docker-এ রাখুন
 
 ```text
 PHP / PHP-FPM
@@ -462,9 +462,9 @@ Queue Worker
 Scheduler
 ```
 
-This allows different projects to use different PHP versions without conflicts.
+এতে project অনুযায়ী আলাদা PHP version ব্যবহার করা যায়।
 
-Example:
+উদাহরণ:
 
 ```text
 Laravel project A → PHP 8.2
@@ -474,7 +474,7 @@ Laravel project C → PHP 8.4
 
 ---
 
-## 12 - Recommended Laravel Project Structure
+## ১২ - Recommended Laravel Project Structure
 
 ```text
 ~/Projects/
@@ -484,14 +484,14 @@ Laravel project C → PHP 8.4
 └── other-project/
 ```
 
-Create the directory:
+তৈরি করুন:
 
 ```bash
 mkdir -p ~/Projects
 cd ~/Projects
 ```
 
-A Dockerized Laravel project can contain:
+Dockerized Laravel project-এর structure:
 
 ```text
 project/
@@ -511,9 +511,9 @@ project/
 
 ---
 
-## 13 - MySQL with Docker
+## ১৩ - Docker-এর মাধ্যমে MySQL
 
-Do not install MySQL globally if the project is already Docker-based.
+Project Docker-based হলে Host-এ global MySQL install করার প্রয়োজন নেই।
 
 Example Compose service:
 
@@ -535,7 +535,7 @@ volumes:
   mysql_data:
 ```
 
-Start the service:
+Start:
 
 ```bash
 docker compose up -d
@@ -547,26 +547,26 @@ Check:
 docker ps
 ```
 
-Inside Docker, Laravel should normally connect using the service name:
+Docker-এর ভেতরে Laravel থেকে MySQL connect করার সময় service name ব্যবহার করুন:
 
 ```env
 DB_HOST=mysql
 DB_PORT=3306
 ```
 
-Not:
+এটি নয়:
 
 ```env
 DB_HOST=127.0.0.1
 ```
 
+কারণ container-এর `127.0.0.1` সেই container-কেই নির্দেশ করে।
+
 ---
 
-## 14 - Redis with Docker
+## ১৪ - Docker-এর মাধ্যমে Redis
 
-Redis is useful for Laravel cache, sessions and queues.
-
-Example Compose service:
+Laravel cache, session ও queue-এর জন্য Redis ব্যবহার করা যায়।
 
 ```yaml
 services:
@@ -576,7 +576,7 @@ services:
       - "6379:6379"
 ```
 
-Typical Laravel environment:
+Laravel `.env`:
 
 ```env
 CACHE_STORE=redis
@@ -585,13 +585,13 @@ QUEUE_CONNECTION=redis
 REDIS_HOST=redis
 ```
 
-Again, `redis` is the Docker Compose service name.
+এখানে `redis` হলো Docker Compose service name।
 
 ---
 
-## 15 - phpMyAdmin with Docker
+## ১৫ - Docker-এর মাধ্যমে phpMyAdmin
 
-For local development:
+Local development-এর জন্য:
 
 ```yaml
 services:
@@ -606,19 +606,19 @@ services:
       - mysql
 ```
 
-Open:
+Browser:
 
 ```text
 http://localhost:8080
 ```
 
-Do not expose phpMyAdmin publicly on a production server unless there is a specific, secured reason to do so.
+> Production server-এ phpMyAdmin public internet-এ expose করবেন না, যদি না যথেষ্ট secured configuration থাকে।
 
 ---
 
-## 16 - Laravel Queue Worker
+## ১৬ - Laravel Queue Worker
 
-For a production-like local architecture, keep the queue worker separate from the web container.
+Production-এর কাছাকাছি local architecture-এর জন্য Queue Worker-কে web container থেকে আলাদা রাখা ভালো।
 
 ```text
 Laravel App
@@ -633,7 +633,7 @@ Laravel App
 Queue Worker
 ```
 
-Conceptually the Compose stack becomes:
+Compose stack:
 
 ```text
 app
@@ -644,23 +644,21 @@ queue
 scheduler
 ```
 
-This makes it easier to reproduce production queue behaviour locally.
+এতে local environment-এ production queue behaviour reproduce করা সহজ হয়।
 
 ---
 
-## 17 - Laravel Scheduler
+## ১৭ - Laravel Scheduler
 
-Run the scheduler in its own service when testing scheduled jobs:
+Scheduled job test করার জন্য আলাদা scheduler service ব্যবহার করতে পারেন:
 
 ```bash
 php artisan schedule:work
 ```
 
-This avoids manually triggering scheduled commands during development.
-
 ---
 
-## 18 - Nginx + PHP-FPM
+## ১৮ - Nginx + PHP-FPM
 
 Recommended request flow:
 
@@ -680,33 +678,33 @@ Laravel
    └── Redis
 ```
 
-For a Docker-first workflow, keep Nginx inside the project stack instead of installing another global Nginx instance on the host.
+Docker-first workflow হলে Host-এ global Nginx install না করে project-এর Docker stack-এর ভেতরে Nginx রাখুন।
 
 ---
 
-## 19 - React / Inertia / Vite
+## ১৯ - React / Inertia / Vite
 
-For projects using React, Inertia and Vite:
+React, Inertia ও Vite project-এর জন্য:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Or with pnpm:
+অথবা:
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Vite commonly runs on:
+Vite সাধারণত:
 
 ```text
 http://localhost:5173
 ```
 
-If Vite runs inside Docker, bind it to all interfaces:
+Docker-এর ভেতরে Vite চালালে:
 
 ```js
 server: {
@@ -714,13 +712,11 @@ server: {
 }
 ```
 
-For a developer workstation, keeping Node.js/NVM on the host is convenient for Vite hot reload and project-specific Node version management.
+Developer workstation-এর জন্য Node.js/NVM Host-এ রাখলে Vite hot reload ও project-specific Node version management সহজ হয়।
 
 ---
 
-## 20 - DevOps Utilities
-
-Install common tools:
+## ২০ - DevOps Utilities
 
 ```bash
 sudo apt install -y \
@@ -739,7 +735,7 @@ sudo apt install -y \
     strace
 ```
 
-Useful commands:
+দরকারি command:
 
 ```bash
 htop
@@ -753,40 +749,38 @@ lsof -i :3306
 
 ---
 
-## 21 - UFW Firewall
+## ২১ - UFW Firewall
 
-Check status:
+Status দেখুন:
 
 ```bash
 sudo ufw status
 ```
 
-If you use SSH, allow SSH before enabling the firewall:
+SSH ব্যবহার করলে firewall enable করার আগে SSH allow করুন:
 
 ```bash
 sudo ufw allow ssh
 sudo ufw enable
 ```
 
-Check again:
+Check:
 
 ```bash
 sudo ufw status verbose
 ```
 
-For a development laptop, only open ports that you actually need.
+Development laptop-এ শুধুমাত্র প্রয়োজনীয় port open রাখুন।
 
 ---
 
-## 22 - Useful Zsh Aliases
+## ২২ - দরকারি Zsh Alias
 
-Add useful shortcuts to `~/.zshrc`:
+`~/.zshrc` খুলুন:
 
 ```bash
 nano ~/.zshrc
 ```
-
-Example:
 
 ```bash
 alias ll='ls -lah'
@@ -816,52 +810,52 @@ source ~/.zshrc
 
 ---
 
-## 23 - Typical Docker Laravel Workflow
+## ২৩ - সাধারণ Docker Laravel Workflow
 
-Start the project:
+Project start:
 
 ```bash
 docker compose up -d
 ```
 
-Check services:
+Service status:
 
 ```bash
 docker compose ps
 ```
 
-Follow logs:
+Live log:
 
 ```bash
 docker compose logs -f
 ```
 
-Open the application container:
+Application container-এ প্রবেশ:
 
 ```bash
 docker compose exec app bash
 ```
 
-Run Laravel commands:
+Laravel command:
 
 ```bash
 docker compose exec app php artisan migrate
 docker compose exec app php artisan optimize:clear
 ```
 
-Install Composer dependencies:
+Composer dependency:
 
 ```bash
 docker compose exec app composer install
 ```
 
-Install frontend dependencies if Node is part of the container:
+Node container থাকলে:
 
 ```bash
 docker compose exec node npm install
 ```
 
-Stop the project:
+Project বন্ধ:
 
 ```bash
 docker compose down
@@ -869,9 +863,9 @@ docker compose down
 
 ---
 
-## 24 - Final Host vs Docker Checklist
+## ২৪ - Host বনাম Docker Final Checklist
 
-| Component | Recommended Location |
+| Component | কোথায় রাখা ভালো |
 | --- | --- |
 | Ubuntu | Host |
 | Git | Host |
@@ -895,7 +889,7 @@ docker compose down
 
 ---
 
-## 25 - Recommended Development Flow
+## ২৫ - Recommended Development Flow
 
 ```text
 Ubuntu 26
@@ -918,8 +912,10 @@ Ubuntu 26
          └── phpMyAdmin
 ```
 
-### Core Principle
+## মূল নীতি
 
-> **Host = developer tooling. Docker = application runtime and infrastructure services.**
+> **Host = Developer Tooling**
+>
+> **Docker = Application Runtime + Infrastructure Services**
 
-This keeps Laravel projects isolated, makes PHP/database versions easier to manage, and gives the local environment a structure that is closer to a real DevOps deployment.
+এই architecture ব্যবহার করলে একাধিক Laravel project-এর environment আলাদা রাখা যায়, PHP/database version conflict কমে এবং local development environment production-এর DevOps architecture-এর কাছাকাছি থাকে।
