@@ -1,3 +1,5 @@
+> ⬅️ পূর্ববর্তী অধ্যায়: [০১। লিনাক্স পরিচিতি](../০১-লিনাক্স-পরিচিতি) 🏠 [সূচিপত্রে ফিরে যান](../) ➡️ পরবর্তী অধ্যায়: [০৩। ডেভঅপস ডেভেলপমেন্ট এনভায়রনমেন্ট](../০৩-ডেভঅপস-ডেভেলপমেন্ট-এনভায়রনমেন্ট)
+
 # Shell Expansion বা Parameter Expansion
 
 Linux shell expansion (যাকে shell expansion বা parameter expansion-ও বলা হয়) হলো Bash-এর মতো shell-এর একটি গুরুত্বপূর্ণ feature। Command execute হওয়ার আগে shell আপনার লেখা input-কে বিভিন্ন variable, pattern ও expression অনুযায়ী expand এবং interpret করে।
