@@ -1,6 +1,6 @@
-# লিনাক্স শেখার সূচিপত্র
+# 🐧 লিনাক্স শেখার সূচিপত্র
 
-- [০১ - লিনাক্সের প্রাথমিক ধারণা](./01-overview)
-- [০২ - লিনাক্স শেল এক্সপ্যানশন](./02-shell-expansion)
-- [০৩ - Ubuntu 26 Development Environment — Laravel + React + Docker + DevOps](./03-ubuntu-dev-environment)
-- [০৪ - Ubuntu-তে Google Chrome Installation এবং File Management Guide](./04-google-chrome-installation)
+- [০১ - লিনাক্স পরিচিতি](./01-overview)
+- [০২ - শেল এক্সপ্যানশন](./02-shell-expansion)
+- [০৩ - ডেভঅপস ডেভেলপমেন্ট এনভায়রনমেন্ট](./03-ubuntu-dev-environment)
+- [০৪ - wget-এর ব্যবহার](./04-google-chrome-installation)
