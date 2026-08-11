@@ -1,6 +1,6 @@
 # Learn With Sakil - Index
 
-- [Learning Linux](./linux)
+- [লিনাক্স](./লিনাক্স)
 - [Learning Docker](./docker)
 - [Learning Grandstream PBX Installation](./pbx)
 - [Large Import & Export Architecture In Laravel](./laravel/export-import)
