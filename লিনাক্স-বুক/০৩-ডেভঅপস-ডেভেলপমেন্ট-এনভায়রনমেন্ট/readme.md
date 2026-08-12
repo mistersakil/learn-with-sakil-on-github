@@ -1,8 +1,6 @@
-# Ubuntu 26 Development Environment
+> [🏠](../) [⬅️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন)  [➡️ ০৪। wget-এর ব্যবহার](../০৪-wget-এর-ব্যবহার)
 
-> ⬅️ পূর্ববর্তী অধ্যায়: [০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন) 🏠 [সূচিপত্রে ফিরে যান](../) ➡️ পরবর্তী অধ্যায়: [০৪। wget-এর ব্যবহার](../০৪-wget-এর-ব্যবহার)
-
-## Laravel + React + Docker + DevOps
+# ০৩। ডেভঅপস ডেভেলপমেন্ট এনভায়রনমেন্ট
 
 এই guide-টি একটি fresh **Ubuntu 26** workstation-কে **Laravel, React/Inertia, Vite, Docker এবং DevOps development**-এর জন্য প্রস্তুত করার জন্য তৈরি।
 
@@ -922,4 +920,4 @@ Ubuntu 26
 
 এই architecture ব্যবহার করলে একাধিক Laravel project-এর environment আলাদা রাখা যায়, PHP/database version conflict কমে এবং local development environment production-এর DevOps architecture-এর কাছাকাছি থাকে।
 
-> ⬅️ পূর্ববর্তী অধ্যায়: [০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন) 🏠 [সূচিপত্রে ফিরে যান](../) ➡️ পরবর্তী অধ্যায়: [০৪। wget-এর ব্যবহার](../০৪-wget-এর-ব্যবহার)
+> [🏠](../) [⬅️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন)  [➡️ ০৪। wget-এর ব্যবহার](../০৪-wget-এর-ব্যবহার)
