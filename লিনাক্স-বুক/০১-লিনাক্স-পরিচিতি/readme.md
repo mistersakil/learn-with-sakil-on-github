@@ -1,5 +1,387 @@
 >  [🏠](../) [➡️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন)
 
+# লিনাক্স কী? | Linux Overview
+
+Linux শুধুমাত্র একটি Operating System নয়; এটি একটি বিশাল Open Source Ecosystem। অনেকেই Ubuntu, Fedora, Debian বা Kali Linux-কে Linux বলে থাকেন, কিন্তু প্রযুক্তিগতভাবে Linux-এর মূল অংশ হলো **Linux Kernel**।
+
+সহজভাবে বুঝতে:
+
+- Linux Kernel = Operating System-এর Engine
+- Shell / CLI = User-এর Control Panel
+- Applications = User যে Software ব্যবহার করে
+
+একটি Linux System সাধারণত নিচের স্তরগুলো নিয়ে গঠিত:
+
+```text
++-------------------------------------+
+|        Applications (Apps)          |
++-------------------------------------+
+|    CLI / GUI (User Interface)       |
++-------------------------------------+
+|          LINUX KERNEL               |
++-------------------------------------+
+|        Physical Hardware            |
++-------------------------------------+
+```
+
+যখন আপনি কোনো Application ব্যবহার করেন, Application সরাসরি Hardware-এর সাথে কথা বলে না। Application → Shell/GUI → Kernel → Hardware এই ধাপগুলো অনুসরণ করে কাজ সম্পন্ন হয়।
+
+---
+
+# Linux Kernel কী?
+
+Kernel হলো যেকোনো Operating System-এর Core Component বা কেন্দ্রীয় অংশ।
+
+কম্পিউটার চালু হওয়ার সময় Kernel প্রথম Memory-তে Load হয় এবং পুরো System পরিচালনার দায়িত্ব গ্রহণ করে।
+
+Kernel-কে Operating System-এর "মস্তিষ্ক" বলা যায়।
+
+বাস্তবে Kernel একটি মধ্যস্থতাকারী (Mediator) হিসেবে কাজ করে:
+
+```text
+Application
+     │
+     ▼
+Linux Kernel
+     │
+     ▼
+Hardware
+```
+
+Application Hardware-এর ভাষা বোঝে না, Hardware-ও Application-এর ভাষা বোঝে না। Kernel এই দুই পক্ষের মধ্যে অনুবাদকের মতো কাজ করে।
+
+---
+
+## Linux Kernel-এর প্রধান কাজ
+
+### CPU Management
+
+একই সময়ে Browser, VS Code, Docker, Terminal, Database ইত্যাদি অনেক Process চলতে পারে।
+
+Kernel নির্ধারণ করে:
+
+* কোন Process আগে চলবে
+* কতক্ষণ CPU ব্যবহার করবে
+* কোন Process অপেক্ষা করবে
+
+একে Process Scheduling বলা হয়।
+
+---
+
+### Memory Management
+
+RAM একটি সীমিত Resource।
+
+Kernel নির্ধারণ করে:
+
+* কোন Process কত RAM পাবে
+* কোন Process Memory Release করবে
+* Memory Shortage হলে কী হবে
+
+উদাহরণ:
+
+```bash
+free -h
+```
+
+---
+
+### Process Management
+
+Linux-এ চলমান প্রতিটি Program একটি Process।
+
+Kernel:
+
+* Process তৈরি করে
+* Process বন্ধ করে
+* Process Monitoring করে
+
+উদাহরণ:
+
+```bash
+ps aux
+```
+
+```bash
+top
+```
+
+#### 📊 top কমান্ড (Table of Processes)
+top কমান্ডটি লিনেক্সের একটি রিয়েল-টাইম (Real-time) সিস্টেম মনিটর। এটি উইন্ডোজের Task Manager-এর মতো কাজ করে। এটি প্রতিনিয়ত (প্রতি ৩ সেকেন্ড পর পর) আপডেট হতে থাকে এবং সিস্টেমে কতটুকু প্রসেসর ও র‍্যাম ব্যবহার হচ্ছে তা লাইভ দেখায়।
+ተርমিনালে শুধু top লিখে এন্টার দিলে নিচের মতো একটি আউটপুট আসবে:
+
+##### 🔍 top কমান্ডের প্রধান কলামগুলোর অর্থ:
+
+* PID (Process ID): প্রতিটি রানিং প্রোগ্রামের একটি ইউনিক নম্বর বা আইডি। কোনো প্রোগ্রাম বন্ধ করতে এই আইডিটি লাগে।
+* USER: কোন ইউজার বা অ্যাকাউন্ট থেকে এই প্রোগ্রামটি চালানো হচ্ছে।
+* %CPU: প্রোগ্রামটি প্রসেসরের (CPU) কত শতাংশ ব্যবহার করছে।
+* %MEM: প্রোগ্রামটি আপনার র‍্যামের (RAM) কত শতাংশ জায়গা নিয়েছে।
+* TIME+: প্রোগ্রামটি চালু হওয়ার পর থেকে মোট কতক্ষণ সিপিইউ টাইম ব্যবহার করেছে।
+* COMMAND: রানিং প্রোগ্রাম বা অ্যাপ্লিকেশনটির নাম। [1, 2, 3, 4, 5] 
+
+##### 💡 কিছু প্রয়োজনীয় শর্টকাট (কমান্ডটি চলাকালীন কিবোর্ডে চাপুন):
+
+* M — র‍্যাম (Memory) ব্যবহারের ওপর ভিত্তি করে তালিকা সাজাবে (Highest to Lowest)।
+* P — সিপিইউ (CPU) ব্যবহারের ওপর ভিত্তি করে তালিকা সাজাবে।
+* k — কোনো নির্দিষ্ট প্রসেস বন্ধ করতে চাইলে (Kill), এটি চেপে PID নম্বরটি দিতে হবে।
+* q — top স্ক্রিন থেকে বের হয়ে সাধারণ টার্মিনালে ফিরে আসার জন্য।
+
+### 📸 ps aux কমান্ড (Process Status)
+ps মানে হলো Process Status। top কমান্ডের মতো এটি লাইভ আপডেট হয় না, বরং এটি কমান্ড দেওয়ার ঠিক ওই মুহূর্তের (Snapshot) সিস্টেমে চলমান সকল প্রসেসের একটি বিশাল তালিকা একবারে প্রিন্ট করে দেয়।
+টার্মিনালে কমান্ডটি এভাবে লিখতে হয়:
+
+#### 🔍 aux ফ্ল্যাগ বা অপশনগুলোর অর্থ:
+
+* a: সিস্টেমে যত ইউজার আছে, সবার প্রসেস একসাথে দেখাবে।
+* u: প্রসেসগুলোর বিস্তারিত তথ্য (যেমন- CPU, Memory ব্যবহার এবং ইউজারের নাম) সহজ ভাষায় দেখাবে।
+* x: টার্মিনাল ছাড়া ব্যাকগ্রাউন্ডে স্বয়ংক্রিয়ভাবে যে প্রসেসগুলো চলছে (Daemon/Services), সেগুলোও তালিকায় যুক্ত করবে।
+
+#### 💡 বাস্তব জীবনের ব্যবহার (Real-life Use Case):
+ps aux দিয়ে সাধারণত হাজার হাজার লাইনের তালিকা আসে। তাই কোনো নির্দিষ্ট প্রোগ্রাম খুঁজে বের করতে এর সাথে grep কমান্ড ব্যবহার করা হয়। [6] 
+যেমন, আপনার সিস্টেমে chrome ব্রাউজার চলছে কিনা এবং তার PID কত, তা দেখতে নিচের কমান্ডটি ব্যবহার করা হয়:
+
+`ps aux | grep chrome`
+
+### ⚖️ সংক্ষেপে top বনাম ps aux
+
+| বৈশিষ্ট্য | top Command | ps aux Command |
+|---|---|---|
+| কাজের ধরন | লাইভ বা রিয়েল-টাইম মনিটরিং। | একটি নির্দিষ্ট মুহূর্তের স্ন্যাপশট। |
+| আপডেট | স্বয়ংক্রিয়ভাবে প্রতি কয়েক সেকেন্ড পর পর রিফ্রেশ হয়। | একবারই আউটপুট দেখায়, নিজে থেকে রিফ্রেশ হয় না। |
+| মূল ব্যবহার | সিস্টেম স্লো হয়ে গেলে কোন অ্যাপ বেশি লোড নিচ্ছে তা তাৎক্ষণিক দেখতে। | কোনো নির্দিষ্ট প্রসেস ব্যাকগ্রাউন্ডে চলছে কিনা তা সার্চ করে বের করতে। |
+
+---
+
+### Filesystem Management
+
+Hard Disk বা SSD-তে Data কোথায় সংরক্ষিত হবে তা Kernel নিয়ন্ত্রণ করে।
+
+Linux-এর জনপ্রিয় Filesystem:
+
+* ext4
+* xfs
+* btrfs
+* zfs
+
+Kernel File Read এবং Write Operation পরিচালনা করে।
+
+---
+
+### Hardware Management
+
+Kernel Keyboard, Mouse, SSD, GPU, Wi-Fi Card, Printer ইত্যাদির সাথে যোগাযোগ করে।
+
+এ কাজ Driver-এর মাধ্যমে সম্পন্ন হয়।
+
+---
+
+### Security Management
+
+Linux Permission System, User Access Control এবং Process Isolation Kernel-এর মাধ্যমেই পরিচালিত হয়।
+
+উদাহরণ:
+
+```bash
+chmod 755 file.txt
+```
+
+```bash
+chown user:user file.txt
+```
+
+---
+
+# Linux Distribution কী?
+
+Kernel একা একটি পূর্ণাঙ্গ Operating System নয়।
+
+Kernel-এর সাথে Shell, Package Manager, Desktop Environment, Libraries এবং বিভিন্ন Software যুক্ত করে Linux Distribution তৈরি করা হয়।
+
+উদাহরণ:
+
+| Distribution | Package Manager |
+| ------------ | --------------- |
+| Ubuntu       | apt             |
+| Debian       | apt             |
+| Fedora       | dnf             |
+| Rocky Linux  | dnf             |
+| AlmaLinux    | dnf             |
+| Arch Linux   | pacman          |
+| openSUSE     | zypper          |
+
+---
+
+## সব Linux Distribution কি একই Kernel ব্যবহার করে?
+
+মূল Source Code একই হলেও Distribution ভেদে Kernel Version এবং Configuration আলাদা হতে পারে।
+
+উদাহরণ:
+
+* Ubuntu সাধারণত Stable এবং নতুন Hardware Support-এর মধ্যে ভারসাম্য রাখে।
+* Debian দীর্ঘমেয়াদী Stability-এর দিকে বেশি গুরুত্ব দেয়।
+* Fedora নতুন Feature দ্রুত গ্রহণ করে।
+* Arch Linux Rolling Release Model অনুসরণ করে।
+
+Android-ও একটি Modified Linux Kernel ব্যবহার করে।
+
+---
+
+# CLI কী? | Command Line Interface
+
+CLI (Command Line Interface) হলো Text-Based User Interface।
+
+GUI-তে আমরা Mouse ব্যবহার করি।
+
+CLI-তে আমরা Command ব্যবহার করি।
+
+উদাহরণ:
+
+```bash
+mkdir project
+cd project
+ls -lah
+```
+
+CLI-এর প্রধান সুবিধা:
+
+* দ্রুত কাজ করা যায়
+* Automation করা যায়
+* Remote Server পরিচালনা করা যায়
+* কম Resource ব্যবহার করে
+
+---
+
+# Shell কী?
+
+Shell হলো User এবং Linux Kernel-এর মধ্যবর্তী Interpreter Program।
+
+আপনি Terminal-এ Command লিখলে Shell সেটিকে Process করে Kernel-এর কাছে পাঠায়।
+
+Workflow:
+
+```text
+User
+ │
+ ▼
+Shell
+ │
+ ▼
+Kernel
+ │
+ ▼
+Hardware
+```
+
+---
+
+## জনপ্রিয় Linux Shell
+
+| Shell | Description                     |
+| ----- | ------------------------------- |
+| Bash  | Linux-এর সবচেয়ে জনপ্রিয় Shell |
+| Zsh   | Modern এবং Highly Customizable  |
+| Fish  | Beginner Friendly               |
+| Dash  | Lightweight                     |
+| Ksh   | Korn Shell                      |
+
+বর্তমান Shell দেখুন:
+
+```bash
+echo $SHELL
+```
+
+---
+
+# CLI কীভাবে কাজ করে?
+
+ধরুন আপনি লিখলেন:
+
+```bash
+ls -lah
+```
+
+তখন:
+
+```text
+User
+ │
+ ▼
+Shell
+ │
+ ▼
+Kernel
+ │
+ ▼
+Filesystem
+ │
+ ▼
+Kernel
+ │
+ ▼
+Shell
+ │
+ ▼
+User
+```
+
+অর্থাৎ Shell Command গ্রহণ করে, Kernel-এর মাধ্যমে Filesystem-এ Request পাঠায় এবং Result User-এর সামনে প্রদর্শন করে।
+
+---
+
+# CLI বনাম GUI
+
+| CLI                                 | GUI                          |
+| ----------------------------------- | ---------------------------- |
+| Keyboard ভিত্তিক                    | Mouse ভিত্তিক                |
+| দ্রুত                               | সহজ                          |
+| Automation Friendly                 | Beginner Friendly            |
+| কম Resource ব্যবহার করে             | বেশি Resource ব্যবহার করে    |
+| Server Administration-এর জন্য আদর্শ | Desktop ব্যবহারের জন্য আদর্শ |
+
+---
+
+# Linux Kernel এবং CLI-এর সম্পর্ক
+
+Linux শেখার সময় একটি বিষয় মনে রাখা গুরুত্বপূর্ণ:
+
+```text
+User
+ │
+ ▼
+CLI / Shell
+ │
+ ▼
+Linux Kernel
+ │
+ ▼
+Hardware
+```
+
+আপনি সরাসরি Kernel-এর সাথে কাজ করেন না।
+
+আপনি Shell বা CLI ব্যবহার করেন।
+
+Shell Kernel-এর সাথে যোগাযোগ করে।
+
+Kernel Hardware-এর সাথে যোগাযোগ করে।
+
+এই Architecture বুঝে গেলে Linux-এর Filesystem, Permission, Package Management, Process Management এবং DevOps সম্পর্কিত পরবর্তী অধ্যায়গুলো বোঝা অনেক সহজ হয়ে যায়।
+
+---
+
+## এখন আমরা Linux-এর প্রাথমিক CLI Command শেখা শুরু করবো
+
+````
+
+এর পরেই তোমার বর্তমান existing content:
+
+```md
+# লিনাক্স শেখা - লিনাক্সের প্রাথমিক CLI কমান্ড
+````
+
+যেমন আছে তেমনই থাকবে। এতে Chapter 01 অনেক বেশি structured এবং beginner-friendly হবে।
+
+
 # লিনাক্স শেখা - লিনাক্সের প্রাথমিক CLI কমান্ড
 
 - লিনাক্সের OS-এর নাম ও ভার্সন দেখুন: `hostnamectl`
