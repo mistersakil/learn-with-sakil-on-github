@@ -1,6 +1,6 @@
 >  [🏠](../) [➡️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন)
 
-# লিনাক্স কী? | Linux Overview
+# ০১। লিনাক্স-পরিচিতি | Linux Overview
 
 Linux শুধুমাত্র একটি Operating System নয়; এটি একটি বিশাল Open Source Ecosystem। অনেকেই Ubuntu, Fedora, Debian বা Kali Linux-কে Linux বলে থাকেন, কিন্তু প্রযুক্তিগতভাবে Linux-এর মূল অংশ হলো **Linux Kernel**।
 
