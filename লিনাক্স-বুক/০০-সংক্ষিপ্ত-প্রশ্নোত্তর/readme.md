@@ -1,8 +1,4 @@
-# ০০। জ্ঞানভান্ডার
-
->GNU: GNU-এর পূর্ণ অর্থ হলো GNU's Not Unix! (জিএনইউ ইজ নট ইউনিক্স!)। এটি একটি বিশেষ ধরনের শব্দ বা রিভার্স এক্রোনিম (Recursive acronym), যেখানে নামের ভেতরেই নিজের নাম রাখা হয়েছে।'
-
-## ❓ সংক্ষিপ্ত প্রশ্নোত্তর (FAQ)
+# ০০। সংক্ষিপ্ত প্রশ্নোত্তর (FAQ)
 
 ### Linux কী?
 Linux মূলত একটি Kernel। Kernel-এর সাথে Shell, Package Manager, Libraries এবং অন্যান্য Software যুক্ত করে Ubuntu, Debian, Fedora, Rocky Linux ইত্যাদি Distribution তৈরি করা হয়।
@@ -12,6 +8,9 @@ Kernel হলো Operating System-এর Core Component। এটি Hardware �
 
 ### Shell এবং Kernel কি একই জিনিস?
 না। Shell User-এর Command গ্রহণ করে এবং Kernel-এর কাছে পাঠায়। Kernel Hardware ও System Resource পরিচালনা করে।
+
+### GNU কি? 
+GNU-এর পূর্ণ অর্থ হলো GNU's Not Unix! (জিএনইউ ইজ নট ইউনিক্স!)। এটি একটি বিশেষ ধরনের শব্দ বা রিভার্স এক্রোনিম (Recursive acronym), যেখানে নামের ভেতরেই নিজের নাম রাখা হয়েছে।'
 
 ### CLI কী?
 CLI (Command Line Interface) হলো Text-Based Interface যেখানে Command লিখে System পরিচালনা করা হয়।
