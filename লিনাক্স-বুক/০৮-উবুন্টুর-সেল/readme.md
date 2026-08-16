@@ -72,7 +72,7 @@ Terminal খুললেই সাধারণত Bash চালু হয়।
 * Shell Script Development
 
 
-### 🔹 Dash (Debian Almquist Shell)
+###  Dash (Debian Almquist Shell)
 
 #### পরিচিতি
 
@@ -92,7 +92,7 @@ Ubuntu-এর `/bin/sh` সাধারণত Dash-এর দিকে Point ক
 * Internal System Task
 
 
-### 🔹 Zsh (Z Shell)
+### Zsh (Z Shell)
 
 #### পরিচিতি
 
