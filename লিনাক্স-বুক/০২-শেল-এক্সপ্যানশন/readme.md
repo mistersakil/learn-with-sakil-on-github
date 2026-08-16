@@ -24,7 +24,7 @@ Single quote-এর ভেতরের whitespace সাধারণত preserve
 echo 'i -----  love -----   linux'
 ```
 
-Double quote-এর ভেতরে `-----` নিজে whitespace নয়; তাই output-এ সেটি 그대로 থাকবে।
+Double quote-এর ভেতরে `-----` নিজে whitespace নয়; তাই output-এ সেটি থাকবে।
 
 > Shell expansion বোঝার সময় quote, variable, command substitution এবং word splitting-এর আচরণ আলাদা করে মনে রাখা গুরুত্বপূর্ণ।
 
@@ -40,17 +40,11 @@ Shell expansion নির্দিষ্ট একটি sequence অনুস�
 6. Word splitting
 7. Filename বা glob expansion
 
----
-
-## ১. Brace (`{}`) Expansion
+### ১. Brace (`{}`) Expansion
 
 Pattern থেকে একাধিক string তৈরি করতে ব্যবহৃত হয়।
 
-### নির্বাচিত value
-
-```bash
-echo file{1,3,5}.txt
-```
+***নির্বাচিত value***: `echo file{1,3,5}.txt`
 
 Output:
 
