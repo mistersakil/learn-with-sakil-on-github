@@ -1,3 +1,5 @@
+> [🏠](../) [⬅️ ০৭। কমান্ড লাইন অপশন](../০৭-কমান্ড-লাইন-অপশন) [➡️  ০৮। উবুন্টুর সেল](../০৮-উবুন্টুর-সেল)
+
 # ০৮। উবুন্টুর সেল : Ubuntu-তে Shell-এর ধরন, Installation ও Configuration
 
 > Ubuntu বা অন্যান্য Linux Distribution-এ Terminal ব্যবহারের মূল মাধ্যম হলো **Shell**।
@@ -376,16 +378,18 @@ exit
 
 ---
 
-# Summary
+## Summary
 
 এই অধ্যায়ে আমরা শিখলাম—
 
-✅ Shell কী
-✅ Bash, Dash, Zsh, Fish ও Sh-এর পার্থক্য
-✅ Installed Shell Check করা
-✅ Zsh Installation
-✅ Fish Installation
-✅ Default Shell পরিবর্তন
-✅ Temporary Shell Testing
+* Shell কী
+* Bash, Dash, Zsh, Fish ও Sh-এর পার্থক্য
+* Installed Shell Check করা
+* Zsh Installation
+* Fish Installation
+* Default Shell পরিবর্তন
+* Temporary Shell Testing
 
-> Linux Terminal দক্ষভাবে ব্যবহার করতে চাইলে Bash সম্পর্কে ভালো ধারণা থাকা জরুরি। আর Productivity ও Customization-এর জন্য Zsh এবং Fish বর্তমানে সবচেয়ে জনপ্রিয় পছন্দ।
+Linux Terminal দক্ষভাবে ব্যবহার করতে চাইলে Bash সম্পর্কে ভালো ধারণা থাকা জরুরি। আর Productivity ও Customization-এর জন্য Zsh এবং Fish বর্তমানে সবচেয়ে জনপ্রিয় পছন্দ।
+
+> [🏠](../) [⬅️ ০৭। কমান্ড লাইন অপশন](../০৭-কমান্ড-লাইন-অপশন) [➡️  ০৮। উবুন্টুর সেল](../০৮-উবুন্টুর-সেল)
