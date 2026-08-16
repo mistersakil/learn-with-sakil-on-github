@@ -44,7 +44,11 @@ Shell expansion নির্দিষ্ট একটি sequence অনুস�
 
 Pattern থেকে একাধিক string তৈরি করতে ব্যবহৃত হয়।
 
-***নির্বাচিত value***: `echo file{1,3,5}.txt`
+#### নির্বাচিত value
+
+```bash
+echo file{1,3,5}.txt
+```
 
 Output:
 
@@ -52,7 +56,7 @@ Output:
 file1.txt file3.txt file5.txt
 ```
 
-### Range expansion
+#### Range expansion
 
 ```bash
 echo file{1..3}.txt
@@ -76,9 +80,7 @@ Output:
 a b c d e
 ```
 
----
-
-## ২. Tilde (`~`) Expansion
+### ২. Tilde (`~`) Expansion
 
 `~` সাধারণত বর্তমান user-এর home directory বোঝায়।
 
@@ -96,7 +98,7 @@ Root user-এর home directory-তে নিয়ে যায়।
 
 ---
 
-## ৩. Parameter / Variable (`$`) Expansion
+### ৩. Parameter / Variable (`$`) Expansion
 
 ধরা যাক:
 
@@ -140,9 +142,7 @@ Variable-এর value-এর length দেখতে:
 echo ${#name}
 ```
 
----
-
-## ৪. Command Substitution — `$( )`
+### ৪. Command Substitution — `$( )`
 
 একটি command execute করে তার output-কে অন্য command-এর অংশ হিসেবে ব্যবহার করা যায়।
 
@@ -152,9 +152,7 @@ echo "Today is $(date)"
 
 এখানে `$(date)` বর্তমান date/time-এর output দিয়ে replace হবে।
 
----
-
-## ৫. Arithmetic Expansion — `$(( ))`
+### ৫. Arithmetic Expansion — `$(( ))`
 
 Shell-এর ভেতরে arithmetic calculation করা যায়:
 
@@ -183,9 +181,7 @@ Output:
 15
 ```
 
----
-
-## ৬. Filename / Glob Expansion
+### ৬. Filename / Glob Expansion
 
 File pattern ব্যবহার করে matching file খুঁজে command-এ পাঠানো যায়।
 
@@ -209,9 +205,7 @@ ls *.docx
 | `?` | একটি character match করে |
 | `[abc]` | `a`, `b` অথবা `c`-এর যেকোনো একটি match করে |
 
----
-
-## Combined Example
+### Combined Example
 
 ```bash
 echo file_{1..3}_$(date +%Y).txt
@@ -229,18 +223,17 @@ $(date +%Y)  → বর্তমান বছর
 ```text
 file_1_2026.txt file_2_2026.txt file_3_2026.txt
 ```
-
 ---
 
-# Linux-এ Command-এর ধরন
+## Linux-এ Command-এর ধরন
 
 Linux shell, বিশেষ করে Bash, আপনি যে command লিখছেন সেটিকে বিভিন্ন category অনুযায়ী শনাক্ত ও resolve করে। এটি গুরুত্বপূর্ণ, কারণ shell নির্দিষ্ট priority অনুযায়ী command খুঁজে execute করে।
 
-## ১. Built-in Command
+### ১. Built-in Command
 
 এগুলো shell-এর ভেতরেই implement করা থাকে; আলাদা external binary প্রয়োজন হয় না।
 
-### বৈশিষ্ট্য
+#### বৈশিষ্ট্য
 
 - সাধারণত দ্রুত, কারণ আলাদা process চালানোর প্রয়োজন নেই।
 - Shell-এর মধ্যে সবসময় available থাকে।
@@ -268,9 +261,7 @@ echo is a shell builtin
 help
 ```
 
----
-
-## ২. External Command / Binary Executable
+### ২. External Command / Binary Executable
 
 এগুলো disk-এ থাকা actual executable program। সাধারণত নিচের directory-গুলোতে পাওয়া যায়:
 
@@ -289,9 +280,7 @@ whereis ls
 
 `ls` distribution অনুযায়ী external command হতে পারে এবং alias-ও হতে পারে।
 
----
-
-## ৩. Shell Function
+### ৩. Shell Function
 
 User-defined reusable command block।
 
@@ -314,9 +303,7 @@ myFunc
 - Automation-এর জন্য useful।
 - একই নামে external command থাকলে function সেটিকে override করতে পারে।
 
----
-
-## ৪. Alias
+### ৪. Alias
 
 দীর্ঘ command-এর shortcut হিসেবে alias ব্যবহার করা হয়।
 
@@ -336,15 +323,13 @@ myList
 alias
 ```
 
-### বৈশিষ্ট্য
+#### বৈশিষ্ট্য
 
 - মূলত text substitution।
 - Simple shortcut-এর জন্য ভালো।
 - Complex logic-এর জন্য function ব্যবহার করা ভালো।
 
----
-
-## ৫. Keywords / Reserved Words
+### ৫. Keywords / Reserved Words
 
 Shell parser-এর বিশেষ syntax element।
 
@@ -361,7 +346,9 @@ case
 
 এগুলো সাধারণ command নয়; standalone executable হিসেবে চালানো যায় না।
 
-### Command Resolution-এর ধারণা
+---
+
+## Command Resolution-এর ধারণা
 
 আপনি command লিখলে shell সাধারণভাবে alias, function, builtin এবং `PATH`-এর external command-এর মধ্যে খুঁজে সঠিক command resolve করে।
 
@@ -383,11 +370,11 @@ ll is aliased to 'ls -la'
 
 ---
 
-# Shell Variable-এর ধরন
+## Shell Variable-এর ধরন
 
 Shell variable হলো shell-এর পরিচালিত named storage location, যেখানে string বা অন্যান্য value রাখা যায়। এটি scripting, command execution এবং environment configuration-এ অত্যন্ত গুরুত্বপূর্ণ।
 
-## ১. Local Variable
+### ১. Local Variable
 
 বর্তমান shell session-এর মধ্যে define করা variable।
 
@@ -402,15 +389,13 @@ Output:
 Sakil
 ```
 
-### বৈশিষ্ট্য
+#### বৈশিষ্ট্য
 
 - Scope → বর্তমান shell
 - Child process সাধারণত এটি inherit করে না।
 - Script-এর logic-এ ব্যবহার করা হয়।
 
----
-
-## ২. Environment Variable
+### ২. Environment Variable
 
 `export` করা variable child process-এ inherit হয়।
 
@@ -432,9 +417,7 @@ production
 
 Environment variable application ও system tool-এর configuration-এ ব্যাপকভাবে ব্যবহৃত হয়।
 
----
-
-## ৩. Built-in / Special Shell Variable
+### ৩. Built-in / Special Shell Variable
 
 Shell নিজে কিছু variable automatically maintain করে।
 
@@ -447,9 +430,8 @@ Shell নিজে কিছু variable automatically maintain করে।
 | `$?` | সর্বশেষ command-এর exit status; `0` সাধারণত success |
 | `$$` | বর্তমান shell process-এর PID |
 
----
 
-## ৪. Positional Parameter
+### ৪. Positional Parameter
 
 Shell script-এ argument গ্রহণ করার জন্য ব্যবহৃত হয়।
 
@@ -467,9 +449,7 @@ $#  # argument-এর সংখ্যা
 echo "First arg: $1"
 ```
 
----
-
-## ৫. Readonly Variable
+### ৫. Readonly Variable
 
 একবার set করার পর পরিবর্তন করা যায় না।
 
@@ -507,7 +487,7 @@ Special variable      → shell/system-এর গুরুত্বপূর্�
 
 ---
 
-# Variable / Identifier-এর Naming Rules
+## Variable / Identifier-এর Naming Rules
 
 Linux shell variable-এর নাম লেখার সময়:
 
@@ -544,9 +524,9 @@ echo $_count
 
 ---
 
-# Built-in `$PATH` Variable
+## Built-in `$PATH` Variable
 
-## ১. `$PATH` দেখা
+### ১. `$PATH` দেখা
 
 ```bash
 echo $PATH
@@ -563,7 +543,7 @@ echo $PATH
 - `echo` → terminal-এ output দেখায়।
 - `$PATH` → PATH variable-এর value expand করে।
 
-## ২. PATH কী?
+### ২. PATH কী?
 
 `PATH` হলো colon-separated directory-এর একটি তালিকা, যেখানে shell কোনো command চালানোর সময় executable খুঁজে দেখে।
 
@@ -575,7 +555,7 @@ ls
 
 Shell `ls` কোথায় আছে তা আগে থেকেই magical ভাবে জানে না। বরং `PATH`-এর directory-গুলো একে একে search করে executable খুঁজে বের করে।
 
-## ৩. PATH-এর প্রতিটি অংশ
+### ৩. PATH-এর প্রতিটি অংশ
 
 উদাহরণ:
 
@@ -592,7 +572,7 @@ Shell `ls` কোথায় আছে তা আগে থেকেই magical �
 | `/usr/sbin` | system administration command |
 | `/usr/bin` | সাধারণ system command; যেমন `ls`, `cp`, `cat` |
 
-## ৪. Shell কীভাবে PATH ব্যবহার করে?
+### ৪. Shell কীভাবে PATH ব্যবহার করে?
 
 আপনি লিখলে:
 
@@ -613,7 +593,7 @@ Shell PATH-এর directory-গুলোতে `php` খুঁজবে, যে�
 
 যে matching executable প্রথমে পাওয়া যায়, সাধারণত সেটিই ব্যবহার করা হয়।
 
-## ৫. দ্রুত Debug Tip
+### ৫. দ্রুত Debug Tip
 
 কোন executable ব্যবহার হচ্ছে তা দেখতে:
 
@@ -624,15 +604,15 @@ type php
 
 ---
 
-# System Admin Binary ও System Administration Command-এর পার্থক্য
+## System Admin Binary ও System Administration Command-এর পার্থক্য
 
 দুটো বিষয় দেখতে একই রকম হলেও মূল পার্থক্য হলো এগুলো কোথা থেকে install ও manage করা হয়েছে।
 
-## ১. System Administration Command → `/usr/sbin`
+### ১. System Administration Command → `/usr/sbin`
 
 এগুলো Linux distribution-এর package manager দ্বারা install করা OS-provided administration tool।
 
-### বৈশিষ্ট্য
+#### বৈশিষ্ট্য
 
 - OS বা `apt`, `yum`, `dnf`-এর মতো package manager দিয়ে install হয়।
 - System package manager দ্বারা managed হয়।
@@ -648,11 +628,11 @@ useradd
 reboot
 ```
 
-## ২. Locally Installed System Admin Binary → `/usr/local/sbin`
+### ২. Locally Installed System Admin Binary → `/usr/local/sbin`
 
 System administrator নিজে manually install করা administration tool সাধারণত এখানে রাখা হয়।
 
-### বৈশিষ্ট্য
+#### বৈশিষ্ট্য
 
 - OS package manager-এর মাধ্যমে managed নাও হতে পারে।
 - Source থেকে `make install` বা custom installer দিয়ে install করা হতে পারে।
@@ -667,7 +647,7 @@ Manually installed PHP
 Internal administration script
 ```
 
-## ৩. মূল পার্থক্য
+### ৩. মূল পার্থক্য
 
 | বিষয় | `/usr/sbin` | `/usr/local/sbin` |
 | --- | --- | --- |
