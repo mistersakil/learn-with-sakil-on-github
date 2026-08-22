@@ -492,16 +492,16 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | su
 আধুনিক লিনেক্স সিস্টেমে (যেমন নতুন Ubuntu/Debian) gpg --dearmor ছাড়াও সরাসরি সিকিউরিটি কি রীড করা যায়। আপনি wget দিয়ে সরাসরি ফাইলটি ডাউনলোড করে সিস্টেমের কি-রিং ফোল্ডারে সেভ করে রাখতে পারেন এভাবে:
 
 ```code
-sudo wget -O /usr/share/keyrings/microsoft-edge.asc \
+sudo wget -O /usr/share/keyrings/microsoft-edge.gpg \
 https://packages.microsoft.com/keys/microsoft.asc
 ```
-
 
 ### অ্যাড রিপোসিটোরি - Add Repository
 
 ```bash
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main" \
-| sudo tee /etc/apt/sources.list.d/microsoft-edge.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] 
+\ https://packages.microsoft.com/repos/edge stable main" 
+\ | sudo tee /etc/apt/sources.list.d/microsoft-edge.list
 ```
 
 এই কমান্ডটি লিনেক্স (বিশেষ করে Ubuntu বা Debian ভিত্তিক সিস্টেমে) Microsoft Edge ব্রাউজার ইনস্টল করার জন্য তার অফিশিয়াল সফটওয়্যার সোর্স বা রিপোজিটরি (Repository) যুক্ত করার কাজ করে।
