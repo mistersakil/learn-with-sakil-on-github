@@ -325,7 +325,6 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 
 ```code
 bash -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-
 ```
 
 এখানে -O - এর অর্থ হলো ফাইলটি পিসিতে সেভ না করে সরাসরি স্ক্রিনে আউটপুট (পাপিং) হিসেবে পাঠানো, যা পরবর্তীতে sh রান করে।
