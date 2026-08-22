@@ -242,6 +242,19 @@ NVM install:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
+```bash2
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh)"
+```
+
+
+```bash3
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh | bash
+```
+
+```bash4
+bash -c "$(wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.7/install.sh -O -)"
+```
+
 Shell reload:
 
 ```bash
