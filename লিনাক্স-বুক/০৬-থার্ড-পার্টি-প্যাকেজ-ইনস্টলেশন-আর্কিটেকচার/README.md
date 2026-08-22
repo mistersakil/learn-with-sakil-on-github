@@ -508,7 +508,12 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg]
 সহজ কথায়, আগের কম্যান্ডে আমরা মাইক্রোসফটের সিকিউরিটি চাবি (Key) সিস্টেমে রেখেছিলাম, আর এই কমান্ডের মাধ্যমে লিনেক্সকে বলে দেওয়া হচ্ছে যে—"ভবিষ্যতে Microsoft Edge ডাউনলোড বা আপডেট করতে হলে কোন ইন্টারনেট অ্যাড্রেসে যেতে হবে।"
 এখানেও \ (Line Continuation) দিয়ে কমান্ডটি ভাঙা হয়েছে এবং | (Pipe) চিহ্ন দিয়ে দুটি অংশকে জোড়া দেওয়া হয়েছে। নিচে প্রতিটি অংশের বিস্তারিত ব্যাখ্যা দেওয়া হলো:
 
-#### স্টেপ ১: echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] https://packages.microsoft.com/repos/edge stable main"
+#### স্টেপ ১: 
+
+```code
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft-edge.gpg] 
+\ https://packages.microsoft.com/repos/edge stable main"
+```
 
 echo কমান্ডের কাজ হলো এর ভেতরে ডাবল কোটেশনের (" ") মধ্যে থাকা পুরো লেখাটিকে টার্মিনালের আউটপুট হিসেবে প্রিন্ট করা বা বের করে দেওয়া।
 কোটেশনের ভেতরের পুরো লেখাটি হলো একটি লিনেক্স রিপোজিটরি কনফিগারেশন লাইন। এর প্রতিটি অংশ আলাদা অর্থ বহন করে:
@@ -523,7 +528,11 @@ echo কমান্ডের কাজ হলো এর ভেতরে ডা�
 
 ***stable main:*** stable মানে হলো আপনি ব্রাউজারের কোনো পরীক্ষামূলক বা বেটা সংস্করণ নয়, বরং সম্পূর্ণ ত্রুটিমুক্ত এবং চূড়ান্ত রিলিজ সংস্করণটি ডাউনলোড করতে চান। আর main হলো সেই সার্ভারের ভেতরের মূল ডিরেক্টরি বা ক্যাটাগরি।
 
-#### স্টেপ ২: | sudo tee /etc/apt/sources.list.d/microsoft-edge.list
+#### স্টেপ ২: 
+
+```code
+| sudo tee /etc/apt/sources.list.d/microsoft-edge.list
+```
 
 ***Pipe(|):*** এটি স্টেপ ১-এর echo কমান্ড থেকে জেনারেট হওয়া পুরো টেক্সট লাইনটিকে সরাসরি এই দ্বিতীয় অংশের কাছে ট্রান্সফার করে দেয়।
 
