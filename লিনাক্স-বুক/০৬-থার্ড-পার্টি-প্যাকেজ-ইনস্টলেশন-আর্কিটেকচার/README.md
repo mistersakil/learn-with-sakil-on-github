@@ -605,8 +605,9 @@ wget -qO- https://packages.microsoft.com/keys/microsoft.asc \
 ```
 
 ```bash
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" \
-| sudo tee /etc/apt/sources.list.d/vscode.list
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] 
+\ https://packages.microsoft.com/repos/code stable main" 
+\ | sudo tee /etc/apt/sources.list.d/vscode.list
 ```
 
 ```bash
