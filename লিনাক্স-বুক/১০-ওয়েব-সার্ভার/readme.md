@@ -173,50 +173,14 @@ Application
 Database
 ```
 
-### ধাপ ১: User Domain লিখে
-
-```text
-https://example.com
-```
-
-### ধাপ ২: DNS Lookup
-
-DNS ডোমেইনকে IP Address-এ রূপান্তর করে।
-
-```text
-example.com
-↓
-203.0.113.10
-```
-
-### ধাপ ৩: Browser Request পাঠায়
-
-```http
-GET / HTTP/1.1
-Host: example.com
-```
-
-### ধাপ ৪: Web Server Request গ্রহণ করে
-
-উদাহরণ:
-
-```text
-Nginx
-Apache
-LiteSpeed
-```
-
-### ধাপ ৫: Response পাঠায়
-
-```html
-<h1>Hello World</h1>
-```
-
-### ধাপ ৬: Browser Page Render করে
-
-```text
-User sees website
-```
+| ধাপ / পর্যায় | নাম / অ্যাকশন | বিবরণ / বিষয়বস্তু |
+| --- | --- | --- |
+| **ধাপ ১** | **User Domain লিখে** | `[https://example.com](https://example.com)` টাইপ করা হয় |
+| **ধাপ ২** | **DNS Lookup** | ডোমেইনকে IP-তে রূপান্তর করে (`example.com` $\rightarrow$ `203.0.113.10`) |
+| **ধাপ ৩** | **Browser Request পাঠায়** | `GET / HTTP/1.1` (Host: `example.com`) পাঠায় |
+| **ধাপ ৪** | **Web Server Request গ্রহণ করে** | Nginx, Apache বা LiteSpeed সার্ভার রিকোয়েস্ট গ্রহণ করে |
+| **ধাপ ৫** | **Response পাঠায়** | HTML কোড পাঠায় (যেমন: `<h1>Hello World</h1>`) |
+| **ধাপ ৬** | **Browser Page Render করে** | ব্যবহারকারী ওয়েবসাইট দেখতে পান (User sees website) |
 
 ---
 
@@ -376,12 +340,658 @@ Ubuntu-তে Nginx সাধারণত:
 
 ```text
 /etc/nginx
+├── conf.d
+├── fastcgi.conf
+├── fastcgi_params
+├── koi-utf
+├── koi-win
+├── mime.types
+├── modules-available
+├── modules-enabled
 ├── nginx.conf
+├── proxy_params
+├── scgi_params
 ├── sites-available
 ├── sites-enabled
 ├── snippets
-└── conf.d
+├── uwsgi_params
+└── win-utf
 ```
+
+আপনার Ubuntu-তে Nginx ইনস্টল করার পর `/etc/nginx/` ডিরেক্টরির ভেতরে যে ফাইল ও ফোল্ডারগুলো দেখছেন, সেগুলো Nginx-এর কনফিগারেশন, মডিউল, MIME টাইপ, Proxy, FastCGI এবং Virtual Host ব্যবস্থাপনার জন্য ব্যবহৃত হয়।
+
+---
+
+# 📂 Nginx Directory Structure
+
+```text
+/etc/nginx
+├── conf.d
+├── fastcgi.conf
+├── fastcgi_params
+├── koi-utf
+├── koi-win
+├── mime.types
+├── modules-available
+├── modules-enabled
+├── nginx.conf
+├── proxy_params
+├── scgi_params
+├── sites-available
+├── sites-enabled
+├── snippets
+├── uwsgi_params
+└── win-utf
+```
+
+---
+
+# 🧠 Nginx Configuration Hierarchy
+
+Nginx সাধারণত নিচের ক্রমে কনফিগারেশন লোড করে:
+
+```text
+nginx.conf
+│
+├── modules-enabled/*
+│
+├── conf.d/*.conf
+│
+└── sites-enabled/*
+```
+
+অর্থাৎ `nginx.conf` হচ্ছে মূল (Root) Configuration File।
+
+---
+
+# 📄 nginx.conf
+
+এটি Nginx-এর প্রধান কনফিগারেশন ফাইল।
+
+লোকেশন:
+
+```bash
+/etc/nginx/nginx.conf
+```
+
+দেখতে:
+
+```nginx
+user www-data;
+worker_processes auto;
+
+events {
+    worker_connections 768;
+}
+
+http {
+
+    include mime.types;
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+}
+```
+
+---
+
+## কাজ
+
+* Nginx-এর Global Settings
+* Worker Process
+* Logging
+* Compression
+* Security Settings
+* Virtual Host Loading
+
+---
+
+# 📁 sites-available
+
+লোকেশন:
+
+```bash
+/etc/nginx/sites-available
+```
+
+এখানে সকল Virtual Host Configuration রাখা হয়।
+
+উদাহরণ:
+
+```text
+sites-available
+├── default
+├── blog.test
+├── api.test
+└── shop.test
+```
+
+---
+
+## Example
+
+```nginx
+server {
+    listen 80;
+    server_name blog.test;
+
+    root /var/www/blog;
+}
+```
+
+---
+
+# 📁 sites-enabled
+
+লোকেশন:
+
+```bash
+/etc/nginx/sites-enabled
+```
+
+এখানে শুধুমাত্র Active Website-এর Symlink থাকে।
+
+উদাহরণ:
+
+```text
+sites-enabled
+├── default
+├── blog.test
+└── api.test
+```
+
+---
+
+## Symlink Example
+
+```bash
+sudo ln -s \
+/etc/nginx/sites-available/blog.test \
+/etc/nginx/sites-enabled/
+```
+
+---
+
+## কেন এই ডিজাইন?
+
+একটি Website Disable করতে:
+
+```bash
+sudo rm /etc/nginx/sites-enabled/blog.test
+```
+
+ফাইল ডিলিট করতে হয় না।
+
+---
+
+# 📁 conf.d
+
+লোকেশন:
+
+```bash
+/etc/nginx/conf.d
+```
+
+এখানে Global Configuration রাখা হয়।
+
+---
+
+## Example
+
+```text
+conf.d
+├── gzip.conf
+├── security.conf
+└── cache.conf
+```
+
+---
+
+## Example
+
+```nginx
+gzip on;
+gzip_types text/css application/javascript;
+```
+
+---
+
+## Usage
+
+পুরো সার্ভারের জন্য:
+
+* Security Rules
+* Cache Rules
+* Rate Limiting
+* Gzip
+
+---
+
+# 📁 snippets
+
+লোকেশন:
+
+```bash
+/etc/nginx/snippets
+```
+
+Reusable Configuration Block রাখার জন্য।
+
+---
+
+## Example
+
+```text
+snippets
+├── ssl.conf
+├── php.conf
+└── security.conf
+```
+
+---
+
+## Include Example
+
+```nginx
+server {
+
+    include snippets/security.conf;
+
+}
+```
+
+---
+
+## সুবিধা
+
+একই কোড বারবার লিখতে হয় না।
+
+---
+
+# 📄 mime.types
+
+লোকেশন:
+
+```bash
+/etc/nginx/mime.types
+```
+
+---
+
+## MIME Type কী?
+
+Browser-কে বলে দেয় ফাইলটি কোন ধরনের।
+
+---
+
+## Example
+
+```text
+index.html
+```
+
+Browser বুঝবে:
+
+```http
+Content-Type: text/html
+```
+
+---
+
+## Example
+
+```text
+style.css
+```
+
+Browser বুঝবে:
+
+```http
+Content-Type: text/css
+```
+
+---
+
+## Example
+
+```text
+app.js
+```
+
+Browser বুঝবে:
+
+```http
+Content-Type: application/javascript
+```
+
+---
+
+# 📄 fastcgi.conf
+
+FastCGI Application-এর জন্য।
+
+সাধারণত:
+
+```text
+PHP-FPM
+```
+
+এর সাথে ব্যবহার হয়।
+
+---
+
+## Example
+
+```nginx
+location ~ \.php$ {
+
+    include fastcgi.conf;
+
+    fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+
+}
+```
+
+---
+
+## কাজ
+
+Nginx → PHP-FPM Data Pass করে।
+
+---
+
+# 📄 fastcgi_params
+
+FastCGI-এর Environment Variable।
+
+---
+
+## Example
+
+```nginx
+include fastcgi_params;
+```
+
+---
+
+এর মধ্যে থাকে:
+
+```text
+SCRIPT_NAME
+QUERY_STRING
+REQUEST_METHOD
+CONTENT_TYPE
+```
+
+---
+
+## Laravel / PHP Project-এ খুব গুরুত্বপূর্ণ
+
+---
+
+# 📄 proxy_params
+
+Reverse Proxy-এর জন্য।
+
+---
+
+## Example
+
+```nginx
+location / {
+
+    proxy_pass http://127.0.0.1:3000;
+
+    include proxy_params;
+
+}
+```
+
+---
+
+## ব্যবহার
+
+যখন Nginx-এর পেছনে:
+
+```text
+Node.js
+Laravel Octane
+Next.js
+Express.js
+NestJS
+```
+
+চলবে।
+
+---
+
+# 📄 scgi_params
+
+SCGI Protocol-এর Parameter।
+
+---
+
+## SCGI কী?
+
+Simple Common Gateway Interface
+
+বর্তমানে খুব কম ব্যবহৃত হয়।
+
+---
+
+## সাধারণত
+
+```text
+Rarely Used
+```
+
+---
+
+# 📄 uwsgi_params
+
+Python Application-এর জন্য।
+
+---
+
+## Example
+
+```text
+Django
+Flask
+FastAPI
+```
+
+---
+
+## Example
+
+```nginx
+location / {
+
+    include uwsgi_params;
+
+    uwsgi_pass unix:/run/uwsgi.sock;
+
+}
+```
+
+---
+
+# 📁 modules-available
+
+লোকেশন:
+
+```bash
+/etc/nginx/modules-available
+```
+
+এখানে Installed Modules-এর Configuration থাকে।
+
+---
+
+## Example
+
+```text
+50-mod-http-image-filter.conf
+50-mod-http-geoip.conf
+```
+
+---
+
+# 📁 modules-enabled
+
+লোকেশন:
+
+```bash
+/etc/nginx/modules-enabled
+```
+
+এখানে Active Modules-এর Symlink থাকে।
+
+---
+
+## Relationship
+
+```text
+modules-available
+       │
+       ▼
+modules-enabled
+```
+
+---
+
+## Enable Module
+
+```bash
+sudo ln -s \
+/etc/nginx/modules-available/mod.conf \
+/etc/nginx/modules-enabled/
+```
+
+---
+
+# 📄 koi-utf
+
+---
+
+## কাজ
+
+Character Encoding Mapping File
+
+---
+
+## Encoding
+
+```text
+KOI8-R → UTF-8
+```
+
+---
+
+## ব্যবহার
+
+Russian Language Support
+
+---
+
+# 📄 koi-win
+
+---
+
+## কাজ
+
+```text
+KOI8-R → Windows Encoding
+```
+
+Conversion Mapping।
+
+---
+
+## ব্যবহার
+
+Legacy Russian System
+
+---
+
+# 📄 win-utf
+
+---
+
+## কাজ
+
+```text
+Windows-1251 → UTF-8
+```
+
+Encoding Conversion।
+
+---
+
+## ব্যবহার
+
+পুরনো Windows Character Set Support।
+
+---
+
+# 🎯 বাস্তবে একজন Laravel Developer কী কী বেশি ব্যবহার করে?
+
+আপনি Laravel + Ubuntu + Nginx ব্যবহার করলে সবচেয়ে বেশি কাজ করবেন:
+
+```text
+/etc/nginx/nginx.conf
+
+/etc/nginx/sites-available/
+
+/etc/nginx/sites-enabled/
+
+/etc/nginx/snippets/
+
+/etc/nginx/conf.d/
+
+/etc/nginx/fastcgi.conf
+
+/etc/nginx/fastcgi_params
+```
+
+---
+
+# 📚 সহজে মনে রাখার ট্রিক
+
+```text
+nginx.conf
+    │
+    ├── conf.d
+    │
+    ├── sites-enabled
+    │       │
+    │       ▼
+    │   sites-available
+    │
+    ├── snippets
+    │
+    ├── fastcgi*
+    ├── proxy*
+    ├── uwsgi*
+    └── modules-enabled
+```
+
+### মনে রাখুন
+
+* `nginx.conf` → Nginx-এর Master Configuration
+* `sites-available` → Website Definitions
+* `sites-enabled` → Active Websites
+* `conf.d` → Global Configurations
+* `snippets` → Reusable Configurations
+* `fastcgi*` → PHP-FPM
+* `proxy_params` → Reverse Proxy
+* `uwsgi_params` → Python Apps
+* `modules-*` → Nginx Modules
+* `mime.types` → File Type Mapping
+
+এগুলো ভালোভাবে বুঝে ফেললে Nginx-এর প্রায় ৮০–৯০% Configuration Structure আপনার আয়ত্তে চলে আসবে।
+
 
 | ফাইল / ডিরেক্টরি | কাজ / বিবরণ |
 | --- | --- |
