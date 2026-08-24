@@ -1,3 +1,5 @@
+> [🏠](../) [⬅️ ০৯। apt বনাম wget](../০৯-apt-বনাম-wget) [➡️ ১০। ওয়েব সার্ভার](../১০-ওয়েব-সার্ভার)
+
 # ১০। ওয়েব সার্ভার
 
 Linux, DevOps, Web Hosting এবং Web Application Deployment-এর জগতে প্রবেশ করতে হলে ওয়েব সার্ভার সম্পর্কে পরিষ্কার ধারণা থাকা অত্যন্ত গুরুত্বপূর্ণ। এই অধ্যায়ে আমরা ওয়েব সার্ভার কী, কেন প্রয়োজন, কীভাবে কাজ করে, Nginx ইনস্টলেশন, Virtual Host, Multiple Domain Configuration এবং Local Development Environment নিয়ে বিস্তারিত আলোচনা করব।
@@ -785,3 +787,7 @@ sudo tail -f /var/log/nginx/error.log
 ✅ Local Development Environment
 
 এখন আপনি Ubuntu Linux-এ Nginx ব্যবহার করে Single Domain এবং Multiple Domain Web Server কনফিগার করতে সক্ষম।
+
+---
+
+> [🏠](../) [⬅️ ০৯। apt বনাম wget](../০৯-apt-বনাম-wget) [➡️ ১০। ওয়েব সার্ভার](../১০-ওয়েব-সার্ভার)
