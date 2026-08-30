@@ -81,7 +81,9 @@ Kernel নির্ধারণ করে:
 উদাহরণ:
 
 ```bash
-free -h
+free -h 
+Display amount of free and used memory in the system.
+allocate and free dynamic memory
 ```
 
 ---
@@ -99,16 +101,16 @@ Kernel:
 উদাহরণ:
 
 ```bash
-ps aux
+ps aux - report a snapshot of the current processes.
 ```
 
 ```bash
-top
+top - display Linux processes
 ```
 
 #### 📊 top কমান্ড (Table of Processes)
 top কমান্ডটি লিনেক্সের একটি রিয়েল-টাইম (Real-time) সিস্টেম মনিটর। এটি উইন্ডোজের Task Manager-এর মতো কাজ করে। এটি প্রতিনিয়ত (প্রতি ৩ সেকেন্ড পর পর) আপডেট হতে থাকে এবং সিস্টেমে কতটুকু প্রসেসর ও র‍্যাম ব্যবহার হচ্ছে তা লাইভ দেখায়।
-ተርমিনালে শুধু top লিখে এন্টার দিলে নিচের মতো একটি আউটপুট আসবে:
+টার্মিনালে শুধু top লিখে এন্টার দিলে নিচের মতো একটি আউটপুট আসবে:
 
 ##### 🔍 top কমান্ডের প্রধান কলামগুলোর অর্থ:
 
@@ -371,22 +373,10 @@ Kernel Hardware-এর সাথে যোগাযোগ করে।
 
 ## এখন আমরা Linux-এর প্রাথমিক CLI Command শেখা শুরু করবো
 
-````
-
-এর পরেই তোমার বর্তমান existing content:
-
-```md
-# লিনাক্স শেখা - লিনাক্সের প্রাথমিক CLI কমান্ড
-````
-
-যেমন আছে তেমনই থাকবে। এতে Chapter 01 অনেক বেশি structured এবং beginner-friendly হবে।
-
-
-# লিনাক্স শেখা - লিনাক্সের প্রাথমিক CLI কমান্ড
-
 - লিনাক্সের OS-এর নাম ও ভার্সন দেখুন: `hostnamectl`
 - ডিরেক্টরির তালিকা দেখুন: `ls -l`
-- সিস্টেমের root directory-তে যান: `cd /` অথবা `cd ~`
+- সিস্টেমের root directory-তে যান: `cd /` 
+- User home directory `cd ~`
 - একটি ফোল্ডারের ভেতরের সবকিছু কপি করুন: `cp -r /copy/from/* /destination/path/`
 - hidden (`.filename`) ফাইলসহ একটি ফোল্ডারের সবকিছু কপি করুন: `cp -r /copy/from/. /destination/path/`
 - Static hostname সেট করুন: `hostnamectl set-hostname your-new-hostname`
