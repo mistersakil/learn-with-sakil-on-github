@@ -1,9 +1,11 @@
 > [🏠](../) [⬅️ ০৫। লিনাক্স থিম কাস্টমাইজেশন](../০৫-লিনাক্স-থিম-কাস্টমাইজেশন) [➡️ ০৭। কমান্ড লাইন অপশন](../০৭-কমান্ড-লাইন-অপশন)
 
 # ০৬। লিনাক্স প্যাকেজ ইনস্টলেশন আর্কিটেকচার
+
 > Ubuntu ও Debian-ভিত্তিক Linux সিস্টেমে Third-Party Software কীভাবে নিরাপদে ইনস্টল, যাচাই, আপডেট এবং পরিচালনা করা হয় তার পূর্ণাঙ্গ গাইড।
 
 ## সূচিপত্র
+
 - থার্ড-পার্টি প্যাকেজ কী?
 - Linux-এ প্যাকেজ ইনস্টল করার ৫টি প্রধান উপায়
 - Linux Package Management Architecture
@@ -28,6 +30,7 @@
 Ubuntu-এর Official Repository-এর বাইরে থাকা যেকোনো Software Package-কে **Third-Party Package** বলা হয়।
 
 **উদাহরণ:**
+
 - Google Chrome
 - Microsoft Edge
 - Visual Studio Code
@@ -46,16 +49,42 @@ Ubuntu-এর Official Repository-এর বাইরে থাকা যেক�
 Linux-এ মূলত ৫টি প্রধান পদ্ধতিতে সফটওয়্যার ইনস্টল করা যায়:
 
 ### ২.১ Native Package Manager (ডিফল্ট প্যাকেজ ম্যানেজার)
+
 সবচেয়ে নিরাপদ ও জনপ্রিয় পদ্ধতি। ডিস্ট্রিবিউশনের নিজস্ব রিপোজিটরি থেকে ইনস্টল করা হয়।
 
 - **Debian/Ubuntu (APT):**  
   `sudo apt install package_name`
-- **RedHat/Fedora (DNF/YUM):**  
+- **RedHat/Fedora/CentOS (DNF/YUM):**  
   `sudo dnf install package_name`
 - **Arch Linux (Pacman):**  
   `sudo pacman -S package_name`
 
+***Special Note:***
+
+আপনি যদি আপনার টাইপিং অভ্যাসের কারণে apt কমান্ডই লিখতে চান, তবে একটি Alias তৈরি করে নিতে পারেন। এতে ব্যাকএন্ডে dnf কাজ করবে, কিন্তু আপনি টাইপ করবেন apt।
+
+ধাপ ১: টার্মিনালে আপনার প্রোফাইল ফাইলটি খুলুন:
+
+```bash
+nano ~/.bashrc
+```
+
+ধাপ ২: ফাইলের একদম নিচে নিচের লাইনগুলো যোগ করুন:
+
+```bash
+alias apt='sudo dnf'
+alias apt-get='sudo dnf'
+```
+
+ধাপ ৩: ফাইলটি সেভ করে বের হয়ে আসুন (Ctrl+O, তারপর Enter, এবং Ctrl+X)। এবার পরিবর্তনটি সক্রিয় করতে রান করুন:
+
+```bash
+source ~/.bashrc
+```
+
+
 ### ২.২ Universal Package Managers
+
 যেকোনো ডিস্ট্রোতে একই প্যাকেজ চালানোর জন্য ব্যবহার হয়। সব ডিপেন্ডেন্সি একসাথে প্যাক করে রাখে।
 
 - **Snap** (Canonical/Ubuntu):  
@@ -65,15 +94,18 @@ Linux-এ মূলত ৫টি প্রধান পদ্ধতিতে স
 - **AppImage**: ইনস্টলেশনের প্রয়োজন নেই। ফাইল ডাউনলোড করে Executable পারমিশন দিয়ে ডাবল-ক্লিক করেই চালানো যায়।
 
 ### ২.৩ Source Code Compiling
+
 প্যাকেজ ম্যানেজারে না পেলে সোর্স কোড থেকে বিল্ড করতে হয়।
 
 **ধাপ:**
+
 1. `.tar.gz` ফাইল এক্সট্রাক্ট করুন
 2. `./configure`
 3. `make`
 4. `sudo make install`
 
 ### ২.৪ Binary Packages (ম্যানুয়াল বাইনারি)
+
 অনেক কোম্পানি রেডিমেড `.deb` বা `.rpm` ফাইল দেয়।
 
 - **Ubuntu/Debian:**  
@@ -82,6 +114,7 @@ Linux-এ মূলত ৫টি প্রধান পদ্ধতিতে স
   `sudo rpm -ivh package.rpm`
 
 ### ২.৫ Language-Specific Package Managers
+
 প্রোগ্রামিং ল্যাঙ্গুয়েজের নিজস্ব ম্যানেজার।
 
 - **Python:** `pip install package_name`
@@ -124,6 +157,7 @@ Installed Software
 Ubuntu ও Debian-এর প্রধান Package Manager।
 
 ### APT-এর প্রধান ৫টি কাজ:
+
 1. Package খুঁজে বের করা → `apt search nginx`
 2. Package Install করা → `sudo apt install nginx`
 3. Package Update করা → `sudo apt upgrade`
@@ -136,7 +170,8 @@ Ubuntu ও Debian-এর প্রধান Package Manager।
 
 Repository হলো Software Storage Server। এখান থেকে Package ডাউনলোড করা হয়।
 
-### Repository Structure:
+### Repository Structure
+
 ```text
 repository/
 ├── dists/          → Metadata (jammy, noble, bookworm ইত্যাদি)
@@ -153,7 +188,8 @@ repository/
 **GPG** = GNU Privacy Guard  
 Package Authenticity যাচাই করার জন্য ব্যবহৃত হয়।
 
-### Verification Process:
+### Verification Process
+
 ```text
 Package → Signature → Public Key → Verification → Install
 ```
@@ -170,26 +206,32 @@ Package → Signature → Public Key → Verification → Install
 প্রায় সব Third-Party Package এই একই প্যাটার্ন অনুসরণ করে।
 
 ### Step 1 — Dependencies ইনস্টল
+
 ```bash
 sudo apt update
 sudo apt install wget curl gpg software-properties-common -y
 ```
 
 ### Step 2 — GPG Key Import
+
 ```bash
 wget -qO- KEY_URL | sudo gpg --dearmor -o /usr/share/keyrings/package.gpg
 ```
+
 অথবা
+
 ```bash
 curl KEY_URL | gpg --dearmor | sudo tee /usr/share/keyrings/package.gpg > /dev/null
 ```
 
 **Backend:**
+
 ```
 Download Key → Convert to Binary → Store in Keyring
 ```
 
 ### Step 3 — Repository যোগ করা
+
 ```bash
 echo "deb [signed-by=/usr/share/keyrings/package.gpg] REPO_URL stable main" \
 | sudo tee /etc/apt/sources.list.d/package.list
@@ -198,6 +240,7 @@ echo "deb [signed-by=/usr/share/keyrings/package.gpg] REPO_URL stable main" \
 নতুন ফাইল তৈরি হয়: `/etc/apt/sources.list.d/`
 
 ### Step 4 — Refresh ও Install
+
 ```bash
 sudo apt update
 sudo apt install package-name -y
@@ -208,6 +251,7 @@ sudo apt install package-name -y
 ## ৮. apt update ও apt install-এর Backend Workflow
 
 ### apt update কী করে?
+
 Software আপডেট করে না। এটি **Repository Metadata Refresh** করে।
 
 ```text
@@ -217,6 +261,7 @@ Read Sources → Connect Repository → Download Metadata → Verify Signature �
 **Cache Location:** `/var/lib/apt/lists/`
 
 ### apt install কী করে?
+
 ```text
 Find Package → Resolve Dependency → Download Package → Verify Signature → Extract Files → Register Package → Finish
 ```
