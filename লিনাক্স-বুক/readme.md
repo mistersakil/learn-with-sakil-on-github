@@ -1,10 +1,10 @@
-# 🐧 লিনাক্স শেখার সূচিপত্র
+# লিনাক্স শেখার সূচিপত্র
 
 [রোডম্যাপ](https://roadmap.sh/linux)
 
 > Linux শেখার জন্য ধাপে ধাপে বাংলা গাইড।
 
-## 📚 পাঠসমূহ
+## পাঠসমূহ
 
 - [০০। সংক্ষিপ্ত প্রশ্নোত্তর](./০০-সংক্ষিপ্ত-প্রশ্নোত্তর)
 - [০১। লিনাক্স পরিচিতি](./০১-লিনাক্স-পরিচিতি)
@@ -21,7 +21,7 @@
 
 ---
 
-# 🐧 লিনাক্স সিস্টেম অ্যাডমিনিস্ট্রেশন মাস্টারি রোডম্যাপ
+## লিনাক্স সিস্টেম অ্যাডমিনিস্ট্রেশন মাস্টারি রোডম্যাপ
 
 > **লক্ষ্য:** একজন দক্ষ ও পূর্ণাঙ্গ Linux System Administrator হওয়া।
 >
@@ -29,23 +29,25 @@
 >
 > **মূল ফোকাস:** Deployment, Automation, Cloud এবং Security
 >
-> **সম্ভাব্য সময়কাল:** ৬–১২ মাস
+> **সম্ভাব্য সময়কাল:** ৬-১২ মাস
+
+## রোডম্যাপের সূচিপত্র
+
+- [ধাপ ১: লিনাক্সের ভিত্তি মজবুত করা](#-ধাপ-১-লিনাক্সের-ভিত্তি-মজবুত-করা-১-২ মাস)
+
+- [ধাপ ২: মধ্যবর্তী পর্যায়ের সিস্টেম অ্যাডমিনিস্ট্রেশন](#-ধাপ-২-মধ্যবর্তী-পর্যায়ের-সিস্টেম-অ্যাডমিনিস্ট্রেশন-২-৩ মাস)
+
+- [ধাপ ৩: উন্নত সিস্টেম অ্যাডমিনিস্ট্রেশন ও অটোমেশন](#-ধাপ-৩-উন্নত-সিস্টেম-অ্যাডমিনিস্ট্রেশন-ও-অটোমেশন-৩-৪ মাস)
+
+- [ধাপ ৪: ক্লাউড ও ডেভঅপসের সমন্বয়](#-ধাপ-৪-ক্লাউড-ও-ডেভঅপসের-সমন্বয়-৩-৪ মাস)
+
+- [ধাপ ৫: দক্ষতা উন্নয়ন, সার্টিফিকেশন ও বাস্তব প্রজেক্ট](#ধাপ-৫-দক্ষতা-উন্নয়ন-সার্টিফিকেশন-ও-বাস্তব-প্রজেক্ট-চলমান)
+
+- [শেষ কথা](#শেষ-কথা)
 
 ---
 
-## 📑 রোডম্যাপের সূচিপত্র
-
-- [🔹 ধাপ ১: লিনাক্সের ভিত্তি মজবুত করা](#-ধাপ-১-লিনাক্সের-ভিত্তি-মজবুত-করা-১–২-মাস)
-- [🔹 ধাপ ২: মধ্যবর্তী পর্যায়ের সিস্টেম অ্যাডমিনিস্ট্রেশন](#-ধাপ-২-মধ্যবর্তী-পর্যায়ের-সিস্টেম-অ্যাডমিনিস্ট্রেশন-২–৩-মাস)
-- [🔹 ধাপ ৩: উন্নত সিস্টেম অ্যাডমিনিস্ট্রেশন ও অটোমেশন](#-ধাপ-৩-উন্নত-সিস্টেম-অ্যাডমিনিস্ট্রেশন-ও-অটোমেশন-৩–৪-মাস)
-- [🔹 ধাপ ৪: ক্লাউড ও ডেভঅপসের সমন্বয়](#-ধাপ-৪-ক্লাউড-ও-ডেভঅপসের-সমন্বয়-৩–৪-মাস)
-- [🔹 ধাপ ৫: দক্ষতা উন্নয়ন, সার্টিফিকেশন ও বাস্তব প্রজেক্ট](#-ধাপ-৫-দক্ষতা-উন্নয়ন-সার্টিফিকেশন-ও-বাস্তব-প্রজেক্ট-চলমান)
-- [📚 বাংলা রিসোর্স](#-বাংলা-রিসোর্স)
-- [🎯 শেষ কথা](#-শেষ-কথা)
-
----
-
-## 🔹 ধাপ ১: লিনাক্সের ভিত্তি মজবুত করা (১–২ মাস)
+## ধাপ ১: লিনাক্সের ভিত্তি মজবুত করা (১-২ মাস)
 
 এই ধাপে Linux-এর মৌলিক ধারণা, কমান্ড লাইন, ফাইল সিস্টেম, ইউজার, পারমিশন, প্রসেস, নেটওয়ার্ক এবং সিস্টেম সার্ভিস সম্পর্কে শক্ত ভিত্তি তৈরি করতে হবে।
 
@@ -66,7 +68,7 @@
 
 ---
 
-## 🔹 ধাপ ২: মধ্যবর্তী পর্যায়ের সিস্টেম অ্যাডমিনিস্ট্রেশন (২–৩ মাস)
+## ধাপ ২: মধ্যবর্তী পর্যায়ের সিস্টেম অ্যাডমিনিস্ট্রেশন (২-৩ মাস)
 
 এই ধাপে Linux server পরিচালনা, storage, networking, web server, database, Docker এবং security সম্পর্কে বাস্তব প্রশাসনিক দক্ষতা তৈরি করতে হবে।
 
@@ -87,7 +89,7 @@
 
 ---
 
-## 🔹 ধাপ ৩: উন্নত সিস্টেম অ্যাডমিনিস্ট্রেশন ও অটোমেশন (৩–৪ মাস)
+## ধাপ ৩: উন্নত সিস্টেম অ্যাডমিনিস্ট্রেশন ও অটোমেশন (৩-৪ মাস)
 
 এই ধাপে বড় ও production-grade infrastructure পরিচালনা, configuration automation, orchestration, monitoring, security এবং high availability সম্পর্কে দক্ষতা তৈরি করতে হবে।
 
@@ -106,7 +108,7 @@
 
 ---
 
-## 🔹 ধাপ ৪: ক্লাউড ও ডেভঅপসের সমন্বয় (৩–৪ মাস)
+## ধাপ ৪: ক্লাউড ও ডেভঅপসের সমন্বয় (৩-৪ মাস)
 
 Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষতা যুক্ত করে production infrastructure পরিচালনার জন্য প্রস্তুত হতে হবে।
 
@@ -123,17 +125,17 @@ Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষ�
 
 ---
 
-## 🔹 ধাপ ৫: দক্ষতা উন্নয়ন, সার্টিফিকেশন ও বাস্তব প্রজেক্ট (চলমান)
+## ধাপ ৫: দক্ষতা উন্নয়ন, সার্টিফিকেশন ও বাস্তব প্রজেক্ট (চলমান)
 
 এই ধাপটি নির্দিষ্ট সময়ে শেষ হয় না। Linux Administration-এর দক্ষতা ধরে রাখতে নিয়মিত বাস্তব সমস্যা সমাধান, নতুন প্রযুক্তি শেখা এবং production-like project করা গুরুত্বপূর্ণ।
 
-### 🎓 সার্টিফিকেশন প্রস্তুতি
+### সার্টিফিকেশন প্রস্তুতি
 
 - RHCSA — Red Hat Certified System Administrator
 - LFCS — Linux Foundation Certified System Administrator
 - CompTIA Linux+
 
-### 🧪 Home Lab তৈরি
+### Home Lab তৈরি
 
 - Proxmox ব্যবহার করে virtual machine তৈরি
 - একাধিক Linux VM দিয়ে lab environment তৈরি
@@ -142,7 +144,7 @@ Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষ�
 - Monitoring ও logging stack তৈরি
 - বিভিন্ন failure scenario তৈরি করে troubleshooting অনুশীলন
 
-### 🚀 বাস্তব প্রজেক্ট
+### বাস্তব প্রজেক্ট
 
 - Laravel + React application Linux server-এ deploy করা
 - CI/CD pipeline তৈরি করা
@@ -152,14 +154,14 @@ Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষ�
 - Application ও server monitoring যুক্ত করা
 - Automated deployment এবং rollback ব্যবস্থা তৈরি করা
 
-### 🤝 Open Source Contribution
+### Open Source Contribution
 
 - Linux/DevOps tools-এ ছোটখাটো contribution করা
 - Documentation improve করা
 - Bug report ও issue তৈরি করা
 - GitHub Pull Request করার অভ্যাস তৈরি করা
 
-### 🛠️ Troubleshooting Mastery
+### Troubleshooting Mastery
 
 নিয়মিত নিচের সমস্যাগুলো নিজে diagnose ও সমাধান করার অনুশীলন করুন:
 
@@ -176,11 +178,11 @@ Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষ�
 - DNS সমস্যা
 - Application deployment সমস্যা
 
-### 📝 Documentation
+### Documentation
 
 প্রতিটি গুরুত্বপূর্ণ শেখা বিষয়, troubleshooting process, command এবং configuration-এর নোট GitHub-এ সংরক্ষণ করুন। এতে শেখার পাশাপাশি ভবিষ্যতে নিজের personal knowledge base তৈরি হবে।
 
-### 🌐 Community ও নিয়মিত শেখা
+### Community ও নিয়মিত শেখা
 
 - Linux/DevOps forum ও community-তে অংশগ্রহণ
 - Discord ও অন্যান্য technical community অনুসরণ
@@ -190,28 +192,15 @@ Linux Administration-এর সঙ্গে Cloud এবং DevOps দক্ষ�
 
 ---
 
-## 📚 বাংলা রিসোর্স
-
-- **GitHub:** `haiderkn/banglay-linux` — Linux-এর মৌলিক বিষয় বাংলায় শেখার জন্য
-- **GitHub:** `Rantideb/DevOps-Roadmap-For-Beginners` — বাংলা DevOps roadmap
-- **GitHub:** `BCshell/Linux-Learning-RoadMap` — Linux learning roadmap
-- **GitHub:** `iam-osarietinmen/devops-learning-path` — আধুনিক DevOps learning path
-- **বই:** মোহাম্মদ মিজানুর রহমান — **“লিনাক্স সিস্টেম অ্যাডমিনিস্ট্রেশন”**
-- **YouTube:** Spoken Tutorial (IIT Bombay) — System Administration-এর মৌলিক বিষয়
-
----
-
-## 🎯 শেষ কথা
+## শেষ কথা
 
 Laravel + React-এর মতো application development background থাকলে Linux Administration শেখার সময় শুধু Linux command মুখস্থ করার পরিবর্তে **Deployment, Automation, Cloud এবং Security**—এই চারটি বিষয়ের সঙ্গে Linux-কে ব্যবহারিকভাবে শেখা বেশি কার্যকর।
 
 আপনার লক্ষ্য হওয়া উচিত এমন একজন engineer হওয়া, যিনি শুধু application তৈরি করতে পারেন না, বরং সেই application-এর **server, deployment, networking, monitoring, security এবং automation**-ও বুঝতে ও পরিচালনা করতে পারেন।
 
-এই roadmap ধারাবাহিকভাবে অনুসরণ করে **৬–১২ মাস** বাস্তব অনুশীলন করলে Linux Administration-এ একটি শক্ত ভিত্তি তৈরি করা সম্ভব। এরপর production troubleshooting, automation এবং infrastructure design-এর মাধ্যমে ধীরে ধীরে mastery-এর দিকে এগিয়ে যেতে পারবেন।
+এই roadmap ধারাবাহিকভাবে অনুসরণ করে **৬-১২ মাস** বাস্তব অনুশীলন করলে Linux Administration-এ একটি শক্ত ভিত্তি তৈরি করা সম্ভব। এরপর production troubleshooting, automation এবং infrastructure design-এর মাধ্যমে ধীরে ধীরে mastery-এর দিকে এগিয়ে যেতে পারবেন।
 
-> **লক্ষ্য:** “Application Developer যিনি Linux Administration, DevOps ও Cloud বোঝেন” — এই skill combination-কে একজন production-ready engineering skill set-এ পরিণত করা। 🚀
-
----
+> **লক্ষ্য:** Application Developer যিনি Linux Administration, DevOps ও Cloud বোঝেন — এই skill combination-কে একজন production-ready engineering skill set-এ পরিণত করা।
 
 **ফাইলের নামের প্রস্তাব:** `linux-admin-roadmap-bangla.md`
 
