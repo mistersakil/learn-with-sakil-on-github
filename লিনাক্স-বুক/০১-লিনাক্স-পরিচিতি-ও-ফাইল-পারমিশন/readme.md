@@ -1,14 +1,94 @@
->  [🏠](../) [⬅️ ০০। সংক্ষিপ্ত প্রশ্নোত্তর](../০০-সংক্ষিপ্ত-প্রশ্নোত্তর) [➡️ ০১.১। ইউজার ম্যানেজমেন্ট](../০১.১-ইউজার-ম্যানেজমেন্ট)
-
 # ০১। লিনাক্স-পরিচিতি ও ফাইল পারমিশন | Linux Overview & File Permissions
 
-Linux শুধুমাত্র একটি Operating System নয়; এটি একটি বিশাল Open Source Ecosystem। অনেকেই Ubuntu, Fedora, Debian বা Kali Linux-কে Linux বলে থাকেন, কিন্তু প্রযুক্তিগতভাবে Linux-এর মূল অংশ হলো **Linux Kernel**।
+> [🏠](../) [⬅️ ০০। সংক্ষিপ্ত প্রশ্নোত্তর](../০০-সংক্ষিপ্ত-প্রশ্নোত্তর) [➡️ ০১.১। ইউজার ম্যানেজমেন্ট](../০১.১-ইউজার-ম্যানেজমেন্ট)
+
+---
+
+## 📑 সূচিপত্র
+
+- [ভাগ ১: লিনাক্স পরিচিতি](#ভাগ-১-লিনাক্স-পরিচিতি)
+  - [১.১। লিনাক্স কী?](#১১-লিনাক্স-কী)
+  - [১.২। লিনাক্স সিস্টেমের স্তরগুলো](#১২-লিনাক্স-সিস্টেমের-স্তরগুলো)
+  - [১.৩। Linux Kernel কী?](#১৩-linux-kernel-কী)
+  - [১.৪। Kernel-এর প্রধান কাজ](#১৪-kernel-এর-প্রধান-কাজ)
+    - [CPU Management](#cpu-management)
+    - [Memory Management](#memory-management)
+    - [Process Management](#process-management)
+    - [Filesystem Management](#filesystem-management)
+    - [Hardware Management](#hardware-management)
+    - [Security Management](#security-management)
+  - [১.৫। Linux Distribution কী?](#১৫-linux-distribution-কী)
+  - [১.৬। সব Distribution কি একই Kernel ব্যবহার করে?](#১৬-সব-distribution-কি-একই-kernel-ব্যবহার-করে)
+- [ভাগ ২: CLI, Shell ও Terminal](#ভাগ-২-cli-shell-ও-terminal)
+  - [২.১। CLI কী?](#২১-cli-কী)
+  - [২.২। Shell কী?](#২২-shell-কী)
+  - [২.৩। জনপ্রিয় Linux Shell](#২৩-জনপ্রিয়-linux-shell)
+  - [২.৪। CLI কীভাবে কাজ করে?](#২৪-cli-কীভাবে-কাজ-করে)
+  - [২.৫। CLI বনাম GUI](#২৫-cli-বনাম-gui)
+  - [২.৬। Kernel এবং CLI-এর সম্পর্ক](#২৬-kernel-এবং-cli-এর-সম্পর্ক)
+- [ভাগ ৩: Linux Filesystem Hierarchy](#ভাগ-৩-linux-filesystem-hierarchy)
+  - [৩.১। SSH দিয়ে Linux Machine-এ প্রবেশ](#৩১-ssh-দিয়ে-linux-machine-এ-প্রবেশ)
+  - [৩.২। Root Directory-র গুরুত্বপূর্ণ অংশ](#৩২-root-directory-র-গুরুত্বপূর্ণ-অংশ)
+- [ভাগ ৪: Help নেওয়া ও Man Page](#ভাগ-৪-help-নেওয়া-ও-man-page)
+  - [৪.১। man Command](#৪১-man-command)
+  - [৪.২। অন্যান্য Help Command](#৪২-অন্যান্য-help-command)
+- [ভাগ ৫: Directory Management](#ভাগ-৫-directory-management)
+  - [৫.১। Root-এর অর্থ](#৫১-root-এর-অর্থ)
+  - [৫.২। গুরুত্বপূর্ণ Directory Command](#৫২-গুরুত্বপূর্ণ-directory-command)
+  - [৫.৩। Dot (`.` এবং `..`)-এর অর্থ](#৫৩-dot-এবং--এর-অর্থ)
+- [ভাগ ৬: File Management](#ভাগ-৬-file-management)
+  - [৬.১। touch Command](#৬১-touch-command)
+  - [৬.২। cat ও tac](#৬২-cat-ও-tac)
+  - [৬.৩। head ও tail](#৬৩-head-ও-tail)
+  - [৬.৪। অন্যান্য দরকারি Command](#৬৪-অন্যান্য-দরকারি-command)
+- [ভাগ ৭: File Permission](#ভাগ-৭-file-permission)
+  - [৭.১। Permission-এর মূল ধারণা](#৭১-permission-এর-মূল-ধারণা)
+  - [৭.২। File Type ও Permission Format](#৭২-file-type-ও-permission-format)
+  - [৭.৩। File বনাম Directory Permission](#৭৩-file-বনাম-directory-permission)
+  - [৭.৪। Directory-এর x Permission](#৭৪-directory-এর-x-permission)
+  - [৭.৫। ls -l Output](#৭৫-ls--l-output)
+- [ভাগ ৮: chmod — Permission পরিবর্তন](#ভাগ-৮-chmod--permission-পরিবর্তন)
+  - [৮.১। chmod Symbolic Mode](#৮১-chmod-symbolic-mode)
+  - [৮.২। chmod Numeric / Octal Mode](#৮২-chmod-numeric--octal-mode)
+  - [৮.৩। Common Modes](#৮৩-common-modes)
+  - [৮.৪। Recursive Permission](#৮৪-recursive-permission)
+- [ভাগ ৯: chown ও chgrp](#ভাগ-৯-chown-ও-chgrp)
+- [ভাগ ১০: umask](#ভাগ-১০-umask)
+- [ভাগ ১১: Special Permissions](#ভাগ-১১-special-permissions)
+  - [১১.১। SUID](#১১১-suid)
+  - [১১.২। SGID](#১১2-sgid)
+  - [১১.৩। Sticky Bit](#১১3-sticky-bit)
+- [ভাগ ১২: ACL](#ভাগ-১২-acl)
+- [ভাগ ১৩: Permission Troubleshooting](#ভাগ-১৩-permission-troubleshooting)
+- [ভাগ ১৪: sudo, Root ও Least Privilege](#ভাগ-১৪-sudo-root-ও-least-privilege)
+- [ভাগ ১৫: Laravel, Nginx/PHP-FPM ও Docker](#ভাগ-১৫-laravel-nginxphp-fpm-ও-docker)
+- [ভাগ ১৬: SELinux/AppArmor](#ভাগ-১৬-selinuxapparmor)
+- [ভাগ ১৭: Permission Audit Commands](#ভাগ-১৭-permission-audit-commands)
+- [ভাগ ১৮: Best Practices](#ভাগ-১৮-best-practices)
+- [🧠 Permission Troubleshooting Mental Model](#-permission-troubleshooting-mental-model)
+- [Quick Revision](#quick-revision)
+
+---
+
+# ভাগ ১: লিনাক্স পরিচিতি
+
+## ১.১। লিনাক্স কী?
+
+Linux শুধুমাত্র একটি Operating System নয়; এটি একটি বিশাল **Open Source Ecosystem**। অনেকেই Ubuntu, Fedora, Debian বা Kali Linux-কে Linux বলে থাকেন, কিন্তু প্রযুক্তিগতভাবে Linux-এর মূল অংশ হলো **Linux Kernel**।
 
 সহজভাবে বুঝতে:
 
-- Linux Kernel = Operating System-এর Engine
-- Shell / CLI = User-এর Control Panel
-- Applications = User যে Software ব্যবহার করে
+| উপাদান | ভূমিকা |
+| --- | --- |
+| **Linux Kernel** | Operating System-এর Engine |
+| **Shell / CLI** | User-এর Control Panel |
+| **Applications** | User যে Software ব্যবহার করে |
+
+> 💡 **মনে রাখুন:** Linux Kernel হলো মূল ভিত্তি। এর উপর Shell, Package Manager, Desktop Environment, Libraries এবং Applications যোগ করে একটি পূর্ণাঙ্গ Linux Distribution তৈরি হয়।
+
+---
+
+## ১.২। লিনাক্স সিস্টেমের স্তরগুলো
 
 একটি Linux System সাধারণত নিচের স্তরগুলো নিয়ে গঠিত:
 
@@ -24,19 +104,37 @@ Linux শুধুমাত্র একটি Operating System নয়; এ�
 +-------------------------------------+
 ```
 
-যখন আপনি কোনো Application ব্যবহার করেন, Application সরাসরি Hardware-এর সাথে কথা বলে না। Application → Shell/GUI → Kernel → Hardware এই ধাপগুলো অনুসরণ করে কাজ সম্পন্ন হয়।
+**কীভাবে কাজ করে:**
+
+যখন আপনি কোনো Application ব্যবহার করেন, Application সরাসরি Hardware-এর সাথে কথা বলে না। বরং:
+
+```text
+Application → Shell/GUI → Kernel → Hardware
+```
+
+এই ধাপগুলো অনুসরণ করে কাজ সম্পন্ন হয়।
+
+**বাস্তব উদাহরণ:**
+
+ধরুন আপনি `ls` command চালালেন। তখন:
+
+1. Shell আপনার command গ্রহণ করে
+2. Shell Kernel-এর কাছে request পাঠায়
+3. Kernel Filesystem-এ গিয়ে file list পড়ে
+4. Kernel Shell-কে result ফেরত দেয়
+5. Shell result আপনার সামনে display করে
 
 ---
 
-# Linux Kernel কী?
+## ১.৩। Linux Kernel কী?
 
-Kernel হলো যেকোনো Operating System-এর Core Component বা কেন্দ্রীয় অংশ।
+Kernel হলো যেকোনো Operating System-এর **Core Component** বা কেন্দ্রীয় অংশ।
 
 কম্পিউটার চালু হওয়ার সময় Kernel প্রথম Memory-তে Load হয় এবং পুরো System পরিচালনার দায়িত্ব গ্রহণ করে।
 
-Kernel-কে Operating System-এর "মস্তিষ্ক" বলা যায়।
+Kernel-কে Operating System-এর **"মস্তিষ্ক"** বলা যায়।
 
-বাস্তবে Kernel একটি মধ্যস্থতাকারী (Mediator) হিসেবে কাজ করে:
+বাস্তবে Kernel একটি **মধ্যস্থতাকারী (Mediator)** হিসেবে কাজ করে:
 
 ```text
 Application
@@ -48,109 +146,135 @@ Linux Kernel
 Hardware
 ```
 
-Application Hardware-এর ভাষা বোঝে না, Hardware-ও Application-এর ভাষা বোঝে না। Kernel এই দুই পক্ষের মধ্যে অনুবাদকের মতো কাজ করে।
+**কেন Mediator দরকার?**
+
+- Application Hardware-এর ভাষা বোঝে না
+- Hardware-ও Application-এর ভাষা বোঝে না
+- Kernel এই দুই পক্ষের মধ্যে **অনুবাদকের** মতো কাজ করে
 
 ---
 
-## Linux Kernel-এর প্রধান কাজ
+## ১.৪। Kernel-এর প্রধান কাজ
 
 ### CPU Management
 
-একই সময়ে Browser, VS Code, Docker, Terminal, Database ইত্যাদি অনেক Process চলতে পারে।
+একই সময়ে Browser, VS Code, Docker, Terminal, Database ইত্যাদি অনেক Process চলতে পারে। Kernel নির্ধারণ করে:
 
-Kernel নির্ধারণ করে:
+- কোন Process আগে চলবে
+- কতক্ষণ CPU ব্যবহার করবে
+- কোন Process অপেক্ষা করবে
 
-* কোন Process আগে চলবে
-* কতক্ষণ CPU ব্যবহার করবে
-* কোন Process অপেক্ষা করবে
+একে **Process Scheduling** বলা হয়।
 
-একে Process Scheduling বলা হয়।
+**উদাহরণ:**
+
+```bash
+top
+```
+
+এই command দিয়ে দেখতে পারেন কোন process কত CPU ব্যবহার করছে।
 
 ---
 
 ### Memory Management
 
-RAM একটি সীমিত Resource।
+RAM একটি সীমিত Resource। Kernel নির্ধারণ করে:
 
-Kernel নির্ধারণ করে:
+- কোন Process কত RAM পাবে
+- কোন Process Memory Release করবে
+- Memory Shortage হলে কী হবে
 
-* কোন Process কত RAM পাবে
-* কোন Process Memory Release করবে
-* Memory Shortage হলে কী হবে
-
-উদাহরণ:
+**উদাহরণ:**
 
 ```bash
-free -h 
-Display amount of free and used memory in the system.
-allocate and free dynamic memory
+free -h
 ```
+
+এই command system-এর free এবং used memory দেখায়।
+
+**Memory Management-এর কাজ:**
+
+- Dynamic memory allocate করা
+- Free memory track করা
+- Swap space ব্যবহার করা (RAM শেষ হয়ে গেলে)
 
 ---
 
 ### Process Management
 
-Linux-এ চলমান প্রতিটি Program একটি Process।
+Linux-এ চলমান প্রতিটি Program একটি **Process**। Kernel:
 
-Kernel:
+- Process তৈরি করে
+- Process বন্ধ করে
+- Process Monitoring করে
 
-* Process তৈরি করে
-* Process বন্ধ করে
-* Process Monitoring করে
-
-উদাহরণ:
+**উদাহরণ:**
 
 ```bash
-ps aux - report a snapshot of the current processes.
+ps aux
 ```
 
+এই command current processes-এর snapshot দেখায়।
+
 ```bash
-top - display Linux processes
+top
 ```
+
+এই command real-time process monitoring করে।
 
 #### 📊 top কমান্ড (Table of Processes)
-top কমান্ডটি লিনেক্সের একটি রিয়েল-টাইম (Real-time) সিস্টেম মনিটর। এটি উইন্ডোজের Task Manager-এর মতো কাজ করে। এটি প্রতিনিয়ত (প্রতি ৩ সেকেন্ড পর পর) আপডেট হতে থাকে এবং সিস্টেমে কতটুকু প্রসেসর ও র‍্যাম ব্যবহার হচ্ছে তা লাইভ দেখায়।
-টার্মিনালে শুধু top লিখে এন্টার দিলে নিচের মতো একটি আউটপুট আসবে:
 
-##### 🔍 top কমান্ডের প্রধান কলামগুলোর অর্থ:
+`top` কমান্ডটি Linux-এর একটি **Real-time System Monitor**। এটি Windows-এর Task Manager-এর মতো কাজ করে। এটি প্রতি ৩ সেকেন্ড পর পর update হতে থাকে এবং system-এ কতটুকু Processor ও RAM ব্যবহার হচ্ছে তা live দেখায়।
 
-* PID (Process ID): প্রতিটি রানিং প্রোগ্রামের একটি ইউনিক নম্বর বা আইডি। কোনো প্রোগ্রাম বন্ধ করতে এই আইডিটি লাগে।
-* USER: কোন ইউজার বা অ্যাকাউন্ট থেকে এই প্রোগ্রামটি চালানো হচ্ছে।
-* %CPU: প্রোগ্রামটি প্রসেসরের (CPU) কত শতাংশ ব্যবহার করছে।
-* %MEM: প্রোগ্রামটি আপনার র‍্যামের (RAM) কত শতাংশ জায়গা নিয়েছে।
-* TIME+: প্রোগ্রামটি চালু হওয়ার পর থেকে মোট কতক্ষণ সিপিইউ টাইম ব্যবহার করেছে।
-* COMMAND: রানিং প্রোগ্রাম বা অ্যাপ্লিকেশনটির নাম। [1, 2, 3, 4, 5] 
+**top কমান্ডের প্রধান কলামগুলোর অর্থ:**
 
-##### 💡 কিছু প্রয়োজনীয় শর্টকাট (কমান্ডটি চলাকালীন কিবোর্ডে চাপুন):
+| কলাম | অর্থ |
+| --- | --- |
+| **PID** (Process ID) | প্রতিটি running program-এর একটি unique নম্বর। কোনো program বন্ধ করতে এই ID লাগে। |
+| **USER** | কোন user বা account থেকে এই program চালানো হচ্ছে। |
+| **%CPU** | Program-টি Processor-এর কত শতাংশ ব্যবহার করছে। |
+| **%MEM** | Program-টি RAM-এর কত শতাংশ জায়গা নিয়েছে। |
+| **TIME+** | Program চালু হওয়ার পর থেকে মোট কতক্ষণ CPU time ব্যবহার করেছে। |
+| **COMMAND** | Running program বা application-এর নাম। |
 
-* M — র‍্যাম (Memory) ব্যবহারের ওপর ভিত্তি করে তালিকা সাজাবে (Highest to Lowest)।
-* P — সিপিইউ (CPU) ব্যবহারের ওপর ভিত্তি করে তালিকা সাজাবে।
-* k — কোনো নির্দিষ্ট প্রসেস বন্ধ করতে চাইলে (Kill), এটি চেপে PID নম্বরটি দিতে হবে।
-* q — top স্ক্রিন থেকে বের হয়ে সাধারণ টার্মিনালে ফিরে আসার জন্য।
+**💡 প্রয়োজনীয় শর্টকাট (top চলাকালীন কীবোর্ডে চাপুন):**
 
-### 📸 ps aux কমান্ড (Process Status)
-ps মানে হলো Process Status। top কমান্ডের মতো এটি লাইভ আপডেট হয় না, বরং এটি কমান্ড দেওয়ার ঠিক ওই মুহূর্তের (Snapshot) সিস্টেমে চলমান সকল প্রসেসের একটি বিশাল তালিকা একবারে প্রিন্ট করে দেয়।
-টার্মিনালে কমান্ডটি এভাবে লিখতে হয়:
+| শর্টকাট | কাজ |
+| --- | --- |
+| `M` | RAM (Memory) ব্যবহারের উপর ভিত্তি করে তালিকা সাজায় (Highest to Lowest)। |
+| `P` | CPU ব্যবহারের উপর ভিত্তি করে তালিকা সাজায়। |
+| `k` | কোনো নির্দিষ্ট process বন্ধ করতে (Kill) — PID নম্বর দিতে হবে। |
+| `q` | top screen থেকে বের হয়ে সাধারণ Terminal-এ ফিরে আসে। |
 
-#### 🔍 aux ফ্ল্যাগ বা অপশনগুলোর অর্থ:
+#### 📸 ps aux কমান্ড (Process Status)
 
-* a: সিস্টেমে যত ইউজার আছে, সবার প্রসেস একসাথে দেখাবে।
-* u: প্রসেসগুলোর বিস্তারিত তথ্য (যেমন- CPU, Memory ব্যবহার এবং ইউজারের নাম) সহজ ভাষায় দেখাবে।
-* x: টার্মিনাল ছাড়া ব্যাকগ্রাউন্ডে স্বয়ংক্রিয়ভাবে যে প্রসেসগুলো চলছে (Daemon/Services), সেগুলোও তালিকায় যুক্ত করবে।
+`ps` মানে হলো **Process Status**। `top`-এর মতো এটি live update হয় না, বরং এটি command দেওয়ার ঠিক সেই মুহূর্তের (**Snapshot**) system-এ চলমান সকল process-এর একটি বিশাল তালিকা একবারে print করে দেয়।
 
-#### 💡 বাস্তব জীবনের ব্যবহার (Real-life Use Case):
-ps aux দিয়ে সাধারণত হাজার হাজার লাইনের তালিকা আসে। তাই কোনো নির্দিষ্ট প্রোগ্রাম খুঁজে বের করতে এর সাথে grep কমান্ড ব্যবহার করা হয়। [6] 
-যেমন, আপনার সিস্টেমে chrome ব্রাউজার চলছে কিনা এবং তার PID কত, তা দেখতে নিচের কমান্ডটি ব্যবহার করা হয়:
+**aux ফ্ল্যাগ বা অপশনগুলোর অর্থ:**
 
-`ps aux | grep chrome`
+| ফ্ল্যাগ | অর্থ |
+| --- | --- |
+| `a` | System-এ যত user আছে, সবার process একসাথে দেখায়। |
+| `u` | Process-গুলোর বিস্তারিত তথ্য (CPU, Memory ব্যবহার, user-এর নাম) সহজ ভাষায় দেখায়। |
+| `x` | Terminal ছাড়া background-এ স্বয়ংক্রিয়ভাবে চলা process (Daemon/Services)-ও তালিকায় যুক্ত করে। |
 
-### ⚖️ সংক্ষেপে top বনাম ps aux
+**💡 বাস্তব জীবনের ব্যবহার (Real-life Use Case):**
+
+`ps aux` দিয়ে সাধারণত হাজার হাজার লাইনের তালিকা আসে। তাই কোনো নির্দিষ্ট program খুঁজে বের করতে এর সাথে `grep` command ব্যবহার করা হয়।
+
+**উদাহরণ:** আপনার system-এ Chrome browser চলছে কিনা এবং তার PID কত, তা দেখতে:
+
+```bash
+ps aux | grep chrome
+```
+
+#### ⚖️ সংক্ষেপে top বনাম ps aux
 
 | বৈশিষ্ট্য | top Command | ps aux Command |
-|---|---|---|
-| কাজের ধরন | লাইভ বা রিয়েল-টাইম মনিটরিং। | একটি নির্দিষ্ট মুহূর্তের স্ন্যাপশট। |
-| আপডেট | স্বয়ংক্রিয়ভাবে প্রতি কয়েক সেকেন্ড পর পর রিফ্রেশ হয়। | একবারই আউটপুট দেখায়, নিজে থেকে রিফ্রেশ হয় না। |
-| মূল ব্যবহার | সিস্টেম স্লো হয়ে গেলে কোন অ্যাপ বেশি লোড নিচ্ছে তা তাৎক্ষণিক দেখতে। | কোনো নির্দিষ্ট প্রসেস ব্যাকগ্রাউন্ডে চলছে কিনা তা সার্চ করে বের করতে। |
+| --- | --- | --- |
+| কাজের ধরন | Live বা Real-time monitoring। | একটি নির্দিষ্ট মুহূর্তের snapshot। |
+| আপডেট | স্বয়ংক্রিয়ভাবে প্রতি কয়েক সেকেন্ড পর পর refresh হয়। | একবারই output দেখায়, নিজে থেকে refresh হয় না। |
+| মূল ব্যবহার | System slow হয়ে গেলে কোন app বেশি load নিচ্ছে তা তাৎক্ষণিক দেখতে। | কোনো নির্দিষ্ট process background-এ চলছে কিনা তা search করে বের করতে। |
 
 ---
 
@@ -158,22 +282,28 @@ ps aux দিয়ে সাধারণত হাজার হাজার লা
 
 Hard Disk বা SSD-তে Data কোথায় সংরক্ষিত হবে তা Kernel নিয়ন্ত্রণ করে।
 
-Linux-এর জনপ্রিয় Filesystem:
+**Linux-এর জনপ্রিয় Filesystem:**
 
-* ext4
-* xfs
-* btrfs
-* zfs
+| Filesystem | বৈশিষ্ট্য |
+| --- | --- |
+| **ext4** | Linux-এর সবচেয়ে common এবং stable filesystem। |
+| **xfs** | High-performance, বড় file server-এ ব্যবহৃত। |
+| **btrfs** | Modern, snapshot ও self-healing support আছে। |
+| **zfs** | Advanced, data integrity ও storage pool support। |
 
-Kernel File Read এবং Write Operation পরিচালনা করে।
+Kernel **File Read** এবং **Write** Operation পরিচালনা করে।
 
 ---
 
 ### Hardware Management
 
-Kernel Keyboard, Mouse, SSD, GPU, Wi-Fi Card, Printer ইত্যাদির সাথে যোগাযোগ করে।
+Kernel Keyboard, Mouse, SSD, GPU, Wi-Fi Card, Printer ইত্যাদির সাথে যোগাযোগ করে। এ কাজ **Driver**-এর মাধ্যমে সম্পন্ন হয়।
 
-এ কাজ Driver-এর মাধ্যমে সম্পন্ন হয়।
+**কীভাবে কাজ করে:**
+
+```text
+Application → Kernel → Driver → Hardware
+```
 
 ---
 
@@ -181,7 +311,7 @@ Kernel Keyboard, Mouse, SSD, GPU, Wi-Fi Card, Printer ইত্যাদির �
 
 Linux Permission System, User Access Control এবং Process Isolation Kernel-এর মাধ্যমেই পরিচালিত হয়।
 
-উদাহরণ:
+**উদাহরণ:**
 
 ```bash
 chmod 755 file.txt
@@ -191,52 +321,55 @@ chmod 755 file.txt
 chown user:user file.txt
 ```
 
----
-
-# Linux Distribution কী?
-
-Kernel একা একটি পূর্ণাঙ্গ Operating System নয়।
-
-Kernel-এর সাথে Shell, Package Manager, Desktop Environment, Libraries এবং বিভিন্ন Software যুক্ত করে Linux Distribution তৈরি করা হয়।
-
-উদাহরণ:
-
-| Distribution | Package Manager |
-| ------------ | --------------- |
-| Ubuntu       | apt             |
-| Debian       | apt             |
-| Fedora       | dnf             |
-| Rocky Linux  | dnf             |
-| AlmaLinux    | dnf             |
-| Arch Linux   | pacman          |
-| openSUSE     | zypper          |
+এই command-গুলো Kernel-এর Security Management-এর অংশ।
 
 ---
 
-## সব Linux Distribution কি একই Kernel ব্যবহার করে?
+## ১.৫। Linux Distribution কী?
 
-মূল Source Code একই হলেও Distribution ভেদে Kernel Version এবং Configuration আলাদা হতে পারে।
+Kernel একা একটি পূর্ণাঙ্গ Operating System নয়। Kernel-এর সাথে Shell, Package Manager, Desktop Environment, Libraries এবং বিভিন্ন Software যুক্ত করে **Linux Distribution** তৈরি করা হয়।
 
-উদাহরণ:
+**জনপ্রিয় Linux Distribution:**
 
-* Ubuntu সাধারণত Stable এবং নতুন Hardware Support-এর মধ্যে ভারসাম্য রাখে।
-* Debian দীর্ঘমেয়াদী Stability-এর দিকে বেশি গুরুত্ব দেয়।
-* Fedora নতুন Feature দ্রুত গ্রহণ করে।
-* Arch Linux Rolling Release Model অনুসরণ করে।
-
-Android-ও একটি Modified Linux Kernel ব্যবহার করে।
+| Distribution | Package Manager | বিশেষত্ব |
+| --- | --- | --- |
+| Ubuntu | `apt` | Beginner-friendly, Stable |
+| Debian | `apt` | Stable, Long-term support |
+| Fedora | `dnf` | New features, Cutting-edge |
+| Rocky Linux | `dnf` | RHEL-compatible, Production |
+| AlmaLinux | `dnf` | RHEL-compatible, Production |
+| Arch Linux | `pacman` | Rolling release, Advanced |
+| openSUSE | `zypper` | DevOps/Server |
 
 ---
 
-# CLI কী? | Command Line Interface
+## ১.৬। সব Distribution কি একই Kernel ব্যবহার করে?
 
-CLI (Command Line Interface) হলো Text-Based User Interface।
+মূল Source Code একই হলেও Distribution ভেদে **Kernel Version** এবং **Configuration** আলাদা হতে পারে।
 
-GUI-তে আমরা Mouse ব্যবহার করি।
+**উদাহরণ:**
 
-CLI-তে আমরা Command ব্যবহার করি।
+| Distribution | Kernel বৈশিষ্ট্য |
+| --- | --- |
+| Ubuntu | Stable এবং নতুন Hardware Support-এর মধ্যে ভারসাম্য রাখে। |
+| Debian | দীর্ঘমেয়াদী Stability-এর দিকে বেশি গুরুত্ব দেয়। |
+| Fedora | নতুন Feature দ্রুত গ্রহণ করে। |
+| Arch Linux | Rolling Release Model অনুসরণ করে। |
 
-উদাহরণ:
+> 💡 **মজার তথ্য:** Android-ও একটি Modified Linux Kernel ব্যবহার করে।
+
+---
+
+# ভাগ ২: CLI, Shell ও Terminal
+
+## ২.১। CLI কী?
+
+**CLI (Command Line Interface)** হলো Text-Based User Interface।
+
+- **GUI**-তে আমরা Mouse ব্যবহার করি
+- **CLI**-তে আমরা Command ব্যবহার করি
+
+**উদাহরণ:**
 
 ```bash
 mkdir project
@@ -244,22 +377,24 @@ cd project
 ls -lah
 ```
 
-CLI-এর প্রধান সুবিধা:
+**CLI-এর প্রধান সুবিধা:**
 
-* দ্রুত কাজ করা যায়
-* Automation করা যায়
-* Remote Server পরিচালনা করা যায়
-* কম Resource ব্যবহার করে
+| সুবিধা | ব্যাখ্যা |
+| --- | --- |
+| **দ্রুত** | Mouse click-এর চেয়ে command type করা দ্রুত। |
+| **Automation** | Script লিখে repetitive কাজ automate করা যায়। |
+| **Remote Server** | SSH দিয়ে দূর থেকে server পরিচালনা করা যায়। |
+| **কম Resource** | GUI-এর চেয়ে কম RAM/CPU ব্যবহার করে। |
 
 ---
 
-# Shell কী?
+## ২.২। Shell কী?
 
-Shell হলো User এবং Linux Kernel-এর মধ্যবর্তী Interpreter Program।
+Shell হলো **User** এবং **Linux Kernel**-এর মধ্যবর্তী **Interpreter Program**।
 
 আপনি Terminal-এ Command লিখলে Shell সেটিকে Process করে Kernel-এর কাছে পাঠায়।
 
-Workflow:
+**Workflow:**
 
 ```text
 User
@@ -274,27 +409,40 @@ Kernel
 Hardware
 ```
 
+**Shell-এর কাজ:**
+
+1. User-এর command গ্রহণ করা
+2. Command-টি parse করা
+3. Kernel-এর কাছে request পাঠানো
+4. Kernel থেকে result নিয়ে user-কে দেখানো
+
 ---
 
-## জনপ্রিয় Linux Shell
+## ২.৩। জনপ্রিয় Linux Shell
 
-| Shell | Description                     |
-| ----- | ------------------------------- |
-| Bash  | Linux-এর সবচেয়ে জনপ্রিয় Shell |
-| Zsh   | Modern এবং Highly Customizable  |
-| Fish  | Beginner Friendly               |
-| Dash  | Lightweight                     |
-| Ksh   | Korn Shell                      |
+| Shell | Description |
+| --- | --- |
+| **Bash** | Linux-এর সবচেয়ে জনপ্রিয় Shell (Bourne Again Shell)। |
+| **Zsh** | Modern এবং Highly Customizable। |
+| **Fish** | Beginner Friendly, Auto-suggestion সহ। |
+| **Dash** | Lightweight, দ্রুত। |
+| **Ksh** | Korn Shell, Unix-এ জনপ্রিয়। |
 
-বর্তমান Shell দেখুন:
+**বর্তমান Shell দেখুন:**
 
 ```bash
 echo $SHELL
 ```
 
+**Output উদাহরণ:**
+
+```text
+/bin/bash
+```
+
 ---
 
-# CLI কীভাবে কাজ করে?
+## ২.৪। CLI কীভাবে কাজ করে?
 
 ধরুন আপনি লিখলেন:
 
@@ -302,7 +450,7 @@ echo $SHELL
 ls -lah
 ```
 
-তখন:
+**তখন যা ঘটে:**
 
 ```text
 User
@@ -326,23 +474,30 @@ Shell
 User
 ```
 
-অর্থাৎ Shell Command গ্রহণ করে, Kernel-এর মাধ্যমে Filesystem-এ Request পাঠায় এবং Result User-এর সামনে প্রদর্শন করে।
+**ধাপে ধাপে:**
+
+1. **User** → Terminal-এ `ls -lah` type করে Enter চাপে
+2. **Shell** → Command গ্রহণ করে parse করে
+3. **Shell** → Kernel-এর কাছে request পাঠায়
+4. **Kernel** → Filesystem-এ গিয়ে file list পড়ে
+5. **Kernel** → Result Shell-কে ফেরত দেয়
+6. **Shell** → Result User-এর সামনে display করে
 
 ---
 
-# CLI বনাম GUI
+## ২.৫। CLI বনাম GUI
 
-| CLI                                 | GUI                          |
-| ----------------------------------- | ---------------------------- |
-| Keyboard ভিত্তিক                    | Mouse ভিত্তিক                |
-| দ্রুত                               | সহজ                          |
-| Automation Friendly                 | Beginner Friendly            |
-| কম Resource ব্যবহার করে             | বেশি Resource ব্যবহার করে    |
+| CLI | GUI |
+| --- | --- |
+| Keyboard ভিত্তিক | Mouse ভিত্তিক |
+| দ্রুত | সহজ |
+| Automation Friendly | Beginner Friendly |
+| কম Resource ব্যবহার করে | বেশি Resource ব্যবহার করে |
 | Server Administration-এর জন্য আদর্শ | Desktop ব্যবহারের জন্য আদর্শ |
 
 ---
 
-# Linux Kernel এবং CLI-এর সম্পর্ক
+## ২.৬। Kernel এবং CLI-এর সম্পর্ক
 
 Linux শেখার সময় একটি বিষয় মনে রাখা গুরুত্বপূর্ণ:
 
@@ -359,96 +514,89 @@ Linux Kernel
 Hardware
 ```
 
-আপনি সরাসরি Kernel-এর সাথে কাজ করেন না।
+**মূল কথা:**
 
-আপনি Shell বা CLI ব্যবহার করেন।
+- আপনি সরাসরি Kernel-এর সাথে কাজ করেন না
+- আপনি Shell বা CLI ব্যবহার করেন
+- Shell Kernel-এর সাথে যোগাযোগ করে
+- Kernel Hardware-এর সাথে যোগাযোগ করে
 
-Shell Kernel-এর সাথে যোগাযোগ করে।
-
-Kernel Hardware-এর সাথে যোগাযোগ করে।
-
-এই Architecture বুঝে গেলে Linux-এর Filesystem, Permission, Package Management, Process Management এবং DevOps সম্পর্কিত পরবর্তী অধ্যায়গুলো বোঝা অনেক সহজ হয়ে যায়।
+> 💡 **এই Architecture বুঝে গেলে** Linux-এর Filesystem, Permission, Package Management, Process Management এবং DevOps সম্পর্কিত পরবর্তী অধ্যায়গুলো বোঝা অনেক সহজ হয়ে যায়।
 
 ---
 
-## এখন আমরা Linux-এর প্রাথমিক CLI Command শেখা শুরু করবো
+# ভাগ ৩: Linux Filesystem Hierarchy
 
-- লিনাক্সের OS-এর নাম ও ভার্সন দেখুন: `hostnamectl`
-- ডিরেক্টরির তালিকা দেখুন: `ls -l`
-- সিস্টেমের root directory-তে যান: `cd /` 
-- User home directory `cd ~`
-- একটি ফোল্ডারের ভেতরের সবকিছু কপি করুন: `cp -r /copy/from/* /destination/path/`
-- hidden (`.filename`) ফাইলসহ একটি ফোল্ডারের সবকিছু কপি করুন: `cp -r /copy/from/. /destination/path/`
-- Static hostname সেট করুন: `hostnamectl set-hostname your-new-hostname`
-- Container বা Linux distribution-এর ভেতরে প্রয়োজন হলে basic editor `nano` install করুন: `apt update && apt install nano -y`
-- CPU-এর তথ্য দেখুন: `cat /proc/cpuinfo`
+## ৩.১। SSH দিয়ে Linux Machine-এ প্রবেশ
 
-## Linux Distribution-এর Ecosystem অনুযায়ী শ্রেণিবিন্যাস
+SSH দিয়ে login করার পর সাধারণত authenticated user-এর home directory-তে থাকবেন।
 
-| Distribution | Ecosystem | ধরন | ব্যবহার |
-| ------ | --------- | ---- | ---- |
-| CentOS Linux | RHEL | Stable | এখন এড়িয়ে চলা ভালো |
-| CentOS Stream | RHEL | Rolling preview | Testing |
-| Rocky Linux | RHEL | Stable | Production |
-| AlmaLinux | RHEL | Stable | Production |
-| Kali Linux | Debian | Specialized | Security কাজ |
-| Parrot OS | Debian | Specialized | Security/Development |
-| openSUSE | Independent | Stable/Rolling | DevOps/Server |
-
-## SSH দিয়ে Linux Machine-এ প্রবেশ | Linux Filesystem Hierarchy
-
-SSH দিয়ে login করার পর সাধারণত authenticated user-এর home directory-তে থাকবেন। উদাহরণ:
+**উদাহরণ:**
 
 ```text
 root@Ubuntu:~#
 ```
 
-এখানে:
+**এখানে:**
 
-- `root` = username
-- `Ubuntu` = hostname
-- `~` = বর্তমান user-এর home directory
-- `#` = root user হিসেবে login করা হয়েছে
+| অংশ | অর্থ |
+| --- | --- |
+| `root` | Username |
+| `Ubuntu` | Hostname |
+| `~` | বর্তমান user-এর home directory |
+| `#` | Root user হিসেবে login করা হয়েছে |
 
-এখন system-এর root directory-তে যেতে:
+> 💡 **নোট:** `$` চিহ্ন সাধারণ user বোঝায়, `#` চিহ্ন root user বোঝায়।
+
+**System-এর root directory-তে যেতে:**
 
 ```bash
 root@Ubuntu:~# cd /
 ```
 
-Linux-এর root directory-র গুরুত্বপূর্ণ অংশগুলো:
+---
 
-```text
-/bin        - Linux command চালানোর binary/program/executable ফাইল।
-/boot       - Bootloader-এর প্রয়োজনীয় static file এবং kernel boot করার ফাইল।
-/cdrom      - CD/DVD media mount করার জন্য ব্যবহৃত directory (যদি থাকে)।
-/dev        - Device সম্পর্কিত special file; যেমন keyboard, mouse, disk ইত্যাদি।
-/etc        - System-wide configuration file রাখার প্রধান directory।
-/home       - সাধারণ user-দের home directory।
-/lib        - System-এর প্রয়োজনীয় shared library।
-/lib32      - 32-bit library (যদি system-এ থাকে)।
-/lib64      - 64-bit library।
-/lost+found - Filesystem recovery-এর সময় পাওয়া orphaned file রাখার জায়গা (সাধারণত ext filesystem-এ)।
-/media      - Removable media, যেমন USB/SD card-এর mount point।
-/mnt        - Temporary/manual mount করার জন্য ব্যবহৃত directory।
-/opt        - Optional বা third-party software রাখার জন্য।
-/proc       - Running process ও kernel-এর virtual information filesystem।
-/root       - root user-এর home directory।
-/run        - বর্তমানে চলমান system/process-এর runtime data।
-/sbin       - System administration-এর binary/command।
-/snap       - Snap package-এর data ও mount point।
-/srv        - System যে service-related data পরিবেশন করে তার জন্য।
-/sys        - Kernel ও hardware সম্পর্কিত virtual information filesystem।
-/tmp        - Temporary file রাখার directory।
-/usr        - User-space applications, libraries, documentation ইত্যাদি।
-/var        - পরিবর্তনশীল data; যেমন log, cache, spool ইত্যাদি।
-```
+## ৩.২। Root Directory-র গুরুত্বপূর্ণ অংশ
 
-> মনে রাখুন: `/` হলো system root directory, আর `/root` হলো root user-এর home directory।
+Linux-এর root directory (`/`)-র গুরুত্বপূর্ণ অংশগুলো:
 
-## Linux-এ Help নেওয়া ও Man Page
+| Directory | কাজ |
+| --- | --- |
+| `/bin` | Linux command চালানোর binary/program/executable ফাইল। |
+| `/boot` | Bootloader-এর প্রয়োজনীয় static file এবং kernel boot করার ফাইল। |
+| `/cdrom` | CD/DVD media mount করার জন্য ব্যবহৃত directory (যদি থাকে)। |
+| `/dev` | Device সম্পর্কিত special file; যেমন keyboard, mouse, disk ইত্যাদি। |
+| `/etc` | System-wide configuration file রাখার প্রধান directory। |
+| `/home` | সাধারণ user-দের home directory। |
+| `/lib` | System-এর প্রয়োজনীয় shared library। |
+| `/lib32` | 32-bit library (যদি system-এ থাকে)। |
+| `/lib64` | 64-bit library। |
+| `/lost+found` | Filesystem recovery-এর সময় পাওয়া orphaned file রাখার জায়গা। |
+| `/media` | Removable media, যেমন USB/SD card-এর mount point। |
+| `/mnt` | Temporary/manual mount করার জন্য ব্যবহৃত directory। |
+| `/opt` | Optional বা third-party software রাখার জন্য। |
+| `/proc` | Running process ও kernel-এর virtual information filesystem। |
+| `/root` | Root user-এর home directory। |
+| `/run` | বর্তমানে চলমান system/process-এর runtime data। |
+| `/sbin` | System administration-এর binary/command। |
+| `/snap` | Snap package-এর data ও mount point। |
+| `/srv` | System যে service-related data পরিবেশন করে তার জন্য। |
+| `/sys` | Kernel ও hardware সম্পর্কিত virtual information filesystem। |
+| `/tmp` | Temporary file রাখার directory। |
+| `/usr` | User-space applications, libraries, documentation ইত্যাদি। |
+| `/var` | পরিবর্তনশীল data; যেমন log, cache, spool ইত্যাদি। |
 
-`man` হলো system reference manual পড়ার interface।
+> ⚠️ **মনে রাখুন:** `/` হলো system root directory, আর `/root` হলো root user-এর home directory। এরা完全不同।
+
+---
+
+# ভাগ ৪: Help নেওয়া ও Man Page
+
+## ৪.১। man Command
+
+`man` হলো system reference manual পড়ার interface।
+
+**ব্যবহার:**
 
 ```bash
 man man
@@ -461,116 +609,167 @@ man 5 mandb
 cd --help
 ```
 
-কিছু গুরুত্বপূর্ণ অর্থ:
+**কিছু গুরুত্বপূর্ণ অর্থ:**
 
-- `man man` → `man` command-এর manual দেখায়।
-- `man lsblk` → block device সম্পর্কিত manual।
-- `man sshd` → OpenSSH server daemon-এর manual।
-- `man mandb` → manual page index তৈরি/আপডেট করার তথ্য।
-- `whereis mandb` → binary, source এবং manual-এর অবস্থান খুঁজে দেয়।
-- `whatis mandb` → command-এর সংক্ষিপ্ত description দেখায়।
-- `man 5 mandb` → নির্দিষ্ট manual section-এর entry দেখায়।
-- `cd --help` → command-এর available option সম্পর্কে সাহায্য দেয়।
+| Command | কাজ |
+| --- | --- |
+| `man man` | `man` command-এর manual দেখায়। |
+| `man lsblk` | Block device সম্পর্কিত manual। |
+| `man sshd` | OpenSSH server daemon-এর manual। |
+| `man mandb` | Manual page index তৈরি/আপডেট করার তথ্য। |
+| `whereis mandb` | Binary, source এবং manual-এর অবস্থান খুঁজে দেয়। |
+| `whatis mandb` | Command-এর সংক্ষিপ্ত description দেখায়। |
+| `man 5 mandb` | নির্দিষ্ট manual section-এর entry দেখায়। |
+| `cd --help` | Command-এর available option সম্পর্কে সাহায্য দেয়। |
 
-## Linux-এ Directory নিয়ে কাজ | Directory Management
+## ৪.২। অন্যান্য Help Command
 
-Linux-এ প্রায় সবকিছুই file হিসেবে বিবেচিত হয়; directory-ও একটি বিশেষ ধরনের file structure।
+| Command | কাজ |
+| --- | --- |
+| `--help` | Command-এর সংক্ষিপ্ত help দেখায়। |
+| `info` | GNU-র detailed documentation। |
+| `apropos` | Keyword দিয়ে manual page খুঁজে বের করে। |
 
-### Root-এর অর্থ
+**উদাহরণ:**
 
-- `/` = system root directory।
-- `/root` = root user-এর home directory।
-- `~` = বর্তমানে login করা user-এর home directory।
+```bash
+ls --help
+apropos "copy files"
+```
 
-উদাহরণ:
+---
+
+# ভাগ ৫: Directory Management
+
+## ৫.১। Root-এর অর্থ
+
+Linux-এ প্রায় সবকিছুই file হিসেবে বিবেচিত হয়; directory-ও একটি বিশেষ ধরনের file structure।
+
+| চিহ্ন | অর্থ |
+| --- | --- |
+| `/` | System root directory। |
+| `/root` | Root user-এর home directory। |
+| `~` | বর্তমানে login করা user-এর home directory। |
+
+**উদাহরণ:**
 
 ```text
 root@hostname:~#
 ```
 
-এখানে `~` root user-এর home directory বোঝায়। আবার:
+এখানে `~` root user-এর home directory বোঝায়। আবার:
 
 ```text
 sakil@hostname:~$
 ```
 
-এখানে `~` Sakil user-এর home directory বোঝায়।
+এখানে `~` Sakil user-এর home directory বোঝায়।
 
-### গুরুত্বপূর্ণ Directory Command
+---
 
-```text
-pwd pathname              = বর্তমান working directory দেখায়।
-cd pathname               = relative path ব্যবহার করে directory পরিবর্তন করে।
-cd /pathname              = absolute path ব্যবহার করে directory পরিবর্তন করে।
-cd ~                      = বর্তমান user-এর home directory-তে যায়।
-cd -                      = আগের directory-তে ফিরে যায়।
-ls                       = বর্তমান directory-এর item দেখায়।
-ls /var/log               = নির্দিষ্ট directory-এর item দেখায়।
-ls -l                     = বিস্তারিত list দেখায়।
-ls -la                    = hidden file-সহ বিস্তারিত list দেখায়।
-ls -lah                   = hidden file-সহ human-readable size দেখায়।
-ls -ldh                   = directory-এর নিজস্ব তথ্য human-readable format-এ দেখায়।
-ls -li                    = inode number-সহ list দেখায়।
-ll                       = সাধারণত `ls -l`-এর alias।
-ll sakil/os/fedora sakil/os/debian = একাধিক directory-এর list দেখায়।
-mkdir dirName             = একটি খালি directory তৈরি করে।
-mkdir -p parent/child     = parent ও child directory তৈরি করে।
-mkdir -p sakil/os/fedora sakil/os/debian = একাধিক nested directory তৈরি করে।
-rmdir pathOfDir           = খালি directory মুছে দেয়।
-rmdir dir1 dir2 dir3      = একাধিক খালি directory মুছে দেয়।
-rm -rf parent/child       = directory ও তার contents forcefully মুছে দেয়।
+## ৫.২। গুরুত্বপূর্ণ Directory Command
+
+| Command | কাজ |
+| --- | --- |
+| `pwd pathname` | বর্তমান working directory দেখায়। |
+| `cd pathname` | Relative path ব্যবহার করে directory পরিবর্তন করে। |
+| `cd /pathname` | Absolute path ব্যবহার করে directory পরিবর্তন করে। |
+| `cd ~` | বর্তমান user-এর home directory-তে যায়। |
+| `cd -` | আগের directory-তে ফিরে যায়। |
+| `ls` | বর্তমান directory-র item দেখায়। |
+| `ls /var/log` | নির্দিষ্ট directory-র item দেখায়। |
+| `ls -l` | বিস্তারিত list দেখায়। |
+| `ls -la` | Hidden file-সহ বিস্তারিত list দেখায়। |
+| `ls -lah` | Hidden file-সহ human-readable size দেখায়। |
+| `ls -ldh` | Directory-র নিজস্ব তথ্য human-readable format-এ দেখায়। |
+| `ls -li` | Inode number-সহ list দেখায়। |
+| `ll` | সাধারণত `ls -l`-এর alias। |
+| `mkdir dirName` | একটি খালি directory তৈরি করে। |
+| `mkdir -p parent/child` | Parent ও child directory একসাথে তৈরি করে। |
+| `rmdir pathOfDir` | খালি directory মুছে দেয়। |
+| `rm -rf parent/child` | Directory ও তার contents forcefully মুছে দেয়। |
+
+> ⚠️ **সতর্কতা:** `rm -rf` অত্যন্ত সতর্কতার সঙ্গে ব্যবহার করুন। ভুল path দিলে গুরুত্বপূর্ণ data মুছে যেতে পারে।
+
+**উদাহরণ:**
+
+```bash
+mkdir -p sakil/os/fedora sakil/os/debian
 ```
 
-> `rm -rf` অত্যন্ত সতর্কতার সঙ্গে ব্যবহার করুন। ভুল path দিলে গুরুত্বপূর্ণ data মুছে যেতে পারে।
+এটি একসাথে multiple nested directory তৈরি করে।
 
-### Dot (`.` এবং `..`)-এর অর্থ
-
-```text
-.  = বর্তমান directory-এর reference
-.. = parent directory-এর reference
+```bash
+rmdir dir1 dir2 dir3
 ```
 
-## File Management
+এটি একাধিক খালি directory মুছে দেয়।
 
-### `touch` command
+---
+
+## ৫.৩। Dot (`.` এবং `..`)-এর অর্থ
+
+| চিহ্ন | অর্থ |
+| --- | --- |
+| `.` | বর্তমান directory-র reference। |
+| `..` | Parent directory-র reference। |
+
+**উদাহরণ:**
+
+```bash
+cd ..        # Parent directory-তে যাও
+cd ../..     # দুই ধাপ parent directory-তে যাও
+./script.sh  # Current directory-র script চালাও
+```
+
+---
+
+# ভাগ ৬: File Management
+
+## ৬.১। touch Command
 
 ```bash
 touch filename
 ```
 
-একটি খালি file তৈরি করে।
+**কাজ:**
+
+- একটি খালি file তৈরি করে
+- File-এর timestamp update করে
+
+**একাধিক file তৈরি:**
 
 ```bash
 touch {1..100}.txt
 ```
 
-`1.txt` থেকে `100.txt` পর্যন্ত একাধিক file তৈরি করে।
+এটি `1.txt` থেকে `100.txt` পর্যন্ত একাধিক file তৈরি করে।
 
-```bash
-touch filename
-```
-
-File-এর timestamp update করে।
+**নির্দিষ্ট timestamp সেট:**
 
 ```bash
 touch -t 202601011030 filename
 ```
 
-নির্দিষ্ট timestamp সেট করে।
+---
 
-### `cat` ও `tac`
+## ৬.২। cat ও tac
+
+**File-এর content দেখা:**
 
 ```bash
 cat fileName
 ```
 
-File-এর content দেখায়।
+**নতুন content লিখে file তৈরি/overwrite:**
 
 ```bash
 cat > fileName
 ```
 
-নতুন content লিখে file তৈরি/overwrite করা যায়। Existing content overwrite হয়ে যাবে। `Ctrl+C` দিয়ে prompt থেকে বের হওয়া যায়।
+> ⚠️ Existing content overwrite হয়ে যাবে। `Ctrl+C` দিয়ে prompt থেকে বের হওয়া যায়।
+
+**EOF marker ব্যবহার:**
 
 ```bash
 cat > file.txt << EOF
@@ -580,11 +779,11 @@ EOF
 
 এখানে `EOF` একটি নির্ধারিত termination marker হিসেবে কাজ করে।
 
+**Existing content রেখে নতুন content append:**
+
 ```bash
 cat >> fileName
 ```
-
-Existing content রেখে নতুন content append করে।
 
 ```bash
 cat >> file.txt << EOF
@@ -592,97 +791,52 @@ new content
 EOF
 ```
 
-নির্দিষ্ট marker ব্যবহার করে content append করে।
+**File-এর content উল্টো ক্রমে দেখা:**
 
 ```bash
 tac fileName
 ```
 
-File-এর content উল্টো ক্রমে দেখায়।
+---
 
-### `head` ও `tail`
+## ৬.৩। head ও tail
 
-```bash
-head fileName
-```
-
-সাধারণত প্রথম ১০টি line দেখায়।
-
-```bash
-head -5 fileName
-```
-
-প্রথম ৫টি line দেখায়।
-
-```bash
-head -5 fileName | tac
-```
-
-প্রথম ৫টি line উল্টো ক্রমে দেখায়।
-
-```bash
-tail fileName
-```
-
-সাধারণত শেষ ১০টি line দেখায়।
-
-```bash
-tail -5 fileName
-```
-
-শেষ ৫টি line দেখায়।
-
-```bash
-tail -5 fileName | tac
-```
-
-শেষ ৫টি line উল্টো ক্রমে দেখায়।
-
-### অন্যান্য দরকারি command
-
-```bash
-file filename
-```
-
-File-এর ধরন শনাক্ত করে।
-
-```bash
-mv sourceDirOrFile newDirOrFile
-```
-
-File বা directory rename অথবা move করে।
+| Command | কাজ |
+| --- | --- |
+| `head fileName` | সাধারণত প্রথম ১০টি line দেখায়। |
+| `head -5 fileName` | প্রথম ৫টি line দেখায়। |
+| `head -5 fileName \| tac` | প্রথম ৫টি line উল্টো ক্রমে দেখায়। |
+| `tail fileName` | সাধারণত শেষ ১০টি line দেখায়। |
+| `tail -5 fileName` | শেষ ৫টি line দেখায়। |
+| `tail -5 fileName \| tac` | শেষ ৫টি line উল্টো ক্রমে দেখায়। |
 
 ---
 
-Linux Administration এবং DevOps-এ **File Permission** অত্যন্ত গুরুত্বপূর্ণ। কোন user কোন file বা directory কীভাবে ব্যবহার করতে পারবে—তা permission এবং access-control system দ্বারা নির্ধারিত হয়।
+## ৬.৪। অন্যান্য দরকারি Command
+
+| Command | কাজ |
+| --- | --- |
+| `file filename` | File-এর ধরন শনাক্ত করে। |
+| `mv source new` | File বা directory rename অথবা move করে। |
+| `cp source dest` | File বা directory copy করে। |
+| `cp -r /copy/from/* /destination/path/` | একটি ফোল্ডারের ভেতরের সবকিছু copy করে। |
+| `cp -r /copy/from/. /destination/path/` | Hidden (`.filename`) file-সহ সবকিছু copy করে। |
+| `hostnamectl` | Linux OS-এর নাম ও version দেখায়। |
+| `hostnamectl set-hostname your-new-hostname` | Static hostname সেট করে। |
+| `cat /proc/cpuinfo` | CPU-র তথ্য দেখায়। |
+| `apt update && apt install nano -y` | Container বা Linux distribution-এ `nano` editor install করে। |
 
 ---
 
-## সূচিপত্র
+# ভাগ ৭: File Permission
 
-- [১। Permission-এর মূল ধারণা](#১-permission-এর-মূল-ধারণা)
-- [২। File Type ও Permission Format](#২-file-type-ও-permission-format)
-- [৩। File বনাম Directory Permission](#৩-file-বনাম-directory-permission)
-- [৪। Directory-এর x Permission](#৪-directory-এর-x-permission)
-- [৫। ls -l Output](#৫-ls--l-output)
-- [৬। chmod Symbolic Mode](#৬-chmod-symbolic-mode)
-- [৭। chmod Numeric / Octal Mode](#৭-chmod-numeric--octal-mode)
-- [৮। chown ও chgrp](#৮-chown-ও-chgrp)
-- [৯। umask](#৯-umask)
-- [১০। Special Permissions](#১০-special-permissions)
-- [১১। ACL](#১১-acl)
-- [১২। Permission Troubleshooting](#১২-permission-troubleshooting)
-- [১৩। sudo, Root ও Least Privilege](#১৩-sudo-root-ও-least-privilege)
-- [১৪। Laravel, Nginx/PHP-FPM ও Docker](#১৪-laravel-nginxphp-fpm-ও-docker)
-- [১৫। SELinux/AppArmor](#১৫-selinuxapparmor)
-- [১৬। Permission Audit Commands](#১৬-permission-audit-commands)
-- [১৭। Best Practices](#১৭-best-practices)
+Linux Administration এবং DevOps-এ **File Permission** অত্যন্ত গুরুত্বপূর্ণ। কোন user কোন file বা directory কীভাবে ব্যবহার করতে পারবে—তা permission এবং access-control system দ্বারা নির্ধারিত হয়।
 
 ---
 
-# ১। Permission-এর মূল ধারণা
+## ৭.১। Permission-এর মূল ধারণা
 
-প্রতিটি Linux file/directory-এর permission তিন ধরনের user-এর জন্য নির্ধারিত হয়:
+প্রতিটি Linux file/directory-র permission **তিন ধরনের user**-এর জন্য নির্ধারিত হয়:
 
 | User | Symbol | অর্থ |
 | --- | --- | --- |
@@ -690,27 +844,27 @@ Linux Administration এবং DevOps-এ **File Permission** অত্যন্
 | Group | `g` | File-এর group-এর সদস্য |
 | Others | `o` | অন্য সবাই |
 
-Permission:
+**Permission:**
 
 | Permission | File | Directory |
 | --- | --- | --- |
-| `r` | File পড়া | Directory-এর entry/name list করা |
+| `r` | File পড়া | Directory-র entry/name list করা |
 | `w` | File-এর content পরিবর্তন | File create/delete/rename করা |
 | `x` | Program execute করা | Directory traverse/enter করা |
 
 ---
 
-# ২। File Type ও Permission Format
+## ৭.২। File Type ও Permission Format
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~text
+```text
 -rwxr-xr--
 drwxr-xr-x
 lrwxrwxrwx
-~~~
+```
 
-প্রথম character file type:
+**প্রথম character file type:**
 
 | Character | অর্থ |
 | --- | --- |
@@ -722,118 +876,122 @@ lrwxrwxrwx
 | `s` | Socket |
 | `p` | Named pipe |
 
-পরের ৯টি character:
+**পরের ৯টি character:**
 
-~~~text
+```text
 rwx r-x r--
 │   │   │
 │   │   └── Others
 │   └────── Group
 └────────── Owner
-~~~
+```
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~text
+```text
 -rwxr-xr--
-~~~
+```
 
-Owner → rwx  
-Group → r-x  
-Others → r--
+| অংশ | Permission |
+| --- | --- |
+| Owner | `rwx` |
+| Group | `r-x` |
+| Others | `r--` |
 
 ---
 
-# ৩। File বনাম Directory Permission
+## ৭.৩। File বনাম Directory Permission
 
-File-এর ক্ষেত্রে:
+**File-এর ক্ষেত্রে:**
 
-~~~text
-r = content পড়া
+```text
+r = content পড়া
 w = content পরিবর্তন
 x = executable হিসেবে চালানো
-~~~
+```
 
-Directory-এর ক্ষেত্রে:
+**Directory-এর ক্ষেত্রে:**
 
-~~~text
-r = directory-এর নাম list করা
+```text
+r = directory-র নাম list করা
 w = entry create/delete/rename করা
 x = directory traverse/enter করা
-~~~
+```
 
-একই `rwx` permission file এবং directory-তে একই অর্থ বহন করে না।
+> ⚠️ **মনে রাখুন:** একই `rwx` permission file এবং directory-তে একই অর্থ বহন করে না।
 
 ---
 
-# ৪। Directory-এর x Permission
+## ৭.৪। Directory-এর x Permission
 
-Directory-এর `x` permission-এর অর্থ execute নয়; এখানে মূল অর্থ **traverse**।
+Directory-র `x` permission-এর অর্থ execute নয়; এখানে মূল অর্থ **traverse**।
 
-ধরো:
+**ধরো:**
 
-~~~text
+```text
 project/
 └── secret/
     └── data.txt
-~~~
+```
 
 `secret/`-এ `x` permission না থাকলে directory-তে প্রবেশ বা path traverse করা যাবে না।
 
-Directory-তে সাধারণত:
+**Directory-তে সাধারণত:**
 
-~~~text
+```text
 r + x → list + traverse
 w + x → entry create/delete/rename
-~~~
+```
 
-Parent directory-গুলোর `x` permission-ও file access-এর জন্য গুরুত্বপূর্ণ।
+**Parent directory-গুলোর `x` permission-ও file access-এর জন্য গুরুত্বপূর্ণ।**
 
-Path troubleshooting:
+**Path troubleshooting:**
 
-~~~bash
+```bash
 namei -l /home/sakil/project/app/file.txt
-~~~
+```
 
 ---
 
-# ৫। ls -l Output
+## ৭.৫। ls -l Output
 
-~~~bash
+```bash
 ls -l
-~~~
+```
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~text
+```text
 -rwxr-xr-- 1 root root 1200 May 2 02:52 devops.txt
-~~~
+```
 
-এখানে:
+**এখানে:**
 
-~~~text
--rwxr-xr-- → File type + permission
-1           → Hard link count
-root        → Owner
-root        → Group
-1200        → Size
-May 2 02:52 → Modification time
-devops.txt  → File name
-~~~
+| অংশ | অর্থ |
+| --- | --- |
+| `-rwxr-xr--` | File type + permission |
+| `1` | Hard link count |
+| `root` | Owner |
+| `root` | Group |
+| `1200` | Size |
+| `May 2 02:52` | Modification time |
+| `devops.txt` | File name |
 
-দরকারি command:
+**দরকারি command:**
 
-~~~bash
+```bash
 ls -la
 ls -lah
 ls -ldh directory/
-~~~
+```
 
 ---
 
-# ৬। chmod Symbolic Mode
+# ভাগ ৮: chmod — Permission পরিবর্তন
 
-`chmod` permission পরিবর্তনের জন্য ব্যবহৃত হয়।
+## ৮.১। chmod Symbolic Mode
+
+`chmod` permission পরিবর্তনের জন্য ব্যবহৃত হয়।
 
 | Symbol | অর্থ |
 | --- | --- |
@@ -845,32 +1003,32 @@ ls -ldh directory/
 | `-` | Permission সরানো |
 | `=` | Permission নির্দিষ্টভাবে সেট |
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~bash
+```bash
 chmod o+wx devops.txt
 chmod u+x devops.txt
 chmod u-w devops.txt
 chmod g=rw devops.txt
-~~~
+```
 
-একাধিক operation:
+**একাধিক operation:**
 
-~~~bash
+```bash
 chmod o-wx,u+w,g=rx devops.txt
-~~~
+```
 
-সম্পূর্ণ permission সেট:
+**সম্পূর্ণ permission সেট:**
 
-~~~bash
+```bash
 chmod u=rw,g=r,o= file.txt
-~~~
+```
 
 ---
 
-# ৭। chmod Numeric / Octal Mode
+## ৮.২। chmod Numeric / Octal Mode
 
-Permission-এর value:
+**Permission-এর value:**
 
 | Permission | Value |
 | --- | ---: |
@@ -883,280 +1041,276 @@ Permission-এর value:
 | `rw-` | 6 |
 | `rwx` | 7 |
 
-কারণ:
+**কারণ:**
 
-~~~text
+```text
 r = 4
 w = 2
 x = 1
-~~~
+```
 
-তাই:
+**তাই:**
 
-~~~text
+```text
 rwx = 4 + 2 + 1 = 7
 rw- = 4 + 2 + 0 = 6
 r-x = 4 + 0 + 1 = 5
 r-- = 4 + 0 + 0 = 4
-~~~
+```
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~bash
+```bash
 chmod 754 file.txt
-~~~
+```
 
-এর অর্থ:
+**এর অর্থ:**
 
-~~~text
-Owner  → 7 → rwx
-Group  → 5 → r-x
-Others → 4 → r--
-~~~
+| User | Value | Permission |
+| --- | --- | --- |
+| Owner | 7 | `rwx` |
+| Group | 5 | `r-x` |
+| Others | 4 | `r--` |
 
-Common modes:
+---
 
-~~~bash
+## ৮.৩। Common Modes
+
+| Mode | Owner | Group | Others | ব্যবহার |
+| --- | --- | --- | --- | --- |
+| `755` | `rwx` | `r-x` | `r-x` | Executable file, Directory |
+| `644` | `rw-` | `r--` | `r--` | Regular file |
+| `700` | `rwx` | `---` | `---` | Private file/directory |
+| `750` | `rwx` | `r-x` | `---` | Directory (group access) |
+| `770` | `rwx` | `rwx` | `---` | Shared directory |
+
+**উদাহরণ:**
+
+```bash
 chmod 755 file
 chmod 644 file
 chmod 700 file
 chmod 750 directory
 chmod 770 directory
-~~~
-
-### 755
-
-~~~text
-Owner  → rwx
-Group  → r-x
-Others → r-x
-~~~
-
-### 644
-
-~~~text
-Owner  → rw-
-Group  → r--
-Others → r--
-~~~
-
-### 700
-
-~~~text
-Owner  → rwx
-Group  → ---
-Others → ---
-~~~
-
-## Recursive Permission
-
-~~~bash
-chmod -R ...
-~~~
-
-`-R` মানে recursive। তবে blindভাবে `chmod -R 755 project/` করলে regular file-ও executable হয়ে যেতে পারে।
-
-কিছু পরিস্থিতিতে:
-
-~~~bash
-chmod -R a+X project/
-~~~
-
-ব্যবহার করা যেতে পারে। এখানে uppercase `X` directory এবং প্রয়োজনীয় executable file-এর ক্ষেত্রে execute permission নিয়ে কাজ করে।
+```
 
 ---
 
-# ৮। chown ও chgrp
+## ৮.৪। Recursive Permission
 
-File-এর owner/group দেখতে:
+```bash
+chmod -R ...
+```
 
-~~~bash
+`-R` মানে **recursive**। তবে blindভাবে `chmod -R 755 project/` করলে regular file-ও executable হয়ে যেতে পারে।
+
+**কিছু পরিস্থিতিতে:**
+
+```bash
+chmod -R a+X project/
+```
+
+ব্যবহার করা যেতে পারে। এখানে uppercase `X` directory এবং প্রয়োজনীয় executable file-এর ক্ষেত্রে execute permission নিয়ে কাজ করে।
+
+---
+
+# ভাগ ৯: chown ও chgrp
+
+**File-এর owner/group দেখতে:**
+
+```bash
 ls -l file.txt
-~~~
+```
 
-Owner পরিবর্তন:
+**Owner পরিবর্তন:**
 
-~~~bash
+```bash
 sudo chown john file.txt
-~~~
+```
 
-Owner + Group:
+**Owner + Group:**
 
-~~~bash
+```bash
 sudo chown john:developers file.txt
-~~~
+```
 
-শুধু Group:
+**শুধু Group:**
 
-~~~bash
+```bash
 sudo chown :developers file.txt
-~~~
+```
 
-Recursive:
+**Recursive:**
 
-~~~bash
+```bash
 sudo chown -R john:developers project/
-~~~
+```
 
-> `-R` খুব সাবধানে ব্যবহার করতে হবে।
+> ⚠️ `-R` খুব সাবধানে ব্যবহার করতে হবে।
 
-Group পরিবর্তন:
+**Group পরিবর্তন:**
 
-~~~bash
+```bash
 sudo chgrp developers file.txt
 sudo chgrp -R developers project/
-~~~
+```
 
 ---
 
-# ৯। umask
+# ভাগ ১০: umask
 
-নতুন file/directory তৈরি হওয়ার সময় default permission-এ `umask` গুরুত্বপূর্ণ।
+নতুন file/directory তৈরি হওয়ার সময় default permission-এ `umask` গুরুত্বপূর্ণ।
 
-দেখুন:
+**দেখুন:**
 
-~~~bash
+```bash
 umask
-~~~
+```
 
-সাধারণ example:
+**সাধারণ example:**
 
-~~~text
+```text
 0022
-~~~
+```
 
-সহজ conceptual model:
+**সহজ conceptual model:**
 
-~~~text
+```text
 Directory base = 777
 File base      = 666
 
 777 - 022 → 755
 666 - 022 → 644
-~~~
+```
 
-তাই সাধারণভাবে:
+**তাই সাধারণভাবে:**
 
-~~~text
-Directory → 755
-File      → 644
-~~~
+| ধরন | Default Permission |
+| --- | --- |
+| Directory | `755` |
+| File | `644` |
 
-Temporary পরিবর্তন:
+**Temporary পরিবর্তন:**
 
-~~~bash
+```bash
 umask 027
-~~~
+```
 
-> Permission calculation-কে সহজভাবে বোঝাতে subtraction model ব্যবহার করা হয়; Linux বাস্তবে permission bitmask ব্যবহার করে।
+> 💡 Permission calculation-কে সহজভাবে বোঝাতে subtraction model ব্যবহার করা হয়; Linux বাস্তবে permission bitmask ব্যবহার করে।
 
 ---
 
-# ১০। Special Permissions
+# ভাগ ১১: Special Permissions
 
 Linux-এর তিনটি গুরুত্বপূর্ণ special permission:
 
-~~~text
+```text
 SUID
 SGID
 Sticky Bit
-~~~
+```
 
-## ১০.১ SUID
+---
 
-Executable file-এ SUID থাকলে execution-এর সময় file owner-এর effective identity ব্যবহার করা যেতে পারে।
+## ১১.১। SUID
 
-উদাহরণ দেখতে:
+Executable file-এ SUID থাকলে execution-এর সময় file owner-এর effective identity ব্যবহার করা যেতে পারে।
 
-~~~bash
+**উদাহরণ দেখতে:**
+
+```bash
 ls -l /usr/bin/passwd
-~~~
+```
 
 SUID থাকলে owner execute position-এ `s` দেখা যেতে পারে:
 
-~~~text
+```text
 -rwsr-xr-x
-~~~
+```
 
-Numeric value:
+**Numeric value:**
 
-~~~text
+```text
 SUID = 4
-~~~
+```
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~bash
+```bash
 chmod 4755 file
-~~~
+```
 
-SUID security-sensitive।
+> ⚠️ SUID security-sensitive। শুধু প্রয়োজনীয় ক্ষেত্রে ব্যবহার করুন।
 
-## ১০.২ SGID
+---
+
+## ১১.২। SGID
 
 Directory-তে SGID team/shared directory-র জন্য খুব useful।
 
-~~~bash
+```bash
 chmod g+s /project
-~~~
+```
 
-অথবা:
+**অথবা:**
 
-~~~bash
+```bash
 chmod 2775 /project
-~~~
+```
 
-Numeric value:
+**Numeric value:**
 
-~~~text
+```text
 SGID = 2
-~~~
+```
 
-SGID directory-তে নতুন child file/directory সাধারণত parent-এর group inheritance পায়।
+SGID directory-তে নতুন child file/directory সাধারণত parent-এর group inheritance পায়।
 
-## ১০.৩ Sticky Bit
+---
 
-Shared writable directory-তে Sticky Bit ব্যবহার করা হয়।
+## ১১.৩। Sticky Bit
 
-উদাহরণ:
+Shared writable directory-তে Sticky Bit ব্যবহার করা হয়।
 
-~~~bash
+**উদাহরণ:**
+
+```bash
 ls -ld /tmp
-~~~
+```
 
-সাধারণত:
+**সাধারণত:**
 
-~~~text
+```text
 drwxrwxrwt
-~~~
+```
 
 শেষের `t` হলো Sticky Bit।
 
-Set:
+**Set:**
 
-~~~bash
+```bash
 chmod +t shared/
-~~~
+```
 
-Remove:
+**Remove:**
 
-~~~bash
+```bash
 chmod -t shared/
-~~~
+```
 
-Numeric value:
+**Numeric value:**
 
-~~~text
+```text
 Sticky Bit = 1
-~~~
+```
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~bash
+```bash
 chmod 1777 shared/
-~~~
+```
 
-Special permission values:
+**Special permission values:**
 
 | Permission | Value |
 | --- | ---: |
@@ -1166,177 +1320,177 @@ Special permission values:
 
 ---
 
-# ১১। ACL
+# ভাগ ১২: ACL
 
 Traditional permission model:
 
-~~~text
+```text
 Owner
 Group
 Others
-~~~
+```
 
-কিন্তু নির্দিষ্ট একাধিক user-কে আলাদা permission দিতে হলে ACL ব্যবহার করা যায়।
+কিন্তু নির্দিষ্ট একাধিক user-কে আলাদা permission দিতে হলে **ACL** ব্যবহার করা যায়।
 
-উদাহরণ:
+**উদাহরণ:**
 
-~~~text
+```text
 rahim      → read/write
 karim      → read-only
 developers → read/write
 others     → no access
-~~~
+```
 
-ACL দেখা:
+**ACL দেখা:**
 
-~~~bash
+```bash
 getfacl file.txt
-~~~
+```
 
-নির্দিষ্ট user-কে permission:
+**নির্দিষ্ট user-কে permission:**
 
-~~~bash
+```bash
 setfacl -m u:rahim:rw file.txt
 setfacl -m u:karim:r file.txt
-~~~
+```
 
-ACL entry remove:
+**ACL entry remove:**
 
-~~~bash
+```bash
 setfacl -x u:rahim file.txt
-~~~
+```
 
-সব ACL remove:
+**সব ACL remove:**
 
-~~~bash
+```bash
 setfacl -b file.txt
-~~~
+```
 
 ## ACL Mask
 
-ACL-এর `mask` effective permission সীমাবদ্ধ করতে পারে। তাই শুধু user entry দেখে সিদ্ধান্ত নেওয়া উচিত নয়।
+ACL-এর `mask` effective permission সীমাবদ্ধ করতে পারে। তাই শুধু user entry দেখে সিদ্ধান্ত নেওয়া উচিত নয়।
 
 ## Default ACL
 
 Directory-র future child objects-এর জন্য:
 
-~~~bash
+```bash
 setfacl -d -m g:developers:rwx project/
-~~~
+```
 
 Team-based shared directory-তে এটি useful।
 
 ---
 
-# ১২। Permission Troubleshooting
+# ভাগ ১৩: Permission Troubleshooting
 
-Common error:
+**Common error:**
 
-~~~text
+```text
 Permission denied
-~~~
+```
 
-সরাসরি `chmod 777` না দিয়ে:
+সরাসরি `chmod 777` না দিয়ে systematicভাবে troubleshoot করুন:
 
-### ১। Current user
+### ধাপ ১: Current user দেখুন
 
-~~~bash
+```bash
 whoami
-~~~
+```
 
-### ২। UID/GID ও groups
+### ধাপ ২: UID/GID ও groups দেখুন
 
-~~~bash
+```bash
 id
 groups
-~~~
+```
 
-### ৩। File permission ও ownership
+### ধাপ ৩: File permission ও ownership দেখুন
 
-~~~bash
+```bash
 ls -l file.txt
-~~~
+```
 
-### ৪। Parent path
+### ধাপ ৪: Parent path চেক করুন
 
-~~~bash
+```bash
 namei -l /path/to/file.txt
-~~~
+```
 
-### ৫। ACL
+### ধাপ ৫: ACL চেক করুন
 
-~~~bash
+```bash
 getfacl file.txt
-~~~
+```
 
-### ৬। Detailed metadata
+### ধাপ ৬: Detailed metadata দেখুন
 
-~~~bash
+```bash
 stat file.txt
-~~~
+```
 
-### ৭। Process user
+### ধাপ ৭: Process user দেখুন
 
-~~~bash
+```bash
 ps aux
-~~~
+```
 
 Server application-এর ক্ষেত্রে process/service কোন user হিসেবে চলছে সেটি গুরুত্বপূর্ণ।
 
 ---
 
-# ১৩। sudo, Root ও Least Privilege
+# ভাগ ১৪: sudo, Root ও Least Privilege
 
-`sudo` elevated privilege-এ command চালাতে ব্যবহৃত হয়।
+`sudo` elevated privilege-এ command চালাতে ব্যবহৃত হয়।
 
-~~~bash
+```bash
 sudo chown root:root file.txt
-~~~
+```
 
-অপ্রয়োজনে সব command-এ `sudo` ব্যবহার করা উচিত নয়। বিশেষ করে:
+**অপ্রয়োজনে সব command-এ `sudo` ব্যবহার করা উচিত নয়।** বিশেষ করে:
 
-~~~bash
+```bash
 sudo npm install
 sudo composer install
 sudo git ...
-~~~
+```
 
 এগুলো ownership সমস্যা তৈরি করতে পারে।
 
 ## Root
 
-`root` user-এর খুব উচ্চ privilege আছে। Production-এ application/service প্রয়োজন অনুযায়ী dedicated non-root user হিসেবে চালানো নিরাপদ পদ্ধতি।
+`root` user-এর খুব উচ্চ privilege আছে। Production-এ application/service প্রয়োজন অনুযায়ী **dedicated non-root user** হিসেবে চালানো নিরাপদ পদ্ধতি।
 
 ## Principle of Least Privilege
 
-> যে user/process-এর যতটুকু access দরকার, শুধু ততটুকুই দেওয়া উচিত।
+> যে user/process-এর যতটুকু access দরকার, শুধু ততটুকুই দেওয়া উচিত।
 
 ---
 
-# ১৪। Laravel, Nginx/PHP-FPM ও Docker
+# ভাগ ১৫: Laravel, Nginx/PHP-FPM ও Docker
 
 ## Laravel
 
 Application code এবং runtime-writable directory আলাদা করে ভাবুন।
 
-সাধারণত Laravel application process-এর writable access প্রয়োজন হতে পারে:
+সাধারণত Laravel application process-এর writable access প্রয়োজন হতে পারে:
 
-~~~text
+```text
 storage/
 bootstrap/cache/
-~~~
+```
 
-সব project-এ:
+**সব project-এ:**
 
-~~~bash
+```bash
 chmod -R 777 .
-~~~
+```
 
-দেওয়া উচিত নয়।
+**দেওয়া উচিত নয়।**
 
-মূল ধারণা:
+**মূল ধারণা:**
 
-~~~text
+```text
 Application code
     ↓
 Mostly read-only
@@ -1344,13 +1498,13 @@ Mostly read-only
 Runtime directories
     ↓
 Application process-এর জন্য writable
-~~~
+```
 
 ## Nginx + PHP-FPM
 
-সাধারণ architecture:
+**সাধারণ architecture:**
 
-~~~text
+```text
 Browser
    ↓
 Nginx
@@ -1358,15 +1512,15 @@ Nginx
 PHP-FPM
    ↓
 Laravel
-~~~
+```
 
-Permission troubleshoot করার সময়:
+**Permission troubleshoot করার সময়:**
 
-~~~text
+```text
 File Owner
 Group
 Process User
-~~~
+```
 
 এই তিনটি আলাদা করে দেখতে হবে।
 
@@ -1374,7 +1528,7 @@ Process User
 
 Docker-এ host এবং container-এর UID/GID mismatch হলে bind mount বা volume-এ permission সমস্যা হতে পারে।
 
-~~~text
+```text
 Host UID/GID
       +
 Container UID/GID
@@ -1382,41 +1536,41 @@ Container UID/GID
 Bind Mount / Volume
       ↓
 File Access
-~~~
+```
 
 বিশেষ করে Laravel `storage/`, bind mount, Docker volume এবং `node_modules`-এর ক্ষেত্রে UID/GID গুরুত্বপূর্ণ।
 
 ---
 
-# ১৫। SELinux/AppArmor
+# ভাগ ১৬: SELinux/AppArmor
 
-Traditional Linux permission:
+**Traditional Linux permission:**
 
-~~~text
+```text
 Owner
 Group
 Others
-~~~
+```
 
 এর পাশাপাশি system-এ additional security policy থাকতে পারে:
 
-~~~text
+```text
 SELinux
 AppArmor
-~~~
+```
 
 তাই কখনও:
 
-~~~text
+```text
 chmod ঠিক
 chown ঠিক
-~~~
+```
 
-হওয়ার পরও:
+হওয়ার পরও:
 
-~~~text
+```text
 Permission denied
-~~~
+```
 
 হতে পারে।
 
@@ -1424,104 +1578,104 @@ Permission denied
 
 ---
 
-# ১৬। Permission Audit Commands
+# ভাগ ১৭: Permission Audit Commands
 
 ## stat
 
-~~~bash
+```bash
 stat file.txt
-~~~
+```
 
 Detailed metadata এবং permission দেখতে।
 
 ## namei
 
-~~~bash
+```bash
 namei -l /var/www/project/storage/app.log
-~~~
+```
 
 পুরো path-এর প্রতিটি component-এর permission দেখতে।
 
 ## find
 
-Writable file খুঁজতে:
+**Writable file খুঁজতে:**
 
-~~~bash
+```bash
 find /var/www -type f -perm -002
-~~~
+```
 
-নির্দিষ্ট 777 permission খুঁজতে:
+**নির্দিষ্ট 777 permission খুঁজতে:**
 
-~~~bash
+```bash
 find /var/www -type f -perm 777
-~~~
+```
 
-SUID:
+**SUID:**
 
-~~~bash
+```bash
 find / -perm -4000 -type f 2>/dev/null
-~~~
+```
 
-SGID:
+**SGID:**
 
-~~~bash
+```bash
 find / -perm -2000 -type f 2>/dev/null
-~~~
+```
 
-> System-wide `find /` অনেক result দিতে পারে এবং permission-related error দেখা স্বাভাবিক।
+> ⚠️ System-wide `find /` অনেক result দিতে পারে এবং permission-related error দেখা স্বাভাবিক।
 
 ---
 
-# ১৭। Best Practices
+# ভাগ ১৮: Best Practices
 
-### ১। অপ্রয়োজনে 777 ব্যবহার করবেন না
+### ১। অপ্রয়োজনে 777 ব্যবহার করবেন না
 
-~~~bash
+```bash
 chmod 777 file
-~~~
+```
 
-এতে Owner, Group এবং Others সবাইকে full permission দেওয়া হয়।
+এতে Owner, Group এবং Others সবাইকে full permission দেওয়া হয়।
 
 ### ২। Ownership আগে বুঝুন
 
-~~~bash
+```bash
 ls -l file
-~~~
+```
 
-তারপর প্রয়োজন অনুযায়ী `chown` / `chgrp` ব্যবহার করুন।
+তারপর প্রয়োজন অনুযায়ী `chown` / `chgrp` ব্যবহার করুন।
 
 ### ৩। File এবং Directory আলাদা করে ভাবুন
 
 অনেক ক্ষেত্রে:
 
-~~~text
+```text
 Directory → 755
 Regular file → 644
-~~~
+```
 
-ব্যবহার করা হয়, তবে application requirement অনুযায়ী permission পরিবর্তন হতে পারে।
+ব্যবহার করা হয়, তবে application requirement অনুযায়ী permission পরিবর্তন হতে পারে।
 
 ### ৪। Recursive command সাবধানে ব্যবহার করুন
 
-~~~bash
+```bash
 chmod -R
 chown -R
 chgrp -R
-~~~
+```
 
 ভুল path-এ চালানো বিপজ্জনক।
 
 ### ৫। ACL থাকলে ACL check করুন
 
-~~~bash
+```bash
 getfacl file.txt
-~~~
+```
 
 ### ৬। Process identity বুঝুন
 
-~~~text
+```text
 File owner ≠ Application process user
-~~~
+```
 
 হতে পারে।
 
@@ -1531,7 +1685,7 @@ File owner ≠ Application process user
 
 কোনো file access করতে না পারলে:
 
-~~~text
+```text
 ১. কে access করছে?
         ↓
 ২. Current user কে?
@@ -1553,11 +1707,13 @@ File owner ≠ Application process user
 ১০. SELinux/AppArmor policy আছে?
         ↓
 Final Access Decision
-~~~
+```
 
-## Quick Revision
+---
 
-| বিষয় | Command / Concept |
+# Quick Revision
+
+| বিষয় | Command / Concept |
 | --- | --- |
 | Permission দেখা | `ls -l` |
 | Detailed metadata | `stat` |
@@ -1578,8 +1734,7 @@ Final Access Decision
 
 ---
 
-> **পরবর্তী ধাপ:** Linux User/Group Management-এর সঙ্গে File Permission combine করে user + group + ownership + chmod + ACL নিয়ে practical lab করা সবচেয়ে উপকারী হবে।
-
+> **পরবর্তী ধাপ:** Linux User/Group Management-এর সঙ্গে File Permission combine করে user + group + ownership + chmod + ACL নিয়ে practical lab করা সবচেয়ে উপকারী হবে।
 
 ---
 
