@@ -435,11 +435,21 @@ chmod o=r file.txt     # অন্যদের শুধু read
 ### chown (মালিকানা)
 
 ```bash
-sudo chown rahim file.txt                  # মালিক বদল
-sudo chown rahim:developers file.txt       # মালিক+গ্রুপ
-sudo chgrp developers file.txt             # শুধু গ্রুপ
-sudo chown -R rahim /path/                 # রিকার্সিভ
+sudo chown rahim file.txt                                # মালিক বদল
+sudo chown rahim:developers file.txt                     # মালিক+গ্রুপ
+sudo chgrp developers file.txt                           # শুধু গ্রুপ
+sudo chown -R rahim /path/                               # রিকার্সিভ
+sudo chown -R rahim:developers /path/to/your/folder      # রিকার্সিভ মালিক+গ্রুপ
+
 ```
+
+#### কমান্ডটি যেভাবে কাজ করে
+
+• sudo: রুট বা অ্যাডমিনিস্ট্রেটর পারমিশন নিয়ে কমান্ডটি রান করে। মালিকানা পরিবর্তনের জন্য এটি বাধ্যতামূলক।
+• chown: এটি মূল কমান্ড (Change Owner), যা ফাইল বা ফোল্ডারের মালিকানা পরিবর্তন করে।
+• -R: এটিই হচ্ছে Recursive ফ্ল্যাগ। এর কাজ হলো মূল ফোল্ডারের পাশাপাশি তার ভেতরে থাকা প্রতিটি ফাইল, ফোল্ডার এবং সাব-ফোল্ডারের মালিকানা স্বয়ংক্রিয়ভাবে পরিবর্তন করে দেওয়া।
+• rahim: এটি নতুন ইউজার (Owner) এর নাম।
+• :developers: ক্লোন [:] চিহ্নের পরের অংশটি নতুন গ্রুপ (Group) এর নাম নির্দেশ করে।
 
 ---
 
