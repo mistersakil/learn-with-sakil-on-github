@@ -280,8 +280,9 @@ Find Package → Resolve Dependency → Download Package → Verify Signature �
 
 ---
 
-## ১০. Practical Example — Microsoft Edge  
-**(বিস্তারিত ধাপে ধাপে ব্যাখ্যাসহ)**
+## ১০. Practical Example — Microsoft Edge
+
+***(বিস্তারিত ধাপে ধাপে ব্যাখ্যাসহ)***
 
 Microsoft Edge ইনস্টল করার সম্পূর্ণ প্রক্রিয়া ৪টি প্রধান ধাপে বিভক্ত। নিচে প্রতিটি ধাপের কমান্ড এবং তার বিস্তারিত ব্যাখ্যা দেওয়া হলো।
 
