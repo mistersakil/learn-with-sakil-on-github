@@ -933,4 +933,4 @@ Ubuntu 26
 
 এই architecture ব্যবহার করলে একাধিক Laravel project-এর environment আলাদা রাখা যায়, PHP/database version conflict কমে এবং local development environment production-এর DevOps architecture-এর কাছাকাছি থাকে।
 
-> [🏠](../) [⬅️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন)  [➡️ ০৪। wget-এর ব্যবহার](../০৪-wget-এর-ব্যবহার)
+> [🏠](../) [⬅️ ০২। শেল এক্সপ্যানশন](../০২-শেল-এক্সপ্যানশন) [➡️ ৩.১। লিনাক্স সার্ভার প্রাথমিক সেটআপ](../৩.১-লিনাক্স-সার্ভার-প্রাথমিক-সেটআপ)
