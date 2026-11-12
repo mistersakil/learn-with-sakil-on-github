@@ -1,313 +1,247 @@
-## Learning Docker
+# ডকার যাত্রার মানচিত্র
 
-#### Linux basic cli commands
+| ফেজ | বিষয় | সময় | শেষ হলে তুমি পারবে |
+| --- | --- | --- | --- |
+| ফেজ ০ | প্রস্তুতি | ২ দিন | লিনাক্স আর টার্মিনালে স্বাচ্ছন্দ্য পাবে |
+| ফেজ ১ | বেসিক ধারণা | ১ সপ্তাহ | কন্টেইনার চালাতে, থামাতে, দেখতে পারবে |
+| ফেজ ২ | ইমেজ ও ডকারফাইল | ১ সপ্তাহ | নিজের ইমেজ বানাতে পারবে |
+| ফেজ ৩ | ভলিউম ও নেটওয়ার্ক | ৫ দিন | ডেটা বাঁচাতে আর কন্টেইনার জুড়তে পারবে |
+| ফেজ ৪ | ডকার কম্পোজ | ১ সপ্তাহ | মাল্টি কন্টেইনার অ্যাপ চালাতে পারবে |
+| ফেজ ৫ | রিয়েল প্রজেক্ট | ১ সপ্তাহ | লারাভেল প্রজেক্ট ডকারাইজ করতে পারবে |
+| ফেজ ৬ | অপটিমাইজেশন ও নিরাপত্তা | ৫ দিন | ছোট, দ্রুত আর নিরাপদ ইমেজ বানাতে পারবে |
+| ফেজ ৭ | রেজিস্ট্রি ও সিআই সিডি | ১ সপ্তাহ | অটো বিল্ড আর ডেপ্লয় করতে পারবে |
+| ফেজ ৮ | অর্কেস্ট্রেশন | ১ থেকে ২ সপ্তাহ | কুবারনেটিসের বেসিক বুঝতে পারবে |
+| ফেজ ৯ | প্রোডাকশন | চলমান | মনিটরিং, লগিং, স্কেলিং করতে পারবে |
 
----
+প্রতিদিন ১ থেকে ২ ঘণ্টা দিলে ৭ থেকে ৯ সপ্তাহের মধ্যে তুমি বেসিক থেকে প্রোডাকশন লেভেলে চলে যাবে।
 
-- Check Linux OS Name and Version `hostnamectl`
-- Show directory listing `ls -l`
-- Back to the root directory `cd /` or `cd ~`
-- Copy Everything Inside a Folder `cp -r /copy/from/* /destination/path/`
-- Copy Everything Inside a Folder including (.filename) files `cp -r /copy/from/. /destination/path/`
-- Set os the static hostname `hostnamectl set-hostname your-new-hostname`
-- Install a basic editor inside the container or linux distribution (if needed) `apt update && apt install nano -y`
+## ফেজ ০: প্রস্তুতি
 
-#### Standalone docker Installation and configuration on linux
+ডকার শেখার আগে এই ৩টা জিনিস হালকা জানা থাকলে অনেক সহজ লাগবে।
 
----
+- **লিনাক্স বেসিক:** `ls, cd, pwd, mkdir, cat, nano, chmod, ps, top` এই কমান্ডগুলো। ফাইল পারমিশন আর ইউজারের ধারণা।
+- **টার্মিনাল:** টার্মিনালে ভয় না পাওয়া। কমান্ডের আউটপুট পড়তে পারা।
+- **একটা ভাষার বেসিক:** তোমার ক্ষেত্রে পিএইচপি আর লারাভেল জানলেই হবে। কারণ তুমি ডকার দিয়ে সেই অ্যাপটাই চালাবে।
 
-> Insure you already set host OS static hostname for further process - `hostnamectl set-hostname yourNewHostname`
+**প্র্যাকটিস:** উবুন্টুতে ডকার ইনস্টল করো। `docker run hello-world` চালিয়ে দেখো কাজ করে কিনা।
 
-```dockerInstall
-# yum update -y
-# yum install yum-utils device-mapper-persistent-data lvm2 wget telnet vim -y
-# cd /etc/yum.repos.d/
-# wget https://download.docker.com/linux/centos/docker-ce.repo
-# yum install docker-ce docker-ce-cli containerd.io
-# systemctl start docker
-# systemctl status docker
-# systemctl enable docker
-# systemctl is-enabled docker
+## ফেজ ১: বেসিক ধারণা
+
+এটা সবচেয়ে গুরুত্বপূর্ণ ফেজ। এখানে তাড়াহুড়া করবে না।
+
+**যা শিখবে:**
+
+- ডকার কী, কেন দরকার, ভিএমের সাথে পার্থক্য কী
+- কন্টেইনার, ইমেজ, ডকারফাইল, রেজিস্ট্রি, ডেমন, ক্লায়েন্ট এই শব্দগুলোর মানে
+- ডকার আর্কিটেকচার, ক্লায়েন্ট কীভাবে ডেমনকে নির্দেশ দেয়
+- হোস্ট কার্নেল শেয়ার করার ধারণা, নেমস্পেস আর সিগ্রুপের হালকা ধারণা
+
+**যে কমান্ডগুলো হাতে বসাবে:**
+
+```bash
+docker --version
+docker pull nginx
+docker run --name web1 -d -p 80:80 nginx
+docker ps
+docker ps -a
+docker logs web1
+docker stop web1
+docker start web1
+docker rm web1
+docker images
 ```
 
-#### Running nginx web server on docker container
+**মাইলস্টোন:** তুমি চোখ বন্ধ করে বলতে পারবে, ইমেজ আর কন্টেইনারের পার্থক্য কী। আর যেকোনো ইমেজ দিয়ে একটা কন্টেইনার চালিয়ে ব্রাউজারে দেখাতে পারবে।
 
----
+## ফেজ ২: ইমেজ ও ডকারফাইল
 
-**Pull nginx image:** `docker pull nginx`
+এখান থেকে তুমি আর শুধু অন্যের ইমেজ ব্যবহার করবে না, নিজে বানাতে শুরু করবে।
 
-**Run web server:**
+**যা শিখবে:**
 
-```dockerRun
-docker run --name web1 -it -d -p 80:80 nginx (host port 8080 : nginx port 80)
-OR
-docker run --name web1 -d -p 80:80 nginx (host port 8080 : nginx port 80)
-OR
-docker run --name web2 -d -p 8001:80 nginx (host port 8001 : nginx port 80)
-OR
-docker run --name web3 -d -p 8111:8111 nginx (host port 8001 : nginx port 8111)
-```
+- ইমেজ কীভাবে লেয়ারে তৈরি হয়, লেয়ার ক্যাশিং কেন দ্রুত করে
+- `FROM, RUN, COPY, ADD, WORKDIR, EXPOSE, ENV, ARG, CMD, ENTRYPOINT` প্রতিটার কাজ
+- `CMD` আর `ENTRYPOINT` এর পার্থক্য
+- `COPY` আর `ADD` এর পার্থক্য
+- `.dockerignore` কেন লাগে
+- `docker build -t my-app .` দিয়ে ইমেজ বানানো
+- `docker tag` দিয়ে নাম দেওয়া, `docker push` এর ধারণা
+- মাল্টি স্টেজ বিল্ডের প্রাথমিক ধারণা
 
-**Run individual container:** `docker start yourContainerName`
+**প্র্যাকটিস:**
 
-**Stop individual container:** `docker stop yourContainerName`
+- একটা সাধারণ এইচটিএমএল সাইটের জন্য ডকারফাইল লেখো
+- একটা পিএইচপি অ্যাপের জন্য ডকারফাইল লেখো, যেখানে পিএইচপি ৮.২ আর দরকারি এক্সটেনশন ইনস্টল হবে
+- বিল্ড করে দেখো, কোন লেয়ারে কত সময় লাগছে
 
-**Remove All Containers:** `docker rm -f $(docker ps -aq)`
+**মাইলস্টোন:** তুমি নিজের কোড থেকে নিজের ইমেজ বানিয়ে কন্টেইনার চালাতে পারবে।
 
-**List of available container:** `docker ps -a`
+## ফেজ ৩: ভলিউম ও নেটওয়ার্ক
 
-**List of active container:** `docker ps`
+এই ফেজ না বুঝলে প্রোডাকশনে গিয়ে ডেটা হারিয়ে যাবে।
 
-**Remove individual container:** `docker rm yourContainerName`
-
-**Remove all stopped container:** `docker container prune`
-
-**Container CLI/Bash (sync data):** `docker exec -it containerName bash`
-
-**List of available images:** `docker images`
-
-**Delete individual image:** `docker rmi imageName`
-
-**Delete all image:** `docker system prune`
-
-**Default Nginx config file:** `etc/nginx/conf.d/default.conf`
-
-#### Running mysql server server on docker container
-
----
-
-**Pull mysql image:** `docker pull mysql/mysql-server:latest`
-
-**Run mysql server:**
-
-```mysqlServer
-docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -d mysql/mysql-server:latest
-OR with PORT
-docker run --name mysqlServer -e MYSQL_ROOT_PASSWORD=12345678# -p 3306:3306 -d mysql/mysql-server:latest
-
-```
-
-**Clear the MySQL CLI screen:** `Ctrl + L`
-
-#### Very basic php application with docker
-
----
-
-**See sample project structure**
+**ভলিউমে যা শিখবে:**
 
-```projectStructure
-my-docker-project/
-│
-├── docker-compose.yml
-├── nginx/
-│   └── default.conf
-├── Dockerfile
-├── src/
-│   └── index.php
-```
+- কন্টেইনার মুছলে ডেটা কেন মুছে যায়
+- নেমড ভলিউম, বাইন্ড মাউন্ট, অ্যানোনিমাস ভলিউমের পার্থক্য
+- ডেটাবেসের জন্য কেন নেমড ভলিউম ভালো
+- ডেভেলপমেন্টের জন্য কেন বাইন্ড মাউন্ট ভালো
+- `docker volume ls, docker volume create, docker volume inspect, docker volume rm`
 
-**docker-compose.yml**
-
-```dockerCompose.yml
-services:
-  app:
-    build:
-      context: .
-    container_name: saas_crm_ihelp
-    restart: always
-    depends_on:
-      - db
-    networks:
-      - saas_crm_ihelp_network
-
-  webserver:
-    image: nginx:latest
-    container_name: saas_crm_ihelp_webserver
-    restart: always
-    ports:
-      - "80:80"
-    volumes:
-      - .:/var/www
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    depends_on:
-      - app
-    networks:
-      - saas_crm_ihelp_network
-
-  db:
-    image: mysql:5.7
-    container_name: saas_crm_ihelp_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_DATABASE: ${DB_DATABASE}
-    ports:
-      - "3306:3306"
-    volumes:
-      - saas_crm_ihelp_db_data:/var/lib/mysql
-    networks:
-      - saas_crm_ihelp_network
-
-  phpmyadmin:
-    image: phpmyadmin
-    container_name: saas_crm_ihelp_phpmyadmin
-    restart: always
-    environment:
-      PMA_HOST: db
-      UPLOAD_LIMIT: 256M
-    ports:
-      - "8001:80"
-    depends_on:
-      - db
-    networks:
-      - saas_crm_ihelp_network
-
-  node:
-    image: node:22
-    container_name: node
-    volumes:
-      - ./src:/usr/src/app
-    working_dir: /usr/src/app
-    tty: true
-    command: sh
-    networks:
-      - app-network
-
-networks:
-  saas_crm_ihelp_network:
-    driver: bridge
-
-volumes:
-  saas_crm_ihelp_db_data:
-
-```
-
-**Using .env file for secrets inside docker-compose.yml file**
-
-```usingDotEnv
-.env
-
-MYSQL_ROOT_PASSWORD=root
-MYSQL_DATABASE=php_docker_test_db
-MYSQL_USER=sakil
-MYSQL_PASSWORD=12345678
-
-```
-
-**nginx/default.conf**
-
-```nginxConfig
-server {
-    listen 80;
-    server_name localhost;
-
-    root /var/www/htdocs;
-    index index.php index.html;
-
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
-
-    location ~ \.php$ {
-        include fastcgi_params;
-        fastcgi_pass app:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
-```
-
-**Dockerfile for laravel application**
-
-```dockerFileConfig
-FROM php:8.2-fpm
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip unzip curl git \
-    libzip-dev \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
-
-# Install Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Set working directory
-WORKDIR /var/www
-
-# Copy Laravel source code
-COPY . /var/www
-
-# Ensure necessary directories exist
-RUN mkdir -p /var/www/storage/logs /var/www/bootstrap/cache
-
-# Fix ownership and permissions
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R ug+rwx /var/www/storage /var/www/bootstrap/cache
-
-# Set Git safe directory to avoid dubious ownership error
-RUN git config --global --add safe.directory /var/www
-
-# Switch to www-data to install dependencies
-USER www-data
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
-
-# Switch back to root for runtime
-USER root
-
-# Final command: Clear caches, migrate, start PHP-FPM
-CMD php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan route:clear && \
-    php artisan migrate --force && \
-    php-fpm
-
-```
-
-**Container up and down**
-
-```buildContainer
-docker compose up -d
-
-docker compose up -d --build
-
-docker compose up -d --build --no-cache
-
-docker compose down
-
-docker compose down --volumes (flush volumes)
-
-
-rebuild without cache = docker compose build --no-cache app
-rebuild= docker compose build app
-
-docker compose up -d
-
-docker compose restart
-```
-
-```setWriteModeOnEntrypoint
-chmod +x entrypoint.sh
-```
-
-```maunUpAndDownPhpmyadmin
-docker compose --profile debug up -d phpmyadmin
-```
-
-**Fix Laravel directory permissions at runtime**
-
-```setLaravelStoragePermission
-chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
-chmod -R 775 /var/www/storage /var/www/bootstrap/cache
-```
-
-### Insufficient memory limit detected
-Insufficient memory limit detected! Current: 128M, Recommended: 512M
-
-* To fix this, run either command with increased memory:
-* php -d memory_limit=512M artisan world:install
-* php -d memory_limit=512M artisan db:seed --class=WorldSeeder
+**নেটওয়ার্কে যা শিখবে:**
+
+- ব্রিজ, হোস্ট, ওভারলে, নান নেটওয়ার্কের কাজ
+- কাস্টম ব্রিজ নেটওয়ার্কে কেন কন্টেইনার একে অপরকে নাম ধরে ডাকতে পারে
+- পোর্ট ম্যাপিং, `-p 80:80` এর আসল মানে
+- `EXPOSE` শুধু ডকুমেন্টেশন, আসলে পোর্ট খোলে না, এই বিষয়টা
+- `docker network ls, docker network create, docker network inspect`
+
+**প্র্যাকটিস:**
+
+- মাইএসকিউএল কন্টেইনার চালাও, ভলিউম দাও, ডেটা ঢোকাও, কন্টেইনার মুছে আবার চালাও, দেখো ডেটা থাকে কিনা
+- দুইটা কন্টেইনার একই নেটওয়ার্কে দিয়ে একটা থেকে আরেকটাকে `ping` করো বা নাম ধরে ডাকো
+
+**মাইলস্টোন:** তুমি বুঝে যাবে, কোন ডেটা কন্টেইনারে রাখা যাবে না, কোনটা ভলিউমে রাখতে হবে।
+
+## ফেজ ৪: ডকার কম্পোজ
+
+একটা দুইটা কন্টেইনার হলে `docker run` দিয়ে হয়, কিন্তু ৪-৫টা সার্ভিস হলে কম্পোজ ছাড়া অসম্ভব।
+
+**যা শিখবে:**
+
+- `docker-compose.yml` ফাইলের গঠন, `services, volumes, networks`
+- `build, image, container_name, ports, environment, env_file, depends_on, restart, volumes, networks` প্রতিটার কাজ
+- `depends_on` মানে শুধু আগে চালু হওয়া, অ্যাপ রেডি হওয়া না, এই বিষয়টা। এর জন্য `healthcheck` কেন লাগে
+- `docker compose up -d, docker compose down, docker compose ps, docker compose logs -f app, docker compose down -v`
+- `docker compose down -v` কেন ভয়ংকর, ভলিউমসহ ডেটা মুছে যায়
+- এক ফাইলে ডেভেলপমেন্ট আর প্রোডাকশনের জন্য আলাদা ওভাররাইড ফাইল ব্যবহার করা
+
+**প্র্যাকটিস:**
+
+- এনজিনএক্স প্লাস পিএইচপি প্লাস মাইএসকিউএল দিয়ে একটা কম্পোজ ফাইল লেখো
+- পিএইচপিমাইঅ্যাডমিন যোগ করো, দেখো সব একসাথে চলে কিনা
+
+**মাইলস্টোন:** তুমি এক কমান্ডে পুরো সিস্টেম চালু আর বন্ধ করতে পারবে।
+
+## ফেজ ৫: রিয়েল প্রজেক্ট লারাভেল
+
+এই ফেজটা তোমার জন্য সবচেয়ে কাজের। কারণ তুমি বই লিখছো আর লারাভেল নিয়ে কাজ করো।
+
+**যা শিখবে:**
+
+- লারাভেলের জন্য সম্পূর্ণ স্ট্যাক, অ্যাপ, ওয়েব সার্ভার, ডিবি, ক্যাশ, কিউ
+- পিএইচপি-এফপিএম কন্টেইনার আর এনজিনএক্স কন্টেইনার কীভাবে `app:9000` দিয়ে কথা বলে
+- `.env` ফাইল, ডেটাবেস হোস্ট হিসেবে `db` নাম ব্যবহার করা
+- মাইগ্রেশন, সিডার, কম্পোজার ইনস্টল, এনপিএম বিল্ড কন্টেইনারের ভেতরে চালানো
+- স্টোরেজ আর ক্যাশের জন্য ভলিউম
+- কিউ ওয়ার্কার আর শিডিউলারকে আলাদা সার্ভিস হিসেবে চালানো
+- লোকাল ডেভেলপমেন্টে বাইন্ড মাউন্ট দিয়ে কোড বদলালেই সাথে সাথে দেখা
+
+**প্র্যাকটিস প্রজেক্ট:**
+
+- তোমার একটা পুরনো লারাভেল প্রজেক্ট নাও, সেটাকে পুরো ডকারাইজ করো
+- মাইএসকিউএল, রেডিস, পিএইচপিমাইঅ্যাডমিনসহ কম্পোজ ফাইল বানাও
+- `docker compose up -d --build` দিয়ে চালিয়ে ব্রাউজারে প্রজেক্ট দেখাও
+
+**মাইলস্টোন:** তোমার ল্যাপটপে পিএইচপি, মাইএসকিউএল ইনস্টল না থাকলেও শুধু ডকার দিয়ে পুরো লারাভেল প্রজেক্ট চলবে।
+
+## ফেজ ৬: অপটিমাইজেশন ও নিরাপত্তা
+
+এখন তুমি ইমেজ বানাতে পারো, এবার ভালো ইমেজ বানাতে শিখবে।
+
+**অপটিমাইজেশন:**
+
+- ছোট বেস ইমেজ ব্যবহার করা, যেমন `php:8.2-fpm-alpine`
+- মাল্টি স্টেজ বিল্ড দিয়ে ফাইনাল ইমেজ ছোট করা
+- লেয়ার সংখ্যা কমানো, অপ্রয়োজনীয় প্যাকেজ, ক্যাশ মুছে ফেলা
+- `docker images` দিয়ে সাইজ তুলনা করা, `docker history` দিয়ে লেয়ার দেখা
+
+**নিরাপত্তা:**
+
+- রুট ইউজার দিয়ে কন্টেইনার না চালিয়ে আলাদা ইউজার বানানো
+- সিক্রেট কখনো ডকারফাইলে বা ইমেজে না রাখা, `ENV` এ পাসওয়ার্ড না লেখা
+- ডকার সিক্রেট, `.env` ফাইল, `env_file` এর সঠিক ব্যবহার
+- অপ্রয়োজনীয় পোর্ট বাইরে না খোলা, ডেটাবেসের পোর্ট শুধু ভেতরের নেটওয়ার্কে রাখা
+- ইমেজ স্ক্যান করা, পুরনো ইমেজ আপডেট করা
+
+**প্র্যাকটিস:** তোমার লারাভেল ইমেজটাকে প্রথমে ৮০০ মেগাবাইট থেকে ২০০ মেগাবাইটের নিচে নামিয়ে আনো, মাল্টি স্টেজ বিল্ড দিয়ে।
+
+## ফেজ ৭: রেজিস্ট্রি ও সিআই সিডি
+
+এখন তুমি একা থেকে টিম আর অটোমেশনে যাবে।
+
+**যা শিখবে:**
+
+- ডকার হাব, গিটহাব কন্টেইনার রেজিস্ট্রি, এডব্লিউএস ইসিআর, গুগল আর্টিফ্যাক্ট রেজিস্ট্রি
+- ইমেজ ট্যাগিং নিয়ম, `latest` কেন বিপজ্জনক, ভার্সন দিয়ে ট্যাগ করা কেন ভালো, যেমন `my-app:v1.0.0`
+- গিটহাব অ্যাকশন দিয়ে কোড পুশ করলেই অটো বিল্ড, টেস্ট, পুশ হওয়া
+- একটা ভিপিএসে ডকার ইনস্টল করে সেখানে ইমেজ টেনে এনে চালানো, ডেপ্লয় করা
+- `docker compose pull` আর `docker compose up -d` দিয়ে আপডেট দেওয়া
+
+**প্র্যাকটিস প্রজেক্ট:** গিটহাবে কোড পুশ করলে যাতে অটো ইমেজ বিল্ড হয়ে ডকার হাবে যায়, এমন একটা ওয়ার্কফ্লো বানাও। তারপর ভিপিএসে সেটা ডেপ্লয় করো।
+
+## ফেজ ৮: অর্কেস্ট্রেশন
+
+একটা মেশিনে অনেক কন্টেইনার চালানো গেল, কিন্তু অনেক মেশিনে হাজার হাজার কন্টেইনার চালাতে হলে অর্কেস্ট্রেশন লাগে।
+
+**যা শিখবে:**
+
+- ডকার সোয়ার্মের বেসিক ধারণা, কেন এখন কম ব্যবহার হয়
+- কুবারনেটিস কী, কেন ডকারের পরের ধাপ কুবারনেটিস
+- কুবারনেটিসের মূল শব্দ, পড, ডেপ্লয়মেন্ট, সার্ভিস, ইনগ্রেস, কনফিগম্যাপ, সিক্রেট, ভলিউম
+- ডকারের কন্টেইনার ধারণা কীভাবে কুবারনেটিসে কাজে লাগে
+- মিনিকিউব বা কাইন্ড দিয়ে লোকালে কুবারনেটিস চালিয়ে একটা অ্যাপ ডেপ্লয় করা
+
+**মাইলস্টোন:** তুমি একটা ডকার ইমেজকে কুবারনেটিসে ডেপ্লয়মেন্ট হিসেবে চালাতে পারবে। এই ফেজে কুবারনেটিসে মাস্টার হওয়ার দরকার নেই, শুধু সংযোগটা বুঝলেই হবে।
+
+## ফেজ ৯: প্রোডাকশন
+
+এখানে তুমি আসল ইঞ্জিনিয়ারের মতো ভাবতে শুরু করবে।
+
+**যা শিখবে:**
+
+- লগ দেখা, `docker logs`, লগ রোটেশন, লগ কোথায় যায়
+- হেলথচেক, রিস্টার্ট পলিসি, `restart: unless-stopped` এর মানে
+- রিসোর্স লিমিট, `cpus, mem_limit` দিয়ে একটা কন্টেইনারকে পুরো সার্ভার খেয়ে ফেলতে না দেওয়া
+- ব্যাকআপ, ভলিউম ব্যাকআপ নেওয়া, ডেটাবেস ডাম্প নেওয়া
+- মনিটরিং, প্রমেথিউস, গ্রাফানা দিয়ে কন্টেইনারের সিপিইউ, র‍্যাম দেখা
+- এনজিনএক্স দিয়ে রিভার্স প্রক্সি, এসএসএল, ডোমেইন জুড়ে দেওয়া
+
+**প্র্যাকটিস:** তোমার লারাভেল প্রজেক্টকে একটা ভিপিএসে ডোমেইনসহ, এসএসএলসহ, অটো রিস্টার্টসহ চালাও।
+
+## ফেজ ১০: অ্যাডভান্সড টপিক
+
+যখন উপরের সবকিছুতে হাত পেকে যাবে, তখন এইগুলোতে যাবে।
+
+- **বিল্ডকিট আর বিল্ডএক্স:** দ্রুত বিল্ড, মাল্টি প্ল্যাটফর্ম বিল্ড, এআরএম আর এএমডি৬৪ এর জন্য একসাথে ইমেজ বানানো
+- **ডকার ইন ডকার:** সিআই সিডির ভেতরে ডকার চালানো
+- **রুটলেস ডকার:** রুট ছাড়া ডকার চালানো, আরও নিরাপদ
+- **কন্টেইনার সিকিউরিটি স্ক্যানিং:** ট্রিভি, ডকার স্কাউট দিয়ে ইমেজে দুর্বলতা খোঁজা
+- **ডকার নেটওয়ার্ক গভীরে:** ওভারলে নেটওয়ার্ক, ডিএনএস, সার্ভিস ডিসকভারি
+
+## প্রজেক্ট দিয়ে শেখার সঠিক ক্রম
+
+শুধু পড়লে হবে না, এই ৫টা প্রজেক্ট ধাপে ধাপে করো:
+
+**প্রজেক্ট ১:** শুধু এনজিনএক্স দিয়ে স্ট্যাটিক সাইট
+**প্রজেক্ট ২:** পিএইচপি প্লাস মাইএসকিউএল দিয়ে ছোট অ্যাপ
+**প্রজেক্ট ৩:** লারাভেল প্লাস মাইএসকিউএল প্লাস রেডিস প্লাস এনজিনএক্স, পুরো ফুল স্ট্যাক
+**প্রজেক্ট ৪:** মাইক্রোসার্ভিস, একটা এপিআই সার্ভিস, একটা কিউ ওয়ার্কার, একটা ফ্রন্টএন্ড
+**প্রজেক্ট ৫:** গিটহাব অ্যাকশন দিয়ে অটো ডেপ্লয়, ভিপিএসে প্রোডাকশন সেটআপ
+
+## সাধারণ ভুল, যেগুলো থেকে বাঁচবে
+
+- কন্টেইনারে ডেটা রাখা, ভলিউম না দেওয়া
+- পাসওয়ার্ড ডকারফাইলে লিখে গিটহাবে পুশ করা
+- সবসময় `latest` ট্যাগ ব্যবহার করা
+- `docker compose down -v` দিয়ে ডেটাবেসসহ সব মুছে ফেলা
+- রুট ইউজার দিয়ে সব চালানো
+- ইমেজ অনেক বড় বানিয়ে ফেলা, অপ্রয়োজনীয় প্যাকেজ রাখা
+
+## কীভাবে ধাপে ধাপে রিসার্চ করবে
+
+তুমি যেহেতু বলেছো ধাপে ধাপে রিসার্চ করবে, তাই এই নিয়মটা মেনে চলো।
+
+প্রতিটা ফেজের জন্য ৩টা কাজ করবে। প্রথমে অফিশিয়াল ডক্স পড়বে, `docs.docker.com` থেকে। তারপর ইউটিউবে একটা হাতে কলমে টিউটোরিয়াল দেখে সাথে সাথে টার্মিনালে করবে। শেষে নিজের ভাষায় একটা নোট লিখবে, যেমন তুমি বইয়ের জন্য লিখছো।
+
+তুমি চাইলে আমরা এখন ফেজ ১ থেকে শুরু করে একদম ডিটেইলে যাই। বলো, ফেজ ১ এর বেসিক কনসেপ্টটা কি আরও গভীরভাবে ভেঙে বুঝিয়ে দিবো, নাকি তোমার লারাভেল প্রজেক্টের আসল `docker-compose.yml` ফাইলটাকে লাইন বাই লাইন বুঝিয়ে দিবো?
